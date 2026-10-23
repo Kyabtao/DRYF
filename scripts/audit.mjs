@@ -17,7 +17,7 @@ const FILES = [
   "index.html", "README.md", "package.json", ".gitignore", ".editorconfig", ".nojekyll",
   "assets/css/styles.css", "assets/js/app.js", "assets/js/data/products.js",
   "assets/images/hero.jpg", "docs/ARCHITECTURE.md", "docs/DEPLOYMENT.md",
-  ".github/workflows/deploy-pages.yml", "scripts/audit.mjs", "scripts/generate-products-doc.mjs",
+  ".github/workflow-templates/deploy-pages.yml", "scripts/audit.mjs", "scripts/generate-products-doc.mjs",
 ];
 FILES.forEach(f => check(`file exists: ${f}`, existsSync(f)));
 

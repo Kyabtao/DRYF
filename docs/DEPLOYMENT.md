@@ -1,7 +1,7 @@
 # Deploying DRYF on GitHub Pages
 
 The repo ships a **temporary workflow template** at
-`.github/workflows/deploy-pages.yml`. It is valid and ready, but in *template mode*
+`.github/workflow-templates/deploy-pages.yml`. It is valid and ready, but in *template mode*
 it only runs when you trigger it manually — so nothing deploys until you decide.
 
 ## Option A — Manual deploy (template as-is)
@@ -13,7 +13,7 @@ it only runs when you trigger it manually — so nothing deploys until you decid
 5. Your site appears at `https://<username>.github.io/<repo>/`.
 
 ## Option B — Automatic deploy on every push
-In `.github/workflows/deploy-pages.yml`, uncomment under `on:`:
+In your copied `.github/workflows/deploy-pages.yml`, uncomment under `on:`:
 ```yaml
   push:
     branches: ["main"]

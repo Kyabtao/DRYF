@@ -19,7 +19,7 @@ assets/js/data/products.js  Data layer: categories, 247 products, pricing, stock
 assets/images/              Hero + per-category fallback photos
 docs/                       ARCHITECTURE · PRODUCTS (auto-generated) · AUDIT · DEPLOYMENT
 scripts/                    audit.mjs (100+ checks) · generate-products-doc.mjs
-.github/workflows/          deploy-pages.yml — TEMPORARY GitHub Pages template (manual trigger)
+.github/workflow-templates/ deploy-pages.yml — TEMPORARY GitHub Pages template (copy to .github/workflows/ to activate)
 package.json · .editorconfig · .gitignore · .nojekyll
 ```
 Full details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
@@ -52,7 +52,7 @@ the UI auto-falls back to local category photos — never a broken image.
 
 ## 🚀 Deploy on GitHub Pages
 A ready-but-temporary workflow template is included at
-`.github/workflows/deploy-pages.yml` (manual trigger only). Step-by-step:
+`.github/workflow-templates/deploy-pages.yml` (manual trigger only). Step-by-step:
 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
 
 ## 🔍 Audit

@@ -1,8 +1,9 @@
 # =====================================================================
 #  DRYF — GitHub Pages deployment workflow  (TEMPORARY TEMPLATE)
 # =====================================================================
-#  Status: TEMPLATE — it will NOT run automatically yet.
-#  It only runs when you start it manually:
+#  Status: TEMPLATE — stored outside .github/workflows/ on purpose.
+#  ACTIVATE: copy this file to  .github/workflows/deploy-pages.yml
+#  After that, it runs when you start it manually:
 #     GitHub repo → Actions tab → "Deploy DRYF to GitHub Pages" → Run workflow
 #
 #  ▶ To make deployment AUTOMATIC on every push to main, uncomment:
