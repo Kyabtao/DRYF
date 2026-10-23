@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRYF — Dry Fruits, Seeds & Chocolates | Complete Store Catalogue</title>
+<meta name="description" content="Browse 95+ items you can sell in a dry fruits, seeds and chocolate store. Filter, search and build your own store list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌰</text></svg>">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="top">
+  <a class="logo" href="#top"><span class="logo-badge">🌰</span> DRYF<small>Dry Fruits • Seeds • Chocolates</small></a>
+  <nav class="nav-links">
+    <a href="#catalogue">Catalogue</a>
+    <a href="#categories">Categories</a>
+    <a href="#packs">Starter Packs</a>
+    <a href="#open-store">Open Your Store</a>
+  </nav>
+  <button class="btn btn-dark" id="openDrawerTop">🧺 My Store List <span class="count-pill" id="countTop">0</span></button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/hero.jpg" alt="Premium dry fruits assortment"></div>
+  <div class="hero-shade"></div>
+  <div class="float f1">🥜</div><div class="float f2">🍫</div><div class="float f3">🌻</div><div class="float f4">🫐</div><div class="float f5">🌰</div>
+  <div class="hero-inner reveal in">
+    <span class="eyebrow">✦ Complete catalogue for your new store ✦</span>
+    <h1>Every item you can sell in a <em>Dry Fruits, Seeds &amp; Chocolate</em> store — in one place.</h1>
+    <p>Browse <strong>95+ products</strong> with photos, Hindi names, indicative prices, shelf life and benefits. Tick the items you like and build your own opening stock list.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#catalogue">Browse All Items ↓</a>
+      <a class="btn btn-ghost" href="#packs">See Starter Packs</a>
+    </div>
+    <div class="stats">
+      <div><b data-count="98">0</b><span>Products listed</span></div>
+      <div><b data-count="6">0</b><span>Categories</span></div>
+      <div><b data-count="250">0</b><span>+ Possible SKUs*</span></div>
+      <div><b data-count="12">0</b><span>Months shelf life†</span></div>
+    </div>
+    <p class="fine">*with pack sizes &amp; flavours &nbsp;·&nbsp; †for most nuts &amp; seeds when stored air-tight</p>
+  </div>
+  <div class="wave">〰️〰️〰️</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<!-- CATEGORY CARDS -->
+<section class="section" id="categories">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Shop by category</span>
+    <h2>6 shelves your store needs</h2>
+    <p>Click any shelf to jump straight to those items in the catalogue.</p>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- CATALOGUE -->
+<section class="section catalogue" id="catalogue">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Full item list</span>
+    <h2>The Complete Catalogue 🧾</h2>
+    <p>Prices are <b>indicative retail prices (₹ / 500g)</b> to help you plan — actual rates vary by city, season &amp; supplier. Click a card for details, tick <b>＋ My List</b> for items you want in your store.</p>
+  </div>
+
+  <div class="toolbar reveal">
+    <div class="search-box">🔍 <input id="searchInput" type="search" placeholder="Search almond, badam, chia, dark chocolate…"></div>
+    <select id="sortSelect" aria-label="Sort items">
+      <option value="popular">Sort: Most Popular</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="az">Name: A → Z</option>
+      <option value="rating">Top Rated</option>
+    </select>
+    <select id="levelSelect" aria-label="Filter by importance">
+      <option value="all">All importance levels</option>
+      <option value="1">⭐ Must-Have only</option>
+      <option value="2">Popular &amp; above</option>
+      <option value="3">Premium / Exotic only</option>
+    </select>
+  </div>
+
+  <div class="pills" id="pillRow"></div>
+  <p class="result-line" id="resultLine"></p>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty" id="emptyState" hidden>
+    <div>🔍</div><h3>No item found</h3><p>Try a different spelling — e.g. “badam”, “kaju”, “anjeer”, “sabja”.</p>
+    <button class="btn btn-gold" id="clearFilters">Clear search &amp; filters</button>
+  </div>
+</section>
+
+<!-- STARTER PACKS -->
+<section class="section packs" id="packs">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Confused where to start?</span>
+    <h2>Ready-made Starter Packs 🎁</h2>
+    <p>One click adds a full opening range to <b>My Store List</b>. You can remove anything later.</p>
+  </div>
+  <div class="pack-grid">
+    <article class="pack reveal">
+      <div class="pack-tag">Beginner Friendly</div>
+      <h3>🟢 Essential Store Pack</h3>
+      <p class="pack-price">Only Must-Have items</p>
+      <ul><li>Daily-selling nuts, raisins, dates &amp; seeds</li><li>Fast-moving chocolates &amp; makhana</li><li>Lowest investment, fastest rotation</li></ul>
+      <button class="btn btn-dark pack-btn" data-pack="1">Add Must-Haves to My List</button>
+    </article>
+    <article class="pack featured reveal">
+      <div class="pack-tag gold">Most Chosen ★</div>
+      <h3>🟡 Complete Store Pack</h3>
+      <p class="pack-price">Must-Have + Popular items</p>
+      <ul><li>Everything in Essential, plus berries &amp; flavours</li><li>Roasted / masala range for snacking customers</li><li>Balanced range for a full-looking store</li></ul>
+      <button class="btn btn-gold pack-btn" data-pack="2">Add Complete Range to My List</button>
+    </article>
+    <article class="pack reveal">
+      <div class="pack-tag">Premium Store</div>
+      <h3>🔴 Premium + Exotic Pack</h3>
+      <p class="pack-price">The full 95+ catalogue</p>
+      <ul><li>Everything, incl. Mamra, Medjool, Ajwa, Chilgoza</li><li>Imported berries, truffles &amp; gift hampers</li><li>Best for premium localities &amp; festive season</li></ul>
+      <button class="btn btn-dark pack-btn" data-pack="3">Add Everything to My List</button>
+    </article>
+  </div>
+</section>
+
+<!-- OPEN YOUR STORE -->
+<section class="section" id="open-store">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Before you launch</span>
+    <h2>Open-Your-Store Checklist ✅</h2>
+    <p>A quick roadmap that goes with your item list.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><span>1</span><h3>📍 Location &amp; Licences</h3><p>High-street / market shop, FSSAI food licence, GST registration, trade licence &amp; a current account.</p></div>
+    <div class="step reveal"><span>2</span><h3>🤝 Suppliers</h3><p>Source from wholesale mandis (e.g. Khari Baoli, Delhi) &amp; 2–3 importers. Compare rates weekly — prices move with season.</p></div>
+    <div class="step reveal"><span>3</span><h3>🫙 Storage &amp; Display</h3><p>Airtight glass jars, cool dry shelves away from sunlight, FIFO rotation, weighing scale &amp; sealing machine.</p></div>
+    <div class="step reveal"><span>4</span><h3>🏷️ Pack Sizes</h3><p>Offer 100g / 250g / 500g / 1kg packs. Small packs bring trial customers; family packs bring repeat buyers.</p></div>
+    <div class="step reveal"><span>5</span><h3>🎁 Festive &amp; Gifting</h3><p>Diwali, Rakhi, weddings &amp; corporate orders are the biggest profit season — keep hampers ready from day one.</p></div>
+    <div class="step reveal"><span>6</span><h3>📱 Sell Online Too</h3><p>List bestsellers on WhatsApp, Google Maps, Instagram &amp; marketplaces for home delivery in your area.</p></div>
+  </div>
+  <div class="names reveal">
+    <h3>💡 Store name ideas to get you thinking</h3>
+    <p>DRYF House of Dry Fruits · NutKart · The Nutty Basket · Mewawala &amp; Co. · Kernel &amp; Cocoa · Sehat Dry Fruits · Royal Dana · Nutberry Store</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">🌰 DRYF</div>
+  <p>Made to plan your dry fruits, seeds &amp; chocolate store. Prices are indicative — please confirm with your supplier before investing.</p>
+  <a href="#top">↑ Back to top</a>
+</footer>
+
+<!-- FLOATING LIST BUTTON -->
+<button class="fab" id="openDrawerFab">🧺 My Store List <span class="count-pill" id="countFab">0</span></button>
+
+<!-- DRAWER -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div><h3>🧺 My Store List</h3><p id="drawerSub">Items you ticked for your store</p></div>
+    <button class="icon-btn" id="closeDrawer">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Est. opening stock*</span><b id="totalValue">₹0</b></div>
+    <p class="fine dark-fine">*Rough estimate if you stock <b>2 kg of every ticked item</b> at the indicative price. Gift boxes counted as 5 boxes each.</p>
+    <div class="drawer-actions">
+      <button class="btn btn-gold" id="downloadCsv">⬇ Download CSV</button>
+      <button class="btn btn-dark" id="copyList">📋 Copy List</button>
+      <button class="btn btn-light" id="printList">🖨 Print</button>
+      <button class="btn btn-light danger" id="clearList">Clear</button>
+    </div>
+  </div>
+</aside>
+
+<!-- MODAL -->
+<div class="modal-wrap" id="modalWrap" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="icon-btn modal-close" id="closeModal">✕</button>
+    <div class="modal-media"><img id="modalImg" alt=""><span id="modalEmoji"></span></div>
+    <div class="modal-body">
+      <span class="badge" id="modalBadge"></span>
+      <h3 id="modalName"></h3>
+      <p class="hindi" id="modalHindi"></p>
+      <p id="modalDesc"></p>
+      <div class="modal-facts">
+        <div><span>Indicative price</span><b id="modalPrice"></b></div>
+        <div><span>Shelf life</span><b id="modalShelf"></b></div>
+        <div><span>Rating</span><b id="modalRating"></b></div>
+        <div><span>Store level</span><b id="modalLevel"></b></div>
+      </div>
+      <p class="tip" id="modalTip"></p>
+      <button class="btn btn-gold" id="modalAdd"></button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
