@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRYF — Dry Fruits, Seeds & Chocolates | Demo Online Store</title>
+<meta name="description" content="Demo e-commerce store for dry fruits, seeds, chocolates & more. 150+ products with Hindi names, pack sizes, cart, checkout demo and offers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌰</text></svg>">
+</head>
+<body>
+
+<div class="announce">🚚 <b>FREE Delivery</b> on orders above ₹999 &nbsp;·&nbsp; 💵 COD Available &nbsp;·&nbsp; 🎟 Use code <b>DRYF10</b> for 10% OFF &nbsp;·&nbsp; <span class="demo-tag">DEMO STORE — no real payment</span></div>
+
+<!-- NAV -->
+<header class="nav" id="top">
+  <a class="logo" href="#top"><span class="logo-badge">🌰</span> DRYF<small>Dry Fruits • Seeds • Chocolates</small></a>
+  <nav class="nav-links">
+    <a href="#catalogue">Shop</a>
+    <a href="#deals">Deals</a>
+    <a href="#categories">Categories</a>
+    <a href="#packs">Combos</a>
+    <a href="#open-store">Sell With Us</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langToggle" title="हिंदी / English">अ / EN</button>
+    <button class="btn btn-light nav-btn" id="wishlistBtn">❤️ <span class="count-pill alt" id="wishCount">0</span></button>
+    <button class="btn btn-light nav-btn" id="storeListBtn">🧺 List <span class="count-pill alt" id="countTop">0</span></button>
+    <button class="btn btn-dark nav-btn" id="cartBtnTop">🛒 Cart <span class="count-pill" id="cartCountTop">0</span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/hero.jpg" alt="Premium dry fruits assortment"></div>
+  <div class="hero-shade"></div>
+  <div class="float f1">🥜</div><div class="float f2">🍫</div><div class="float f3">🌻</div><div class="float f4">🫐</div><div class="float f5">🌰</div>
+  <div class="hero-inner reveal in">
+    <span class="eyebrow">✦ Demo Online Store · डेमो ऑनलाइन स्टोर ✦</span>
+    <h1>Premium <em>Dry Fruits, Seeds &amp; Chocolates</em> — delivered to your home.</h1>
+    <p>Shop <strong>150+ products</strong> with Hindi names (बादाम, काजू, अंजीर…), choose 250g / 500g / 1kg packs, add to cart and try a full demo checkout. <span class="hero-hindi">शुद्ध और ताज़ा मेवा, हर घर तक।</span></p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#catalogue">🛍️ Shop Now ↓</a>
+      <a class="btn btn-ghost" href="#deals">🔥 Today's Deals</a>
+    </div>
+    <div class="trust-row">
+      <span>🚚 Free delivery ₹999+</span><span>💵 COD available</span><span>🫙 Hygienic packing</span><span>↩️ Easy demo returns</span>
+    </div>
+    <div class="stats">
+      <div><b data-count="154">0</b><span>Products</span></div>
+      <div><b data-count="8">0</b><span>Categories</span></div>
+      <div><b data-count="100">0</b><span>% Quality checked</span></div>
+      <div><b data-count="24">0</b><span>Hr dispatch (demo)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<!-- DEALS -->
+<section class="section deals" id="deals">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Limited time</span>
+    <h2>🔥 Deals of the Day</h2>
+    <p>Extra discount prices, auto-applied in cart. <b>Demo ends in <span id="dealTimer" class="timer">--:--:--</span></b></p>
+  </div>
+  <div class="deal-row" id="dealRow"></div>
+  <div class="offer-strip reveal">
+    <div>🎟️ <b>DRYF10</b><span>10% OFF on everything</span></div>
+    <div>🎉 <b>FESTIVE15</b><span>15% OFF above ₹1,999</span></div>
+    <div>👋 <b>FIRSTBUY</b><span>₹100 OFF above ₹799</span></div>
+    <div>🚚 <b>FREESHIP</b><span>Free delivery on any order</span></div>
+  </div>
+</section>
+
+<!-- CATEGORY CARDS -->
+<section class="section" id="categories">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Shop by category · श्रेणी चुनें</span>
+    <h2>8 shelves, full shopping range</h2>
+    <p>Click any shelf to shop those items directly.</p>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- CATALOGUE / SHOP -->
+<section class="section catalogue" id="catalogue">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Shop all products</span>
+    <h2>🛍️ Shop Dry Fruits, Seeds & More</h2>
+    <p>Every product shows <b>English + Hindi name</b>, price per pack, discount & rating. Choose pack size, tap <b>🛒 Add to Cart</b> — or ❤️ save it, or ＋ add it to your Store Opening List.</p>
+  </div>
+
+  <div class="toolbar reveal">
+    <div class="search-box">🔍 <input id="searchInput" type="search" placeholder="Search badam, बादाम, kaju, chia, kesar…"></div>
+    <select id="sortSelect" aria-label="Sort items">
+      <option value="popular">Sort: Most Popular</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="discount">Discount: High → Low</option>
+      <option value="az">Name: A → Z</option>
+      <option value="rating">Top Rated</option>
+    </select>
+    <select id="levelSelect" aria-label="Filter by type">
+      <option value="all">All types</option>
+      <option value="1">⭐ Bestseller / Must-Have</option>
+      <option value="2">Popular & above</option>
+      <option value="3">💎 Premium / Exotic only</option>
+    </select>
+  </div>
+
+  <div class="pills" id="pillRow"></div>
+  <p class="result-line" id="resultLine"></p>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty" id="emptyState" hidden>
+    <div>🔍</div><h3>No item found</h3><p>Try Hindi names too — “बादाम”, “काजू”, “अंजीर”, “केसर”, “सब्जा”.</p>
+    <button class="btn btn-gold" id="clearFilters">Clear search &amp; filters</button>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how">
+  <div class="section-head reveal"><span class="eyebrow dark">Demo shopping flow</span><h2>How ordering works 🛒</h2></div>
+  <div class="steps">
+    <div class="step reveal"><span>1</span><h3>🛍️ Pick & Add to Cart</h3><p>Choose 250g, 500g or 1kg pack and add items to your cart. Prices update with discounts automatically.</p></div>
+    <div class="step reveal"><span>2</span><h3>🎟️ Apply Coupon</h3><p>Try <b>DRYF10</b>, <b>FESTIVE15</b> or <b>FIRSTBUY</b> in the cart. Free delivery unlocks above ₹999.</p></div>
+    <div class="step reveal"><span>3</span><h3>📝 Demo Checkout</h3><p>Fill name, phone & address, choose UPI / Card / COD (all demo) and place the order.</p></div>
+    <div class="step reveal"><span>4</span><h3>📦 Track Your Order</h3><p>Get a demo Order ID and watch the animated tracking: Placed → Packed → Shipped → Delivered.</p></div>
+  </div>
+</section>
+
+<!-- STARTER PACKS (now shoppable combos) -->
+<section class="section packs" id="packs">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Value combos</span>
+    <h2>Ready Combo Packs 🎁</h2>
+    <p>One click adds a full combo to your <b>cart</b> — or to your Store Opening List if you're planning a shop.</p>
+  </div>
+  <div class="pack-grid">
+    <article class="pack reveal">
+      <div class="pack-tag">Beginner Friendly</div>
+      <h3>🟢 Daily Health Combo</h3>
+      <p class="pack-price">All Must-Have bestsellers</p>
+      <ul><li>Badam, kaju, kishmish, khajoor & daily seeds</li><li>Best for first-time buyers</li><li>Lowest price, everyday use</li></ul>
+      <button class="btn btn-dark pack-btn" data-pack="1" data-target="cart">🛒 Add Combo to Cart</button>
+      <button class="btn btn-light pack-btn ghost-btn" data-pack="1" data-target="list">🧺 Add to Store List instead</button>
+    </article>
+    <article class="pack featured reveal">
+      <div class="pack-tag gold">Most Chosen ★</div>
+      <h3>🟡 Family Complete Pack</h3>
+      <p class="pack-price">Bestsellers + Popular range</p>
+      <ul><li>Everything in Daily Health, plus berries & flavours</li><li>Roasted, masala & chocolate favourites</li><li>Full month's family stock</li></ul>
+      <button class="btn btn-gold pack-btn" data-pack="2" data-target="cart">🛒 Add Combo to Cart</button>
+      <button class="btn btn-light pack-btn ghost-btn" data-pack="2" data-target="list">🧺 Add to Store List instead</button>
+    </article>
+    <article class="pack reveal">
+      <div class="pack-tag">Premium</div>
+      <h3>🔴 Premium Festive Pack</h3>
+      <p class="pack-price">Full range incl. exotic</p>
+      <ul><li>Mamra, Medjool, Ajwa, chilgoza, kesar & truffles</li><li>Gift hampers & premium berries</li><li>Best for festivals & gifting</li></ul>
+      <button class="btn btn-dark pack-btn" data-pack="3" data-target="cart">🛒 Add Everything to Cart</button>
+      <button class="btn btn-light pack-btn ghost-btn" data-pack="3" data-target="list">🧺 Add to Store List instead</button>
+    </article>
+  </div>
+</section>
+
+<!-- OPEN YOUR STORE -->
+<section class="section" id="open-store">
+  <div class="section-head reveal">
+    <span class="eyebrow dark">Planning your own shop?</span>
+    <h2>Open-Your-Store Checklist ✅</h2>
+    <p>Use 🧺 Store List on any product to build your opening stock list, then download it as CSV.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><span>1</span><h3>📍 Location & Licences</h3><p>High-street / market shop, FSSAI licence, GST registration, trade licence & current account.</p></div>
+    <div class="step reveal"><span>2</span><h3>🤝 Suppliers</h3><p>Wholesale mandis (e.g. Khari Baoli, Delhi) & 2–3 importers. Compare rates weekly.</p></div>
+    <div class="step reveal"><span>3</span><h3>🫙 Storage & Display</h3><p>Airtight glass jars, cool dry shelves, FIFO rotation, weighing & sealing machines.</p></div>
+    <div class="step reveal"><span>4</span><h3>🏷️ Pack Sizes</h3><p>100g / 250g / 500g / 1kg packs — small packs bring trial buyers, family packs bring repeats.</p></div>
+    <div class="step reveal"><span>5</span><h3>🎁 Festive Gifting</h3><p>Diwali, Rakhi, weddings & corporate orders = biggest profit season.</p></div>
+    <div class="step reveal"><span>6</span><h3>📱 Sell Online</h3><p>This same demo design can become your real store on WhatsApp, Google & marketplaces.</p></div>
+  </div>
+  <div class="my-orders reveal" id="myOrdersBox" hidden>
+    <h3>📦 My Demo Orders</h3>
+    <div id="myOrdersList"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">🌰 DRYF</div>
+  <p><b>Demo e-commerce website</b> — no real payment, delivery or order will happen. Prices are indicative for demo & planning.</p>
+  <p class="hindi-foot">शुद्ध मेवा · ताज़ा स्वाद · हर घर तक — DRYF Demo Store</p>
+  <a href="#top">↑ Back to top</a>
+</footer>
+
+<!-- FLOATING CART -->
+<button class="fab" id="cartFab">🛒 Cart · <span id="fabTotal">₹0</span> <span class="count-pill" id="cartCountFab">0</span></button>
+
+<!-- DRAWER : CART + STORE LIST TABS -->
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div class="drawer-tabs">
+      <button class="dtab active" id="tabCart">🛒 Cart <span id="tabCartCount">0</span></button>
+      <button class="dtab" id="tabList">🧺 Store List <span id="tabListCount">0</span></button>
+      <button class="dtab" id="tabWish">❤️ Wishlist</button>
+    </div>
+    <button class="icon-btn" id="closeDrawer">✕</button>
+  </div>
+
+  <!-- CART PANEL -->
+  <div class="drawer-panel" id="panelCart">
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="coupon-row">
+        <input id="couponInput" placeholder="Coupon code — try DRYF10">
+        <button class="btn btn-dark" id="applyCoupon">Apply</button>
+      </div>
+      <p class="coupon-msg" id="couponMsg"></p>
+      <div class="bill">
+        <div><span>Subtotal</span><b id="billSubtotal">₹0</b></div>
+        <div class="save"><span>You save (discounts)</span><b id="billSave">− ₹0</b></div>
+        <div id="couponRow" hidden><span>Coupon <b id="couponName"></b></span><b id="billCoupon">− ₹0</b></div>
+        <div><span>Delivery <small id="deliveryHint"></small></span><b id="billDelivery">—</b></div>
+        <div class="bill-total"><span>Total</span><b id="billTotal">₹0</b></div>
+      </div>
+      <div class="free-ship"><div id="freeShipBar"></div></div>
+      <p class="ship-note" id="shipNote"></p>
+      <button class="btn btn-gold checkout-btn" id="checkoutBtn">Proceed to Checkout →</button>
+      <button class="btn btn-light checkout-btn" id="clearCart">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- STORE LIST PANEL -->
+  <div class="drawer-panel" id="panelList" hidden>
+    <div class="drawer-body" id="drawerBody"></div>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Est. opening stock*</span><b id="totalValue">₹0</b></div>
+      <p class="fine dark-fine">*Rough estimate at 2 kg of every ticked item (gift boxes × 5).</p>
+      <div class="drawer-actions">
+        <button class="btn btn-gold" id="downloadCsv">⬇ CSV</button>
+        <button class="btn btn-dark" id="copyList">📋 Copy</button>
+        <button class="btn btn-light" id="printList">🖨 Print</button>
+        <button class="btn btn-light danger" id="clearList">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST PANEL -->
+  <div class="drawer-panel" id="panelWish" hidden>
+    <div class="drawer-body" id="wishBody"></div>
+  </div>
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-wrap" id="modalWrap" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="icon-btn modal-close" id="closeModal">✕</button>
+    <div class="modal-media"><img id="modalImg" alt=""><span id="modalEmoji"></span></div>
+    <div class="modal-body">
+      <span class="badge" id="modalBadge"></span>
+      <h3 id="modalName"></h3>
+      <p class="hindi big-hindi" id="modalHindi"></p>
+      <p id="modalDesc"></p>
+      <div class="modal-facts">
+        <div><span>Price</span><b id="modalPrice"></b></div>
+        <div><span>Shelf life</span><b id="modalShelf"></b></div>
+        <div><span>Rating</span><b id="modalRating"></b></div>
+        <div><span>Availability</span><b id="modalLevel"></b></div>
+      </div>
+      <label class="pack-label">Pack size चुनें / Pack Size</label>
+      <div class="pack-options" id="modalPacks"></div>
+      <div class="qty-row">
+        <span>Quantity</span>
+        <div class="qty-stepper"><button id="qtyMinus">−</button><b id="qtyVal">1</b><button id="qtyPlus">+</button></div>
+        <b class="qty-total" id="qtyTotal"></b>
+      </div>
+      <p class="tip" id="modalTip"></p>
+      <div class="modal-actions">
+        <button class="btn btn-gold" id="modalCart">🛒 Add to Cart</button>
+        <button class="btn btn-dark" id="modalBuy">⚡ Buy Now (Demo)</button>
+      </div>
+      <div class="modal-actions secondary">
+        <button class="btn btn-light" id="modalWish">❤️ Wishlist</button>
+        <button class="btn btn-light" id="modalAdd"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-wrap" id="checkoutWrap" hidden>
+  <div class="modal checkout-modal">
+    <button class="icon-btn modal-close" id="closeCheckout">✕</button>
+    <div class="checkout-body">
+      <h3>📝 Demo Checkout</h3>
+      <p class="muted">यह डेमो है — This is a demo. No real payment will be taken.</p>
+      <form id="checkoutForm">
+        <label>Full Name / पूरा नाम *<input required id="coName" placeholder="e.g. Rahul Sharma"></label>
+        <label>Mobile Number / मोबाइल *<input required id="coPhone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile"></label>
+        <label>Delivery Address / पता *<textarea required id="coAddress" rows="2" placeholder="House no, street, landmark"></textarea></label>
+        <div class="form-2">
+          <label>City / शहर *<input required id="coCity" placeholder="Delhi"></label>
+          <label>PIN Code *<input required id="coPin" inputmode="numeric" maxlength="6" placeholder="110001"></label>
+        </div>
+        <label>Payment Method / भुगतान (Demo)
+          <div class="pay-options">
+            <label class="pay-opt"><input type="radio" name="pay" value="UPI (Demo)" checked> 📱 UPI</label>
+            <label class="pay-opt"><input type="radio" name="pay" value="Card (Demo)"> 💳 Card</label>
+            <label class="pay-opt"><input type="radio" name="pay" value="Cash on Delivery"> 💵 COD</label>
+          </div>
+        </label>
+        <div class="bill checkout-bill">
+          <div><span>Items</span><b id="coItems"></b></div>
+          <div class="bill-total"><span>Total Payable</span><b id="coTotal"></b></div>
+        </div>
+        <button class="btn btn-gold checkout-submit" type="submit">✅ Place Demo Order</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER SUCCESS MODAL -->
+<div class="modal-wrap" id="successWrap" hidden>
+  <div class="modal success-modal">
+    <div class="confetti" id="confetti"></div>
+    <div class="success-body">
+      <div class="success-tick">✓</div>
+      <h3>Order Placed! 🎉</h3>
+      <p class="hindi big-hindi">धन्यवाद! आपका ऑर्डर मिल गया है।</p>
+      <p>Demo Order ID: <b id="orderIdTxt"></b></p>
+      <div class="track">
+        <div class="tstep done"><span>🧾</span>Placed<small>Just now</small></div>
+        <div class="tline"></div>
+        <div class="tstep" id="ts2"><span>🫙</span>Packed<small>Demo</small></div>
+        <div class="tline"></div>
+        <div class="tstep" id="ts3"><span>🚚</span>Shipped<small>Demo</small></div>
+        <div class="tline"></div>
+        <div class="tstep" id="ts4"><span>🏠</span>Delivered<small>2–3 days</small></div>
+      </div>
+      <div class="bill" id="successBill"></div>
+      <button class="btn btn-gold" id="successContinue">Continue Shopping</button>
+      <button class="btn btn-light" id="successOrders">View My Orders</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
