@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Category — DRYF</title>
+<meta name="description" content="Category products at DRYF demo store with Hindi names and pack sizes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌰</text></svg>">
+</head>
+<body data-page="category">
+<div id="site-header"></div>
+
+<section class="page-hero" id="catHero"></section>
+<section class="section catalogue">
+  <div class="cat-chips" id="catChips"></div>
+
+  <div class="toolbar reveal in">
+    <div class="search-box">🔍 <input id="searchInput" type="search" placeholder="Search badam, बादाम, kaju, chia, kesar…"></div>
+    <select id="sortSelect" aria-label="Sort items">
+      <option value="popular">Sort: Most Popular</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="discount">Discount: High → Low</option>
+      <option value="az">Name: A → Z</option>
+      <option value="rating">Top Rated</option>
+    </select>
+    <select id="levelSelect" aria-label="Filter by type">
+      <option value="all">All types</option>
+      <option value="1">⭐ Bestseller / Must-Have</option>
+      <option value="2">Popular & above</option>
+      <option value="3">💎 Premium / Exotic only</option>
+    </select>
+  </div>
+
+  <p class="result-line" id="resultLine"></p>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty" id="emptyState" hidden>
+    <div>🔍</div><h3>No item found in this category</h3><p>Try a different search, or browse another category above.</p>
+    <button class="btn btn-gold" id="clearFilters">Clear search &amp; filters</button>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-overlays"></div>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

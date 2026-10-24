@@ -1,4 +1,9 @@
 import { CATS, products, LEVEL_TXT, packPrice, packMRP, PACKS_FOR } from './data/products.js';
+import { mountLayout } from './layout.js';
+
+const PAGE = document.body.dataset.page || "home";
+mountLayout(PAGE);
+const PARAMS = new URLSearchParams(location.search);
 
 /* ============ STATE ============ */
 let activeCat = "all", query = "", sortBy = "popular", levelFilter = "all";
@@ -53,36 +58,45 @@ function stars(r){ const f=Math.round(r); return "★".repeat(f)+"☆".repeat(5-
 
 function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),2400); }
 
-/* ============ MARQUEE + CATEGORIES ============ */
+/* ============ MARQUEE + CATEGORIES + DEALS (only where present) ============ */
 (function(){
-  const items = products.slice(0,28).map(p=>`<span>${p.emoji} ${p.name}</span>`).join("<span>✦</span>");
-  $("#marqueeTrack").innerHTML = items + "<span>✦</span>" + items;
-  $("#catGrid").innerHTML = Object.entries(CATS).map(([k,c])=>{
-    const n = products.filter(p=>p.cat===k).length;
-    const must = products.filter(p=>p.cat===k && p.level===1).length;
-    return `<button class="cat-card reveal" data-cat="${k}">
-      <img src="${c.img}" alt="${c.label}" loading="lazy">
-      <div><h3>${c.emoji} ${c.label}</h3><p>${c.blurb}</p><b>${n} items · ${must} bestsellers → Shop now</b></div></button>`;
-  }).join("");
-  /* Deals of the day: biggest discounts */
-  const deals = [...products].sort((a,b)=>b.off-a.off).slice(0,10);
-  $("#dealRow").innerHTML = deals.map(p=>`
-    <article class="deal-card">
-      <img src="${p.stockImg}" onerror="this.onerror=null;this.src='${p.img}'" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" style="object-position:${p.pos}">
-      <div><span class="deal-off">${p.off}% OFF</span>
-      <h4>${p.emoji} ${displayName(p)}</h4>
-      <p class="hindi">${subName(p)}</p>
-      <p><b>${fmt(packPrice(p,"500g"))}</b> <span class="mrp">${fmt(packMRP(p,"500g"))}</span> <small>/ 500g</small></p>
-      <button class="add-btn" data-deal="${p.id}" style="margin-top:.5rem;width:100%">🛒 Add 500g to Cart</button></div>
-    </article>`).join("");
-  document.querySelectorAll("[data-deal]").forEach(b=>b.addEventListener("click",()=>addToCart(+b.dataset.deal,"500g",1)));
-  document.querySelectorAll(".cat-card").forEach(b=>b.addEventListener("click",()=>{
-    setCat(b.dataset.cat); document.querySelector("#catalogue").scrollIntoView({behavior:"smooth"});
-  }));
+  const mt = $("#marqueeTrack");
+  if (mt) {
+    const items = products.slice(0,28).map(p=>`<span>${p.emoji} ${p.name}</span>`).join("<span>✦</span>");
+    mt.innerHTML = items + "<span>✦</span>" + items;
+  }
+  const cg = $("#catGrid");
+  if (cg) {
+    cg.innerHTML = Object.entries(CATS).map(([k,c])=>{
+      const n = products.filter(p=>p.cat===k).length;
+      const must = products.filter(p=>p.cat===k && p.level===1).length;
+      return `<button class="cat-card reveal" data-catlink="${k}">
+        <img src="${c.img}" alt="${c.label}" loading="lazy">
+        <div><h3>${c.emoji} ${c.label}</h3><p>${c.blurb}</p><b>${n} items · ${must} bestsellers → Shop now</b></div></button>`;
+    }).join("");
+    cg.querySelectorAll("[data-catlink]").forEach(b=>b.addEventListener("click",()=>{
+      location.href = `category.html?cat=${b.dataset.catlink}`;
+    }));
+  }
+  const dr = $("#dealRow");
+  if (dr) {
+    const deals = [...products].sort((a,b)=>b.off-a.off).slice(0, PAGE==="deals" ? 20 : 10);
+    dr.innerHTML = deals.map(p=>`
+      <article class="deal-card">
+        <img src="${p.stockImg}" onerror="this.onerror=null;this.src='${p.img}'" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" style="object-position:${p.pos}">
+        <div><span class="deal-off">${p.off}% OFF</span>
+        <h4>${p.emoji} ${displayName(p)}</h4>
+        <p class="hindi">${subName(p)}</p>
+        <p><b>${fmt(packPrice(p,"500g"))}</b> <span class="mrp">${fmt(packMRP(p,"500g"))}</span> <small>/ 500g</small></p>
+        <button class="add-btn" data-deal="${p.id}" style="margin-top:.5rem;width:100%">🛒 Add 500g to Cart</button></div>
+      </article>`).join("");
+    dr.querySelectorAll("[data-deal]").forEach(b=>b.addEventListener("click",()=>addToCart(+b.dataset.deal,"500g",1)));
+  }
 })();
 
 /* ============ PILLS ============ */
 function renderPills(){
+  if (!$("#pillRow")) return;
   const counts = {all: products.length};
   Object.keys(CATS).forEach(k=>counts[k]=products.filter(p=>p.cat===k).length);
   $("#pillRow").innerHTML =
@@ -107,13 +121,10 @@ function filtered(){
   else list.sort((a,b)=>a.level-b.level || b.rating-a.rating);
   return list;
 }
-function render(){
-  const list = filtered();
-  $("#resultLine").innerHTML = `Showing <b>${list.length}</b> of ${products.length} products ${activeCat!=="all" ? "in <b>"+CATS[activeCat].label+"</b>" : ""} ${query ? `for “<b>${query}</b>”` : ""} · 🛒 <b>${cartCount()}</b> in cart · 🧺 <b>${myList.size}</b> in Store List`;
-  $("#emptyState").hidden = list.length>0;
-  grid.innerHTML = list.map((p,i)=>{
-    const defPack = PACKS_FOR(p)[1] || PACKS_FOR(p)[0];
-    return `
+/* One product card, reused by Shop, Category, Home bestsellers and related products */
+function cardHTML(p,i=0){
+  const defPack = PACKS_FOR(p)[1] || PACKS_FOR(p)[0];
+  return `
   <article class="card" style="animation-delay:${Math.min(i*35,420)}ms">
     <button class="wish-btn ${wishlist.has(p.id)?'active':''}" data-wish="${p.id}" title="Wishlist">${wishlist.has(p.id)?'❤️':'🤍'}</button>
     <div class="card-media" data-open="${p.id}">
@@ -144,8 +155,27 @@ function render(){
         <button data-buy="${p.id}">⚡ Buy Now</button>
       </div>
     </div>
-  </article>`;}).join("");
+  </article>`;
+}
+function render(){
+  if (!grid) return;
+  const list = filtered();
+  $("#resultLine").innerHTML = `Showing <b>${list.length}</b> of ${products.length} products ${activeCat!=="all" ? "in <b>"+CATS[activeCat].label+"</b>" : ""} ${query ? `for “<b>${query}</b>”` : ""} · 🛒 <b>${cartCount()}</b> in cart · 🧺 <b>${myList.size}</b> in Store List`;
+  $("#emptyState").hidden = list.length>0;
+  grid.innerHTML = list.map((p,i)=>cardHTML(p,i)).join("");
   bindCards();
+}
+/* Home page: bestsellers preview only (full range lives on shop.html) */
+function renderFeatured(){
+  const el = $("#featuredGrid"); if (!el) return;
+  const best = products.filter(p=>p.level===1).sort((a,b)=>b.rating-a.rating).slice(0,8);
+  el.innerHTML = best.map((p,i)=>cardHTML(p,i)).join(""); bindCards();
+}
+/* Product page: related items from the same category */
+function renderRelated(p){
+  const el = $("#relatedGrid"); if (!el) return;
+  const rel = products.filter(x=>x.cat===p.cat && x.id!==p.id).sort((a,b)=>b.rating-a.rating).slice(0,4);
+  el.innerHTML = rel.map((x,i)=>cardHTML(x,i)).join(""); bindCards();
 }
 function bindCards(){
   document.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>{
@@ -172,7 +202,7 @@ function bindCards(){
     wishlist.has(id)?wishlist.delete(id):wishlist.add(id);
     saveWish(); render(); toast(wishlist.has(id)?"❤️ Added to wishlist":"Removed from wishlist");
   }));
-  document.querySelectorAll("[data-open]").forEach(el=>el.addEventListener("click",()=>openModal(+el.dataset.open)));
+  document.querySelectorAll("[data-open]").forEach(el=>el.addEventListener("click",()=>{ location.href = `product.html?id=${el.dataset.open}`; }));
 }
 
 /* ============ MODAL ============ */
@@ -197,6 +227,7 @@ function openModal(id){
   const wb = $("#modalWish");
   wb.textContent = wishlist.has(id) ? "❤️ In Wishlist" : "❤️ Wishlist";
   wb.onclick = ()=>{ wishlist.has(id)?wishlist.delete(id):wishlist.add(id); saveWish(); openModal(id); render(); };
+  $("#modalFullPage").href = `product.html?id=${id}`;
   $("#modalWrap").hidden = false;
 }
 function renderModalPacks(){
@@ -334,10 +365,12 @@ function launchConfetti(){
   for(let i=0;i<50;i++){ const s=document.createElement("i"); s.style.left=Math.random()*100+"%"; s.style.background=cols[i%cols.length]; s.style.animationDuration=(1.2+Math.random()*1.4)+"s"; s.style.animationDelay=(Math.random()*.5)+"s"; s.style.transform=`rotate(${Math.random()*180}deg)`; box.appendChild(s); }
 }
 $("#successContinue").addEventListener("click",()=>{ $("#successWrap").hidden=true; });
-$("#successOrders").addEventListener("click",()=>{ $("#successWrap").hidden=true; document.querySelector("#open-store").scrollIntoView({behavior:"smooth"}); });
+$("#successOrders").addEventListener("click",()=>{ $("#successWrap").hidden=true; if (PAGE==="guide") { const b=$("#myOrdersBox"); if(b) b.scrollIntoView({behavior:"smooth"}); } else location.href="guide.html#orders"; });
 function renderOrders(){
-  const box=$("#myOrdersBox"); if(!orders.length){ box.hidden=true; return; }
-  box.hidden=false;
+  const box=$("#myOrdersBox"); if(!box) return;
+  const emptyBox=$("#noOrdersBox");
+  if(!orders.length){ box.hidden=true; if(emptyBox) emptyBox.hidden=false; return; }
+  box.hidden=false; if(emptyBox) emptyBox.hidden=true;
   $("#myOrdersList").innerHTML=orders.map(o=>`<div class="order-card"><div><b>#${o.id}</b> · ${o.date}<br><small>${o.items.join(", ")}</small></div><div><b>${fmt(o.total)}</b><br><small>${o.pay} · ${o.city}</small><br><span class="stock">● Demo: Packed</span></div></div>`).join("");
 }
 
@@ -390,7 +423,7 @@ $("#downloadCsv").addEventListener("click",()=>{
   const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv"})); a.download="my-dry-fruits-store-list.csv"; a.click();
   toast("⬇ CSV downloaded");
 });
-$("#printList").addEventListener("click",()=>{ if(!myList.size) return toast("Add some items first!"); openDrawer(); setTimeout(()=>window.print(),350); });
+$("#printList").addEventListener("click",()=>{ if(!myList.size) return toast("Add some items first!"); openDrawer("list"); setTimeout(()=>window.print(),350); });
 
 /* ============ COMBO PACKS ============ */
 document.querySelectorAll(".pack-btn").forEach(b=>b.addEventListener("click",()=>{
@@ -432,11 +465,109 @@ setInterval(()=>{
   const el=$("#dealTimer"); if(el) el.textContent=`${h}:${m}:${sec}`;
 },1000);
 
+
+/* ============ CATEGORY PAGE (category.html?cat=nuts) ============ */
+function renderCategoryPage(){
+  const hero = $("#catHero"); if (!hero) return;
+  const key = CATS[PARAMS.get("cat")] ? PARAMS.get("cat") : "nuts";
+  activeCat = key;
+  const c = CATS[key], items = products.filter(p=>p.cat===key);
+  const start = Math.min(...items.map(p=>packPrice(p,"250g")));
+  document.title = `${c.label} — DRYF | ${c.hindi||""}`;
+  hero.innerHTML = `
+    <img class="page-hero-bg" src="${c.img}" alt="${c.label}">
+    <div class="page-hero-inner">
+      <p class="breadcrumb"><a href="index.html">Home</a> › <a href="categories.html">Categories</a> › <b>${c.label}</b></p>
+      <h1>${c.emoji} ${c.label}</h1>
+      <p class="page-hero-hindi">${c.hindi||""} · ${items.map(p=>p.translit).slice(0,4).join(" · ")}…</p>
+      <p>${c.blurb}</p>
+      <div class="trust-row"><span>📦 ${items.length} products</span><span>⭐ ${items.filter(p=>p.level===1).length} bestsellers</span><span>💰 Starting ${fmt(start)} / 250g</span></div>
+    </div>`;
+  const chips = $("#catChips");
+  if (chips) chips.innerHTML = Object.entries(CATS).map(([k,cc])=>
+    `<a class="chip ${k===key?'active':''}" href="category.html?cat=${k}">${cc.emoji} ${cc.label}</a>`).join("");
+}
+
+/* ============ PRODUCT PAGE (product.html?id=123) ============ */
+let pdPack = "500g", pdQty = 1;
+function renderProductPage(){
+  const detail = $("#productDetail"); if (!detail) return;
+  const p = products[+PARAMS.get("id")];
+  if (!p) {
+    detail.innerHTML = `<div class="not-found"><div>🔍</div><h2>Product not found</h2><p>This product link is not valid.</p><a class="btn btn-gold" href="shop.html">Browse all products →</a></div>`;
+    return;
+  }
+  document.title = `${p.name} (${p.translit} · ${p.deva}) — DRYF`;
+  pdPack = PACKS_FOR(p)[1] || PACKS_FOR(p)[0]; pdQty = 1;
+  const c = CATS[p.cat];
+  detail.innerHTML = `
+    <p class="breadcrumb"><a href="index.html">Home</a> › <a href="shop.html">Shop</a> › <a href="category.html?cat=${p.cat}">${c.label}</a> › <b>${p.name}</b></p>
+    <div class="product-layout">
+      <div class="pd-media">
+        <img src="${p.stockImg}" onerror="this.onerror=null;this.src='${p.img}'" alt="${p.name}" referrerpolicy="no-referrer">
+        <span class="off-tag big">${p.off}% OFF</span><span class="card-emoji">${p.emoji}</span>
+      </div>
+      <div class="pd-info">
+        <span class="badge" style="position:static">${(p.badge||c.label)} · ${LEVEL_TXT[p.level]}</span>
+        <h1>${p.emoji} ${displayName(p)}</h1>
+        <p class="hindi big-hindi">${subName(p)} · ${c.label} ${c.hindi||""}</p>
+        <p class="stars">★★★★★ ${p.rating} / 5 · <span class="stock ${p.stock!=='In Stock'?'low':''}">● ${p.stock}</span></p>
+        <p class="pd-desc">${p.benefit}. Premium quality, hygienically packed in food-grade material. ${langHindi?"शुद्ध, ताज़ा और स्वाद से भरपूर।":"Pure, fresh and full of taste — sourced and packed with care."}</p>
+        <div class="modal-facts">
+          <div><span>Price</span><b id="pdPrice"></b></div>
+          <div><span>Shelf life</span><b>${p.shelf}</b></div>
+          <div><span>Category</span><b>${c.label}</b></div>
+          <div><span>Delivery</span><b>Free above ₹999</b></div>
+        </div>
+        <label class="pack-label">Pack size चुनें / Pack Size</label>
+        <div class="pack-options" id="pdPacks"></div>
+        <div class="qty-row"><span>Quantity</span>
+          <div class="qty-stepper"><button id="pdMinus">−</button><b id="pdQty">1</b><button id="pdPlus">+</button></div>
+          <b class="qty-total" id="pdTotal"></b>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-gold" id="pdAddCart">🛒 Add to Cart</button>
+          <button class="btn btn-dark" id="pdBuy">⚡ Buy Now (Demo)</button>
+        </div>
+        <div class="modal-actions secondary">
+          <button class="btn btn-light" id="pdWish">${wishlist.has(p.id)?"❤️ In Wishlist":"❤️ Wishlist"}</button>
+          <button class="btn btn-light" id="pdList">${myList.has(p.id)?"✓ In Store List":"🧺 Store List"}</button>
+        </div>
+        <p class="tip">💡 ${p.level===1?"Bestseller: families reorder this every month — try the 1kg family pack and save more.":p.level===2?"Popular choice: pair it with a combo pack to increase value.":"Premium pick: perfect for gifting and special occasions."}</p>
+      </div>
+    </div>`;
+  const refresh = () => {
+    $("#pdPacks").innerHTML = PACKS_FOR(p).map(pk=>`<button type="button" class="pack-opt ${pk===pdPack?'active':''}" data-pdpack="${pk}">${pk}<small>${fmt(packPrice(p,pk))}</small></button>`).join("");
+    $("#pdPacks").querySelectorAll("[data-pdpack]").forEach(b=>b.onclick=()=>{ pdPack=b.dataset.pdpack; refresh(); });
+    $("#pdQty").textContent = pdQty;
+    $("#pdPrice").innerHTML = `${fmt(packPrice(p,pdPack))} <span class="mrp">${fmt(packMRP(p,pdPack))}</span>`;
+    $("#pdTotal").textContent = "= " + fmt(packPrice(p,pdPack)*pdQty);
+  };
+  refresh();
+  $("#pdMinus").onclick = ()=>{ pdQty=Math.max(1,pdQty-1); refresh(); };
+  $("#pdPlus").onclick = ()=>{ pdQty=Math.min(20,pdQty+1); refresh(); };
+  $("#pdAddCart").onclick = ()=>{ addToCart(p.id, pdPack, pdQty); openDrawer("cart"); };
+  $("#pdBuy").onclick = ()=>{ addToCart(p.id, pdPack, pdQty, true); openCheckout(); };
+  $("#pdWish").onclick = (e)=>{ wishlist.has(p.id)?wishlist.delete(p.id):wishlist.add(p.id); saveWish(); e.target.textContent = wishlist.has(p.id)?"❤️ In Wishlist":"❤️ Wishlist"; renderRelated(p); };
+  $("#pdList").onclick = (e)=>{ myList.has(p.id)?myList.delete(p.id):myList.add(p.id); saveList(); e.target.textContent = myList.has(p.id)?"✓ In Store List":"🧺 Store List"; };
+  renderRelated(p);
+}
+
+/* ============ PAGE ROUTING AT STARTUP ============ */
+function initPageState(){
+  if (PAGE === "shop") {
+    if (CATS[PARAMS.get("cat")]) activeCat = PARAMS.get("cat");
+    const q = PARAMS.get("q"); if (q) { query = q.trim().toLowerCase(); const si=$("#searchInput"); if (si) si.value = q; }
+  }
+  if (PAGE === "category") renderCategoryPage();
+  if (PAGE === "product") renderProductPage();
+}
+
 /* ============ CONTROLS ============ */
-$("#searchInput").addEventListener("input",e=>{ query=e.target.value.trim().toLowerCase(); render(); });
-$("#sortSelect").addEventListener("change",e=>{ sortBy=e.target.value; render(); });
-$("#levelSelect").addEventListener("change",e=>{ levelFilter=e.target.value; render(); });
-$("#clearFilters").addEventListener("click",()=>{ query=""; $("#searchInput").value=""; levelFilter="all"; $("#levelSelect").value="all"; setCat("all"); });
+const _si=$("#searchInput"); if(_si) _si.addEventListener("input",e=>{ query=e.target.value.trim().toLowerCase(); render(); });
+const _ss=$("#sortSelect"); if(_ss) _ss.addEventListener("change",e=>{ sortBy=e.target.value; render(); });
+const _ls=$("#levelSelect"); if(_ls) _ls.addEventListener("change",e=>{ levelFilter=e.target.value; render(); });
+const _cf=$("#clearFilters"); if(_cf) _cf.addEventListener("click",()=>{ query=""; const _si2=$("#searchInput"); if(_si2) _si2.value=""; levelFilter="all"; const _ls2=$("#levelSelect"); if(_ls2) _ls2.value="all"; setCat("all"); });
 
 /* ============ ANIMATIONS ============ */
 const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }),{threshold:.12});
@@ -458,4 +589,5 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeDrawer(); ["
 ["modalWrap","checkoutWrap","successWrap"].forEach(id=>{ document.getElementById(id).hidden = true; });
 closeDrawer();
 $("#langToggle").textContent = langHindi ? "हिंदी / EN" : "अ / EN";
-renderPills(); render(); renderCart(); renderOrders(); updateCounts(false);
+initPageState(); renderPills(); render(); renderFeatured(); renderCart(); renderOrders(); updateCounts(false);
+if (PAGE==="guide" && location.hash==="#orders") { const b=$("#myOrdersBox"); if(b && !b.hidden) b.scrollIntoView({behavior:"smooth"}); }
