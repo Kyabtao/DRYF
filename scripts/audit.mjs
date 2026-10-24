@@ -64,6 +64,10 @@ check("layout: product modal links to the full product page", layout.includes('i
 /* ---------- 3. Category integrity ---------- */
 const catKeys = Object.keys(CATS);
 check("at least 9 categories", catKeys.length >= 9);
+check("dedicated Dates category exists", catKeys.includes("dates"));
+check("Dates category has 18+ date products", products.filter(p=>p.cat==="dates").length >= 18);
+check("no loose date products left in Dry Fruits & Nuts",
+  products.filter(p=>p.cat==="nuts" && /dates|khajoor|chuara/i.test(p.name)).length === 0);
 catKeys.forEach(k => {
   const c = CATS[k];
   check(`cat ${k}: label`, !!c.label);

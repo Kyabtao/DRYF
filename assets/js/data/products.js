@@ -1,7 +1,8 @@
 /* ============ DATA ============ */
 /* level: 1=Must-Have, 2=Popular, 3=Premium/Exotic | price = indicative ₹ per 500g (gift = per box) */
 export const CATS = {
-  nuts:     {label:"Dry Fruits & Nuts", emoji:"🌰", img:"assets/images/categories/nuts.jpg", blurb:"The core of every store — badam, kaju, pista, dates & more."},
+  nuts:     {label:"Dry Fruits & Nuts", emoji:"🌰", img:"assets/images/categories/nuts.jpg", blurb:"The core of every store — badam, kaju, pista, akhrot & more."},
+  dates:    {label:"Dates & Khajoor", hindi:"खजूर", emoji:"🌴", img:"assets/images/categories/dates.jpg", blurb:"Only dates — Medjool, Ajwa, Sukkari, Kimia, chuara & world varieties."},
   berries:  {label:"Berries & Dried Fruits", emoji:"🫐", img:"assets/images/categories/berries.jpg", blurb:"Colourful, healthy & premium — cranberry, kiwi, mango & more."},
   seeds:    {label:"Seeds & Makhana", emoji:"🌻", img:"assets/images/categories/seeds.jpg", blurb:"Superfood seeds for fitness, fasting & daily nutrition."},
   chocolate:{label:"Chocolates", emoji:"🍫", img:"assets/images/categories/chocolate.jpg", blurb:"Bars, truffles, coated nuts & sugar-free delights."},
@@ -27,9 +28,9 @@ const RAW = [
 ["Black Raisins Seedless","Kali Kishmish · काली किशमिश","nuts",340,"🍇",2,"6 months","Iron-rich; popular with women & health-conscious buyers"],
 ["Green Long Raisins","Lambi Hari Kishmish · किशमिश","nuts",310,"🍇",2,"6 months","Long Sangli-style raisins; great look in biryani & mixes"],
 ["Dried Figs (Anjeer)","Anjeer · अंजीर","nuts",850,"🍈",1,"4–6 months","Fibre-rich premium fruit; soaked-anjeer morning ritual trend"],
-["Medjool Dates Jumbo","Medjool Khajoor · खजूर","nuts",950,"🌴",2,"6–12 months","King of dates — big, soft, caramel-sweet; premium gifting"],
-["Ajwa Dates","Ajwa Khajoor · अजवा खजूर","nuts",1600,"🕌",3,"6–12 months","Madinah's famous dates; deep religious & premium demand"],
-["Kimia / Soft Dates","Kimia Khajoor · खजूर","nuts",290,"🌴",1,"6 months","Soft, sweet everyday dates — Ramzan & daily energy"],
+["Medjool Dates Jumbo","Medjool Khajoor · खजूर","dates",950,"🌴",2,"6–12 months","King of dates — big, soft, caramel-sweet; premium gifting"],
+["Ajwa Dates","Ajwa Khajoor · अजवा खजूर","dates",1600,"🕌",3,"6–12 months","Madinah's famous dates; deep religious & premium demand"],
+["Kimia / Soft Dates","Kimia Khajoor · खजूर","dates",290,"🌴",1,"6 months","Soft, sweet everyday dates — Ramzan & daily energy"],
 ["Dried Apricots Turkish","Khubani · खुबानी","nuts",560,"🍑",2,"6 months","Bright orange apricots for snacking, desserts & mixes"],
 ["Hazelnuts","Hazelnut · हेज़लनट","nuts",890,"🌰",3,"6 months","For chocolate lovers, coffee shops & premium baking"],
 ["Macadamia Nuts","Macadamia · मैकाडामिया","nuts",1750,"🤍",3,"4–6 months","Buttery luxury nut; small quantity, very high margin"],
@@ -122,10 +123,10 @@ const RAW = [
 /* ---- MORE PRODUCTS (added for demo e-commerce) ---- */
 const EXTRA = [
 ["Cashews W180 King Size","Kaju W180 · काजू W180","nuts",920,"👑",3,"5–6 months","Extra-large king cashews; showpiece premium grade"],
-["Safawi Dates","Safawi Khajoor · सफ़ावी खजूर","nuts",620,"🌴",2,"6–12 months","Dark, chewy Madinah dates; Ramzan premium seller"],
-["Sukkari Dates","Sukkari Khajoor · सुक्करी खजूर","nuts",540,"🌴",2,"6 months","Golden crunchy-sweet 'royal' dates from Qassim"],
-["Mabroom Dates","Mabroom Khajoor · मबरूम खजूर","nuts",780,"🌴",3,"6–12 months","Long, elegant premium dates for gifting"],
-["Zahidi Dates","Zahidi Khajoor · ज़ाहिदी खजूर","nuts",220,"🌴",1,"6–9 months","Budget dry dates; cooking, sweets & daily use"],
+["Safawi Dates","Safawi Khajoor · सफ़ावी खजूर","dates",620,"🌴",2,"6–12 months","Dark, chewy Madinah dates; Ramzan premium seller"],
+["Sukkari Dates","Sukkari Khajoor · सुक्करी खजूर","dates",540,"🌴",2,"6 months","Golden crunchy-sweet 'royal' dates from Qassim"],
+["Mabroom Dates","Mabroom Khajoor · मबरूम खजूर","dates",780,"🌴",3,"6–12 months","Long, elegant premium dates for gifting"],
+["Zahidi Dates","Zahidi Khajoor · ज़ाहिदी खजूर","dates",220,"🌴",1,"6–9 months","Budget dry dates; cooking, sweets & daily use"],
 ["Almond Slices (Badam Katran)","Badam Katran · बादाम कतरन","nuts",680,"🔪",2,"4–6 months","Slivered almonds for kheer, sweets & garnishing"],
 ["Roasted Peanuts","Bhuni Moongphali · भुनी मूँगफली","nuts",130,"🥜",1,"3–4 months","India's favourite budget snack nut; huge volume seller"],
 ["Watermelon Seeds Roasted","Bhune Tarbuj Beej · भुने तरबूज बीज","seeds",260,"🍉",2,"4 months","Salted roasted snack version of magaj seeds"],
@@ -138,7 +139,7 @@ const EXTRA = [
 ["Dried Dragon Fruit","Dragon Fruit · ड्रैगन फ्रूट","berries",720,"🐉",3,"6 months","Exotic pink-white slices; Instagram-friendly product"],
 ["Dried Peach Slices","Aadu · आड़ू","berries",460,"🍑",3,"6 months","Soft sweet peach; premium trail-mix ingredient"],
 ["Dried Apple Rings","Seb ke Ring · सेब","berries",320,"🍎",2,"6 months","Light chewy snack for kids & travellers"],
-["Date Powder (Natural Sweetener)","Khajoor Powder · खजूर पाउडर","pantry",340,"🌴",2,"6 months","Refined-sugar alternative for baking & baby food"],
+["Date Powder (Natural Sweetener)","Khajoor Powder · खजूर पाउडर","dates",340,"🌴",2,"6 months","Refined-sugar alternative for baking & baby food"],
 ["Ruby Chocolate","Ruby Chocolate · रूबी चॉकलेट","chocolate",420,"🩷",3,"9 months","Pink chocolate; unique product no nearby shop has"],
 ["Cocoa Powder Unsweetened","Cocoa Powder · कोको पाउडर","chocolate",280,"🍫",1,"12 months","Baking essential; home bakers & cafes reorder monthly"],
 ["Hazelnut Chocolate Spread","Choco Spread · चॉकलेट स्प्रेड","chocolate",310,"🥄",1,"9 months","Bread & pancake favourite of kids; fast FMCG mover"],
@@ -184,11 +185,11 @@ const MORE = [
 ["Blanched Almonds (Skinless)","Bina Chilka Badam · बिना छिलका बादाम","nuts",700,"⚪",2,"4–6 months","Peeled almonds for sweets, marzipan & baby food"],
 ["California Pistachios Jumbo","California Pista · कैलिफ़ोर्निया पिस्ता","nuts",760,"💚",2,"6 months","Large open-shell pista; party snack favourite"],
 ["Kashmiri Mamra Walnut Kernels","Kashmiri Akhrot · कश्मीरी अखरोट","nuts",980,"🧠",3,"4–6 months","Snow-white premium walnut halves"],
-["Deglet Noor Dates","Deglet Khajoor · डेगलेट खजूर","nuts",380,"🌴",2,"9 months","Tunisian golden dates; baking & daily use"],
-["Fard Dates","Fard Khajoor · फ़र्द खजूर","nuts",340,"🌴",2,"9 months","Omani dark dates; value premium segment"],
-["Barhi Dates","Barhi Khajoor · बरही खजूर","nuts",860,"🌴",3,"6 months","Honey-sweet soft dates, dessert-like taste"],
-["Dry Dates Yellow (Chuara)","Peela Chuara · पीला छुआरा","nuts",240,"🟡",1,"9–12 months","Dry dates for puja, milk & winter health"],
-["Dry Dates Black (Chuara)","Kala Chuara · काला छुआरा","nuts",260,"⚫",2,"9–12 months","Traditional chuara; soaked-milk morning ritual"],
+["Deglet Noor Dates","Deglet Khajoor · डेगलेट खजूर","dates",380,"🌴",2,"9 months","Tunisian golden dates; baking & daily use"],
+["Fard Dates","Fard Khajoor · फ़र्द खजूर","dates",340,"🌴",2,"9 months","Omani dark dates; value premium segment"],
+["Barhi Dates","Barhi Khajoor · बरही खजूर","dates",860,"🌴",3,"6 months","Honey-sweet soft dates, dessert-like taste"],
+["Dry Dates Yellow (Chuara)","Peela Chuara · पीला छुआरा","dates",240,"🟡",1,"9–12 months","Dry dates for puja, milk & winter health"],
+["Dry Dates Black (Chuara)","Kala Chuara · काला छुआरा","dates",260,"⚫",2,"9–12 months","Traditional chuara; soaked-milk morning ritual"],
 ["Water Chestnut Dry (Singhara)","Singhara · सिंघाड़ा","nuts",320,"🌰",2,"6 months","Vrat flour base; seasonal festive demand"],
 ["Raw Peanut Kernels","Kachhi Moongphali Dana · कच्ची मूँगफली","nuts",110,"🥜",1,"3–4 months","For home roasting, chikki & cooking — bulk mover"],
 ["Cashew LWP (Broken)","Kaju LWP · काजू एलडब्ल्यूपी","nuts",460,"🥜",2,"5–6 months","Large white pieces for gravy & bakery trade (B2B)"],
@@ -274,7 +275,17 @@ const MORE = [
 ["Thank You Mini Gift Box","Thank You Box · थैंक यू बॉक्स","gifts",499,"🙏",1,"— (pack fresh)","Small-budget thank-you & return gift box"],
 ["Diwali Laxmi Puja Dry Fruit Box","Diwali Puja Box · दीवाली पूजा बॉक्स","gifts",799,"🪔",1,"— (pack fresh)","Puja-ready mewa box; bulk Diwali orders"],
 ];
-RAW.push(...EXTRA, ...MORE);
+/* ---- DATES EXPANSION (dedicated Dates category) ---- */
+const DATES_MORE = [
+["Anbara Dates (Jumbo)","Anbara Khajoor · अनबारा खजूर","dates",1850,"👑",3,"6–12 months","Saudi giant dates, among the largest & priciest in the world"],
+["Khudri Dates","Khudri Khajoor · ख़ुदरी खजूर","dates",430,"🌴",1,"6–9 months","Dark brown everyday Saudi dates; strong Ramzan demand"],
+["Segai Dates","Segai Khajoor · सेगई खजूर","dates",580,"🌴",2,"6 months","Two-tone dates — crunchy top, soft base; unique texture"],
+["Mazafati Dates (Bam)","Mazafati Khajoor · मज़ाफ़ती खजूर","dates",360,"🌴",1,"6 months","Iran's famous dark soft dates (Kimia type); melt-in-mouth"],
+["Piarom Dates","Piarom Khajoor · पियारोम खजूर","dates",720,"🌴",3,"9 months","Long slim 'chocolate dates' of Iran; premium dry variety"],
+["Kabkab Dates","Kabkab Khajoor · कबकब खजूर","dates",310,"🌴",2,"6 months","Honey-soft Iranian dates for sweets & daily eating"],
+["Pitted Seedless Dates","Bina Guthli Khajoor · बिना गुठली खजूर","dates",390,"🌴",1,"6 months","Ready-to-cook seedless dates for laddoo, shakes & baking"],
+];
+RAW.push(...EXTRA, ...MORE, ...DATES_MORE);
 export const LEVEL_TXT = {1:"⭐ Must-Have",2:"🔥 Popular",3:"💎 Premium / Exotic"};
 const CAT_IMG_POS = ["center","top","bottom","left","right"];
 
@@ -316,6 +327,7 @@ export const STOCK_MAP = [
   [["saffron","kesar"], U("1596040033229-a9821ebd058d")],
 ];
 export const CAT_STOCK = {
+  dates:U("1571115177098-24ec42ed204d"),
   nuts:U("1596591606975-97ee5cef3a1e"), berries:U("1490474418585-ba9bad8fd0ea"),
   seeds:U("1610725664285-7c57e6eeac3f"), chocolate:U("1549007994-cb92caebd54b"),
   snacks:U("1599599810769-bcde5a160d32"), gifts:U("1549465220-1a8b9238cd48"),

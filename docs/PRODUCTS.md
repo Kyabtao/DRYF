@@ -1,9 +1,9 @@
-# DRYF — Full Product List (247 products)
+# DRYF — Full Product List (254 products)
 
 Auto-generated from `assets/js/data/products.js` — run `npm run docs:products` to refresh.
 Prices are indicative demo prices per 500g (gift hampers per box). Stock photos: Unsplash (see `STOCK_MAP` in the data file), with local category photos as fallback.
 
-## 🌰 Dry Fruits & Nuts —  (42)
+## 🌰 Dry Fruits & Nuts —  (30)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -20,35 +20,48 @@ Prices are indicative demo prices per 500g (gift hampers per box). Stock photos:
 | 11 | 🍇 Black Raisins Seedless | Kali Kishmish · काली किशमिश | ₹340 | 🔥 Popular | 6 months |
 | 12 | 🍇 Green Long Raisins | Lambi Hari Kishmish · किशमिश | ₹310 | 🔥 Popular | 6 months |
 | 13 | 🍈 Dried Figs (Anjeer) | Anjeer · अंजीर | ₹850 | ⭐ Must-Have | 4–6 months |
-| 14 | 🌴 Medjool Dates Jumbo | Medjool Khajoor · खजूर | ₹950 | 🔥 Popular | 6–12 months |
-| 15 | 🕌 Ajwa Dates | Ajwa Khajoor · अजवा खजूर | ₹1600 | 💎 Premium | 6–12 months |
-| 16 | 🌴 Kimia / Soft Dates | Kimia Khajoor · खजूर | ₹290 | ⭐ Must-Have | 6 months |
-| 17 | 🍑 Dried Apricots Turkish | Khubani · खुबानी | ₹560 | 🔥 Popular | 6 months |
-| 18 | 🌰 Hazelnuts | Hazelnut · हेज़लनट | ₹890 | 💎 Premium | 6 months |
-| 19 | 🤍 Macadamia Nuts | Macadamia · मैकाडामिया | ₹1750 | 💎 Premium | 4–6 months |
-| 20 | 🌲 Pine Nuts (Chilgoza) | Chilgoza · चिलगोज़ा | ₹2900 | 💎 Premium | 3–4 months |
-| 21 | 🥧 Pecan Nuts | Pecan · पेकन | ₹1250 | 💎 Premium | 6 months |
-| 22 | 🌎 Brazil Nuts | Brazil Nut · ब्राज़ील नट | ₹1150 | 💎 Premium | 4–6 months |
-| 23 | 👑 Cashews W180 King Size | Kaju W180 · काजू W180 | ₹920 | 💎 Premium | 5–6 months |
-| 24 | 🌴 Safawi Dates | Safawi Khajoor · सफ़ावी खजूर | ₹620 | 🔥 Popular | 6–12 months |
-| 25 | 🌴 Sukkari Dates | Sukkari Khajoor · सुक्करी खजूर | ₹540 | 🔥 Popular | 6 months |
-| 26 | 🌴 Mabroom Dates | Mabroom Khajoor · मबरूम खजूर | ₹780 | 💎 Premium | 6–12 months |
-| 27 | 🌴 Zahidi Dates | Zahidi Khajoor · ज़ाहिदी खजूर | ₹220 | ⭐ Must-Have | 6–9 months |
-| 28 | 🔪 Almond Slices (Badam Katran) | Badam Katran · बादाम कतरन | ₹680 | 🔥 Popular | 4–6 months |
-| 29 | 🥜 Roasted Peanuts | Bhuni Moongphali · भुनी मूँगफली | ₹130 | ⭐ Must-Have | 3–4 months |
-| 30 | 🌰 Gurbandi Almonds | Gurbandi Badam · गुरबंदी बादाम | ₹540 | 🔥 Popular | 6–9 months |
-| 31 | ⚪ Blanched Almonds (Skinless) | Bina Chilka Badam · बिना छिलका बादाम | ₹700 | 🔥 Popular | 4–6 months |
-| 32 | 💚 California Pistachios Jumbo | California Pista · कैलिफ़ोर्निया पिस्ता | ₹760 | 🔥 Popular | 6 months |
-| 33 | 🧠 Kashmiri Mamra Walnut Kernels | Kashmiri Akhrot · कश्मीरी अखरोट | ₹980 | 💎 Premium | 4–6 months |
-| 34 | 🌴 Deglet Noor Dates | Deglet Khajoor · डेगलेट खजूर | ₹380 | 🔥 Popular | 9 months |
-| 35 | 🌴 Fard Dates | Fard Khajoor · फ़र्द खजूर | ₹340 | 🔥 Popular | 9 months |
-| 36 | 🌴 Barhi Dates | Barhi Khajoor · बरही खजूर | ₹860 | 💎 Premium | 6 months |
-| 37 | 🟡 Dry Dates Yellow (Chuara) | Peela Chuara · पीला छुआरा | ₹240 | ⭐ Must-Have | 9–12 months |
-| 38 | ⚫ Dry Dates Black (Chuara) | Kala Chuara · काला छुआरा | ₹260 | 🔥 Popular | 9–12 months |
-| 39 | 🌰 Water Chestnut Dry (Singhara) | Singhara · सिंघाड़ा | ₹320 | 🔥 Popular | 6 months |
-| 40 | 🥜 Raw Peanut Kernels | Kachhi Moongphali Dana · कच्ची मूँगफली | ₹110 | ⭐ Must-Have | 3–4 months |
-| 41 | 🥜 Cashew LWP (Broken) | Kaju LWP · काजू एलडब्ल्यूपी | ₹460 | 🔥 Popular | 5–6 months |
-| 42 | 🥜 Roasted Salted Cashews | Bhuna Kaju · भुना काजू | ₹720 | 🔥 Popular | 4 months |
+| 14 | 🍑 Dried Apricots Turkish | Khubani · खुबानी | ₹560 | 🔥 Popular | 6 months |
+| 15 | 🌰 Hazelnuts | Hazelnut · हेज़लनट | ₹890 | 💎 Premium | 6 months |
+| 16 | 🤍 Macadamia Nuts | Macadamia · मैकाडामिया | ₹1750 | 💎 Premium | 4–6 months |
+| 17 | 🌲 Pine Nuts (Chilgoza) | Chilgoza · चिलगोज़ा | ₹2900 | 💎 Premium | 3–4 months |
+| 18 | 🥧 Pecan Nuts | Pecan · पेकन | ₹1250 | 💎 Premium | 6 months |
+| 19 | 🌎 Brazil Nuts | Brazil Nut · ब्राज़ील नट | ₹1150 | 💎 Premium | 4–6 months |
+| 20 | 👑 Cashews W180 King Size | Kaju W180 · काजू W180 | ₹920 | 💎 Premium | 5–6 months |
+| 21 | 🔪 Almond Slices (Badam Katran) | Badam Katran · बादाम कतरन | ₹680 | 🔥 Popular | 4–6 months |
+| 22 | 🥜 Roasted Peanuts | Bhuni Moongphali · भुनी मूँगफली | ₹130 | ⭐ Must-Have | 3–4 months |
+| 23 | 🌰 Gurbandi Almonds | Gurbandi Badam · गुरबंदी बादाम | ₹540 | 🔥 Popular | 6–9 months |
+| 24 | ⚪ Blanched Almonds (Skinless) | Bina Chilka Badam · बिना छिलका बादाम | ₹700 | 🔥 Popular | 4–6 months |
+| 25 | 💚 California Pistachios Jumbo | California Pista · कैलिफ़ोर्निया पिस्ता | ₹760 | 🔥 Popular | 6 months |
+| 26 | 🧠 Kashmiri Mamra Walnut Kernels | Kashmiri Akhrot · कश्मीरी अखरोट | ₹980 | 💎 Premium | 4–6 months |
+| 27 | 🌰 Water Chestnut Dry (Singhara) | Singhara · सिंघाड़ा | ₹320 | 🔥 Popular | 6 months |
+| 28 | 🥜 Raw Peanut Kernels | Kachhi Moongphali Dana · कच्ची मूँगफली | ₹110 | ⭐ Must-Have | 3–4 months |
+| 29 | 🥜 Cashew LWP (Broken) | Kaju LWP · काजू एलडब्ल्यूपी | ₹460 | 🔥 Popular | 5–6 months |
+| 30 | 🥜 Roasted Salted Cashews | Bhuna Kaju · भुना काजू | ₹720 | 🔥 Popular | 4 months |
+
+## 🌴 Dates & Khajoor — खजूर (20)
+
+| # | Product | Hindi | Price ₹/500g | Level | Shelf life |
+|---|---|---|---:|---|---|
+| 1 | 🌴 Medjool Dates Jumbo | Medjool Khajoor · खजूर | ₹950 | 🔥 Popular | 6–12 months |
+| 2 | 🕌 Ajwa Dates | Ajwa Khajoor · अजवा खजूर | ₹1600 | 💎 Premium | 6–12 months |
+| 3 | 🌴 Kimia / Soft Dates | Kimia Khajoor · खजूर | ₹290 | ⭐ Must-Have | 6 months |
+| 4 | 🌴 Safawi Dates | Safawi Khajoor · सफ़ावी खजूर | ₹620 | 🔥 Popular | 6–12 months |
+| 5 | 🌴 Sukkari Dates | Sukkari Khajoor · सुक्करी खजूर | ₹540 | 🔥 Popular | 6 months |
+| 6 | 🌴 Mabroom Dates | Mabroom Khajoor · मबरूम खजूर | ₹780 | 💎 Premium | 6–12 months |
+| 7 | 🌴 Zahidi Dates | Zahidi Khajoor · ज़ाहिदी खजूर | ₹220 | ⭐ Must-Have | 6–9 months |
+| 8 | 🌴 Date Powder (Natural Sweetener) | Khajoor Powder · खजूर पाउडर | ₹340 | 🔥 Popular | 6 months |
+| 9 | 🌴 Deglet Noor Dates | Deglet Khajoor · डेगलेट खजूर | ₹380 | 🔥 Popular | 9 months |
+| 10 | 🌴 Fard Dates | Fard Khajoor · फ़र्द खजूर | ₹340 | 🔥 Popular | 9 months |
+| 11 | 🌴 Barhi Dates | Barhi Khajoor · बरही खजूर | ₹860 | 💎 Premium | 6 months |
+| 12 | 🟡 Dry Dates Yellow (Chuara) | Peela Chuara · पीला छुआरा | ₹240 | ⭐ Must-Have | 9–12 months |
+| 13 | ⚫ Dry Dates Black (Chuara) | Kala Chuara · काला छुआरा | ₹260 | 🔥 Popular | 9–12 months |
+| 14 | 👑 Anbara Dates (Jumbo) | Anbara Khajoor · अनबारा खजूर | ₹1850 | 💎 Premium | 6–12 months |
+| 15 | 🌴 Khudri Dates | Khudri Khajoor · ख़ुदरी खजूर | ₹430 | ⭐ Must-Have | 6–9 months |
+| 16 | 🌴 Segai Dates | Segai Khajoor · सेगई खजूर | ₹580 | 🔥 Popular | 6 months |
+| 17 | 🌴 Mazafati Dates (Bam) | Mazafati Khajoor · मज़ाफ़ती खजूर | ₹360 | ⭐ Must-Have | 6 months |
+| 18 | 🌴 Piarom Dates | Piarom Khajoor · पियारोम खजूर | ₹720 | 💎 Premium | 9 months |
+| 19 | 🌴 Kabkab Dates | Kabkab Khajoor · कबकब खजूर | ₹310 | 🔥 Popular | 6 months |
+| 20 | 🌴 Pitted Seedless Dates | Bina Guthli Khajoor · बिना गुठली खजूर | ₹390 | ⭐ Must-Have | 6 months |
 
 ## 🫐 Berries & Dried Fruits —  (31)
 
@@ -248,31 +261,30 @@ Prices are indicative demo prices per 500g (gift hampers per box). Stock photos:
 | 17 | 🔶 Shakarpara (Mewa) | Shakarpara · शकरपारा | ₹180 | ⭐ Must-Have | 1–2 months |
 | 18 | 🍡 Panjeeri Laddoo | Panjeeri Laddoo · पंजीरी लड्डू | ₹460 | 🔥 Popular | 1 month |
 
-## 🍯 Health Pantry & More — हेल्थ पैंट्री (21)
+## 🍯 Health Pantry & More — हेल्थ पैंट्री (20)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
-| 1 | 🌴 Date Powder (Natural Sweetener) | Khajoor Powder · खजूर पाउडर | ₹340 | 🔥 Popular | 6 months |
-| 2 | 🍯 Pure Raw Honey 500g | Shahad · शहद | ₹349 | ⭐ Must-Have | 18 months |
-| 3 | 🟠 Kesar Saffron 1g | Kesar · केसर | ₹599 | 🔥 Popular | 12 months |
-| 4 | 💚 Green Cardamom 8mm | Hari Elaichi · हरी इलायची | ₹1450 | 🔥 Popular | 9–12 months |
-| 5 | 🥜 Peanut Butter Creamy | Peanut Butter · पीनट बटर | ₹249 | ⭐ Must-Have | 9 months |
-| 6 | 🌰 Almond Butter | Badam Butter · बादाम बटर | ₹549 | 💎 Premium | 6 months |
-| 7 | 🥣 Rolled Oats | Oats · ओट्स | ₹160 | ⭐ Must-Have | 12 months |
-| 8 | 🥣 Fruit & Nut Granola | Granola · ग्रेनोला | ₹329 | 🔥 Popular | 6 months |
-| 9 | 👶 Kids Dry Fruit Powder | Baccho ka Mewa Powder · बच्चों का मेवा पाउडर | ₹399 | 🔥 Popular | 3 months |
-| 10 | 🥛 Kesar Badam Milk Mix | Badam Doodh Mix · बादाम दूध मिक्स | ₹349 | ⭐ Must-Have | 6 months |
-| 11 | ❄️ Thandai Powder | Thandai Masala · ठंडाई पाउडर | ₹299 | 🔥 Popular | 6 months |
-| 12 | 🟡 Turmeric Latte Mix (Haldi Doodh) | Haldi Doodh Mix · हल्दी दूध मिक्स | ₹279 | 💎 Premium | 9 months |
-| 13 | 🟤 Jaggery Powder (Desi Gud) | Gud Powder · गुड़ पाउडर | ₹130 | ⭐ Must-Have | 9 months |
-| 14 | 🥥 Coconut Sugar | Nariyal Cheeni · नारियल चीनी | ₹280 | 💎 Premium | 9 months |
-| 15 | 🧂 Pink Salt (Sendha Namak) | Sendha Namak · सेंधा नमक | ₹90 | ⭐ Must-Have | 24 months |
-| 16 | 🌹 Dry Rose Petals (Gulab) | Gulab Pankhudi · गुलाब पंखुड़ी | ₹240 | 🔥 Popular | 6 months |
-| 17 | 🌿 Moringa Powder | Sahjan Powder · सहजन पाउडर | ₹260 | 🔥 Popular | 9 months |
-| 18 | 🌿 Ashwagandha Powder | Ashwagandha · अश्वगंधा | ₹290 | 🔥 Popular | 12 months |
-| 19 | 🌿 Triphala Powder | Triphala · त्रिफला | ₹180 | ⭐ Must-Have | 12 months |
-| 20 | 🍵 Green Tea Leaves (Whole Leaf) | Green Tea · ग्रीन टी | ₹340 | ⭐ Must-Have | 12 months |
-| 21 | 🌿 Dried Mint Leaves (Pudina) | Sukha Pudina · सूखा पुदीना | ₹120 | 🔥 Popular | 6 months |
+| 1 | 🍯 Pure Raw Honey 500g | Shahad · शहद | ₹349 | ⭐ Must-Have | 18 months |
+| 2 | 🟠 Kesar Saffron 1g | Kesar · केसर | ₹599 | 🔥 Popular | 12 months |
+| 3 | 💚 Green Cardamom 8mm | Hari Elaichi · हरी इलायची | ₹1450 | 🔥 Popular | 9–12 months |
+| 4 | 🥜 Peanut Butter Creamy | Peanut Butter · पीनट बटर | ₹249 | ⭐ Must-Have | 9 months |
+| 5 | 🌰 Almond Butter | Badam Butter · बादाम बटर | ₹549 | 💎 Premium | 6 months |
+| 6 | 🥣 Rolled Oats | Oats · ओट्स | ₹160 | ⭐ Must-Have | 12 months |
+| 7 | 🥣 Fruit & Nut Granola | Granola · ग्रेनोला | ₹329 | 🔥 Popular | 6 months |
+| 8 | 👶 Kids Dry Fruit Powder | Baccho ka Mewa Powder · बच्चों का मेवा पाउडर | ₹399 | 🔥 Popular | 3 months |
+| 9 | 🥛 Kesar Badam Milk Mix | Badam Doodh Mix · बादाम दूध मिक्स | ₹349 | ⭐ Must-Have | 6 months |
+| 10 | ❄️ Thandai Powder | Thandai Masala · ठंडाई पाउडर | ₹299 | 🔥 Popular | 6 months |
+| 11 | 🟡 Turmeric Latte Mix (Haldi Doodh) | Haldi Doodh Mix · हल्दी दूध मिक्स | ₹279 | 💎 Premium | 9 months |
+| 12 | 🟤 Jaggery Powder (Desi Gud) | Gud Powder · गुड़ पाउडर | ₹130 | ⭐ Must-Have | 9 months |
+| 13 | 🥥 Coconut Sugar | Nariyal Cheeni · नारियल चीनी | ₹280 | 💎 Premium | 9 months |
+| 14 | 🧂 Pink Salt (Sendha Namak) | Sendha Namak · सेंधा नमक | ₹90 | ⭐ Must-Have | 24 months |
+| 15 | 🌹 Dry Rose Petals (Gulab) | Gulab Pankhudi · गुलाब पंखुड़ी | ₹240 | 🔥 Popular | 6 months |
+| 16 | 🌿 Moringa Powder | Sahjan Powder · सहजन पाउडर | ₹260 | 🔥 Popular | 9 months |
+| 17 | 🌿 Ashwagandha Powder | Ashwagandha · अश्वगंधा | ₹290 | 🔥 Popular | 12 months |
+| 18 | 🌿 Triphala Powder | Triphala · त्रिफला | ₹180 | ⭐ Must-Have | 12 months |
+| 19 | 🍵 Green Tea Leaves (Whole Leaf) | Green Tea · ग्रीन टी | ₹340 | ⭐ Must-Have | 12 months |
+| 20 | 🌿 Dried Mint Leaves (Pudina) | Sukha Pudina · सूखा पुदीना | ₹120 | 🔥 Popular | 6 months |
 
 ## 🌶️ Whole Spices & Masalas — साबुत मसाले (16)
 
