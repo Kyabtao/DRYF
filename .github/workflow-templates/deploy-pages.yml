@@ -1,0 +1,73 @@
+# =====================================================================
+#  DRYF — GitHub Pages deployment workflow  (TEMPORARY TEMPLATE)
+# =====================================================================
+#  Status: TEMPLATE — stored outside .github/workflows/ on purpose.
+#  ACTIVATE: copy this file to  .github/workflows/deploy-pages.yml
+#  After that, it runs when you start it manually:
+#     GitHub repo → Actions tab → "Deploy DRYF to GitHub Pages" → Run workflow
+#
+#  ▶ To make deployment AUTOMATIC on every push to main, uncomment:
+#       push:
+#         branches: ["main"]
+#    under `on:` below (and delete the note lines).
+#
+#  ▶ Before first deploy, enable Pages once:
+#     Repo → Settings → Pages → Build and deployment → Source: "GitHub Actions"
+#
+#  ▶ To use a different branch/folder, edit `branches:` and the
+#    `path:` in the upload step. Full guide: docs/DEPLOYMENT.md
+# =====================================================================
+
+name: Deploy DRYF to GitHub Pages (template)
+
+on:
+  # Manual trigger only (temporary template mode)
+  workflow_dispatch:
+  # --- Uncomment for automatic deployment ---
+  # push:
+  #   branches: ["main"]
+  # pull_request:            # optional: build-check only on PRs
+  #   branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    name: Audit (100+ checks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run full audit
+        run: node scripts/audit.mjs
+
+  deploy:
+    name: Deploy static site
+    needs: audit
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."          # static site is served from repo root (index.html)
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

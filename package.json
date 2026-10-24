@@ -1,0 +1,14 @@
+{
+  "name": "dryf-store",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "DRYF — demo e-commerce store for dry fruits, seeds, chocolates, spices & more (static site, no build step)",
+  "scripts": {
+    "start": "python3 -m http.server 8000 --bind 0.0.0.0",
+    "audit": "node scripts/audit.mjs",
+    "docs:products": "node scripts/generate-products-doc.mjs",
+    "check": "node --check assets/js/app.js && node --check assets/js/data/products.js && node scripts/audit.mjs"
+  },
+  "engines": { "node": ">=18" }
+}
