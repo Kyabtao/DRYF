@@ -2,12 +2,28 @@ import { CATS, products, LEVEL_TXT, packPrice, packMRP, PACKS_FOR } from './data
 
 /* ============ STATE ============ */
 let activeCat = "all", query = "", sortBy = "popular", levelFilter = "all";
-let myList = new Set(JSON.parse(localStorage.getItem("dryf-list")||"[]"));
-/* cart: key = `${id}|${pack}` -> qty */
-let cart = JSON.parse(localStorage.getItem("dryf-cart")||"{}");
-let wishlist = new Set(JSON.parse(localStorage.getItem("dryf-wish")||"[]"));
-let orders = JSON.parse(localStorage.getItem("dryf-orders")||"[]");
-let coupon = null, langHindi = localStorage.getItem("dryf-lang")==="hi";
+/* Safe localStorage parsing: corrupted/old saved data must never crash
+   the store or resurrect stale state (e.g. an old cart/success flag). */
+function safeParse(key, fallback){
+  try { const v = JSON.parse(localStorage.getItem(key)); return (v===null||v===undefined) ? fallback : v; }
+  catch { return fallback; }
+}
+const validId = id => Number.isInteger(+id) && !!products[+id];
+let myList = new Set((Array.isArray(safeParse("dryf-list",[])) ? safeParse("dryf-list",[]) : []).filter(validId).map(Number));
+/* cart: key = `${id}|${pack}` -> qty — keep only entries that still exist */
+let cart = {};
+const savedCart = safeParse("dryf-cart", {});
+if (savedCart && typeof savedCart === "object" && !Array.isArray(savedCart)) {
+  Object.entries(savedCart).forEach(([k,qty])=>{
+    const [id,pack] = k.split("|");
+    if (validId(id) && PACKS_FOR(products[+id]).includes(pack) && +qty > 0) cart[k] = Math.floor(+qty);
+  });
+}
+let wishlist = new Set((Array.isArray(safeParse("dryf-wish",[])) ? safeParse("dryf-wish",[]) : []).filter(validId).map(Number));
+let orders = (Array.isArray(safeParse("dryf-orders",[])) ? safeParse("dryf-orders",[]) : [])
+  .filter(o => o && typeof o === "object" && o.id && Number.isFinite(+o.total));
+function safeRaw(key){ try { return localStorage.getItem(key); } catch { return null; } }
+let coupon = null, langHindi = safeRaw("dryf-lang")==="hi";
 const COUPONS = {
   DRYF10:{desc:"10% OFF applied 🎉", calc:(sub)=>Math.round(sub*0.10)},
   FESTIVE15:{desc:"15% OFF above ₹1,999 applied 🎉", calc:(sub)=> sub>=1999?Math.round(sub*0.15):0},
@@ -434,8 +450,12 @@ const cio = new IntersectionObserver(es=>es.forEach(e=>{
 document.querySelectorAll("[data-count]").forEach(el=>cio.observe(el));
 /* re-observe dynamically added category cards */
 setTimeout(()=>document.querySelectorAll(".cat-card.reveal").forEach(el=>io.observe(el)),50);
-document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeDrawer(); $("#modalWrap").hidden=true; } });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeDrawer(); ["modalWrap","checkoutWrap","successWrap"].forEach(id=>{ document.getElementById(id).hidden=true; }); } });
 
-/* init */
+/* init — modals must NEVER be open on page load; they open only on user
+   action (product click / checkout / order placed). The CSS [hidden] rule
+   enforces this too, this is defence-in-depth. */
+["modalWrap","checkoutWrap","successWrap"].forEach(id=>{ document.getElementById(id).hidden = true; });
+closeDrawer();
 $("#langToggle").textContent = langHindi ? "हिंदी / EN" : "अ / EN";
 renderPills(); render(); renderCart(); renderOrders(); updateCounts(false);

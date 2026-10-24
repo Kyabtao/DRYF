@@ -5,6 +5,10 @@
   --radius:20px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+/* The `hidden` attribute must always win — component classes like
+   .modal-wrap{display:grid} and .bill>div{display:flex} would otherwise
+   override it and show modals/rows on page load (regression fix). */
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);overflow-x:hidden}
 img{max-width:100%;display:block}
