@@ -32,6 +32,14 @@ check("html declares lang + viewport + charset",
   html.includes('lang="en"') && html.includes("viewport") && html.includes("UTF-8"));
 ["catalogue", "deals", "categories", "packs", "cartBtnTop", "checkoutForm", "successWrap", "productGrid"]
   .forEach(id => check(`html has #${id}`, html.includes(`id="${id}"`)));
+/* Regression: popups must never be visible on page load. Component classes
+   (.modal-wrap{display:grid}, .bill>div{display:flex}) override the plain
+   `hidden` attribute, so a global [hidden] rule is mandatory. */
+const cssText = readFileSync("assets/css/styles.css", "utf8");
+check("css: global [hidden] rule wins over component display", /\[hidden\]\s*\{\s*display:\s*none\s*!important/.test(cssText));
+["modalWrap", "checkoutWrap", "successWrap", "overlay", "emptyState"]
+  .forEach(id => check(`html: #${id} starts hidden`, new RegExp(`id="${id}"[^>]*\\bhidden\\b`).test(html)));
+check("html: coupon row starts hidden (bill row override)", new RegExp(`id="couponRow"[^>]*\\bhidden\\b`).test(html));
 
 /* ---------- 3. Category integrity ---------- */
 const catKeys = Object.keys(CATS);
@@ -90,6 +98,10 @@ const app = readFileSync("assets/js/app.js", "utf8");
   .forEach(fn => check(`app.js implements ${fn}`, app.includes(fn)));
 check("app.js persists cart in localStorage", app.includes('localStorage.setItem("dryf-cart"'));
 check("app.js has image fallback (onerror)", app.includes("onerror"));
+check("app.js: safe localStorage parsing (no direct key-by-key JSON.parse)", app.includes("function safeParse") && !/JSON\.parse\(localStorage\.getItem\("dryf-/.test(app));
+check("app.js: modals forced hidden on init (never auto-open)", app.includes('"modalWrap","checkoutWrap","successWrap"'));
+check("app.js: success screen only shown from checkout submit handler",
+  (app.match(/successWrap"\)\.hidden=false/g) || []).length === 1);
 
 /* ---------- Report ---------- */
 const passed = run - failures.length;
