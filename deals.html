@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deals & Combo Offers — DRYF</title>
+<meta name="description" content="Deals of the day, coupon offers and ready combo packs at DRYF demo store.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌰</text></svg>">
+</head>
+<body data-page="deals">
+<div id="site-header"></div>
+
+<section class="section deals" id="deals">
+  <div class="section-head reveal in">
+    <span class="eyebrow dark">Limited time</span>
+    <h2>🔥 Deals of the Day</h2>
+    <p>Extra discount prices, auto-applied in cart. <b>Demo ends in <span id="dealTimer" class="timer">--:--:--</span></b></p>
+  </div>
+  <div class="deal-row wrap-row" id="dealRow"></div>
+  <div class="offer-strip reveal in">
+    <div>🎟️ <b>DRYF10</b><span>10% OFF on everything</span></div>
+    <div>🎉 <b>FESTIVE15</b><span>15% OFF above ₹1,999</span></div>
+    <div>👋 <b>FIRSTBUY</b><span>₹100 OFF above ₹799</span></div>
+    <div>🚚 <b>FREESHIP</b><span>Free delivery on any order</span></div>
+  </div>
+</section>
+
+<section class="section packs" id="packs">
+  <div class="section-head reveal in">
+    <span class="eyebrow dark">Value combos</span>
+    <h2>Ready Combo Packs 🎁</h2>
+    <p>One click adds a full combo to your <b>cart</b> — or to your Store Opening List if you're planning a shop.</p>
+  </div>
+  <div class="pack-grid">
+    <article class="pack reveal in">
+      <div class="pack-tag">Beginner Friendly</div>
+      <h3>🟢 Daily Health Combo</h3>
+      <p class="pack-price">All Must-Have bestsellers</p>
+      <ul><li>Badam, kaju, kishmish, khajoor &amp; daily seeds</li><li>Best for first-time buyers</li><li>Lowest price, everyday use</li></ul>
+      <button class="btn btn-dark pack-btn" data-pack="1" data-target="cart">🛒 Add Combo to Cart</button>
+      <button class="btn btn-light pack-btn ghost-btn" data-pack="1" data-target="list">🧺 Add to Store List instead</button>
+    </article>
+    <article class="pack featured reveal in">
+      <div class="pack-tag gold">Most Chosen ★</div>
+      <h3>🟡 Family Complete Pack</h3>
+      <p class="pack-price">Bestsellers + Popular range</p>
+      <ul><li>Everything in Daily Health, plus berries &amp; flavours</li><li>Roasted, masala &amp; chocolate favourites</li><li>Full month's family stock</li></ul>
+      <button class="btn btn-gold pack-btn" data-pack="2" data-target="cart">🛒 Add Combo to Cart</button>
+      <button class="btn btn-light pack-btn ghost-btn" data-pack="2" data-target="list">🧺 Add to Store List instead</button>
+    </article>
+    <article class="pack reveal in">
+      <div class="pack-tag">Premium</div>
+      <h3>🔴 Premium Festive Pack</h3>
+      <p class="pack-price">Full range incl. exotic</p>
+      <ul><li>Mamra, Medjool, Ajwa, chilgoza, kesar &amp; truffles</li><li>Gift hampers &amp; premium berries</li><li>Best for festivals &amp; gifting</li></ul>
+      <button class="btn btn-dark pack-btn" data-pack="3" data-target="cart">🛒 Add Everything to Cart</button>
+      <button class="btn btn-light pack-btn ghost-btn" data-pack="3" data-target="list">🧺 Add to Store List instead</button>
+    </article>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-overlays"></div>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

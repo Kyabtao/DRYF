@@ -6,13 +6,22 @@ presentation and tooling are fully separated.
 ## Folder structure
 ```
 .
-├── index.html                  # Entry point (markup + page sections)
+├── index.html                  # HOME page (hero, previews — not the full catalogue)
+├── shop.html                   # SHOP page: all 247 products, search/filter/sort (?cat=, ?q=)
+├── categories.html             # ALL CATEGORIES page
+├── category.html               # CATEGORY template page: category.html?cat=nuts
+├── deals.html                  # DEALS + combo packs page
+├── product.html                # PRODUCT template page: product.html?id=123
+├── guide.html                  # STORE GUIDE + My Demo Orders page
+├── sitemap.xml                 # Page list for search engines / Pages deploy
 ├── assets/
 │   ├── css/
 │   │   └── styles.css          # All presentation (design system + components)
 │   ├── js/
-│   │   ├── app.js              # Application logic (ES module): state, cart,
-│   │   │                       # checkout, wishlist, i18n toggle, rendering
+│   │   ├── layout.js           # SHARED layout: header/footer/cart drawer/popups
+│   │   │                       # mounted into every page (single source of truth)
+│   │   ├── app.js              # Application logic (ES module): page routing,
+│   │   │                       # state, cart, checkout, wishlist, i18n, rendering
 │   │   └── data/
 │   │       └── products.js     # DATA LAYER (ES module): categories, 247 products,
 │   │                           # pricing rules, Unsplash stock-photo mapping
@@ -33,6 +42,17 @@ presentation and tooling are fully separated.
 ├── .editorconfig · .gitignore · .nojekyll
 └── README.md
 ```
+
+## Pages & routing
+This is a multi-page static site (no SPA router, no build step). Each page is a
+real `.html` file with `<body data-page="…">` and three placeholders
+(`#site-header`, `#site-footer`, `#site-overlays`) that `layout.js` fills with
+the shared chrome, so the nav/cart/popups exist identically on all pages.
+`app.js` reads `data-page` + the query string and renders only what that page
+needs, e.g. `category.html?cat=spices` renders the spices hero + its 16
+products, and `product.html?id=42` renders that product + related items.
+All app state (cart/wishlist/orders) is in `localStorage`, so it survives
+moving between pages.
 
 ## Design decisions
 - **No framework / no build step** — plain HTML + CSS + ES modules. Deploys anywhere

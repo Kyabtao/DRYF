@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Products — DRYF</title>
+<meta name="description" content="Shop 247 dry fruits, seeds, chocolates, spices & more with Hindi names, pack sizes and demo cart.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌰</text></svg>">
+</head>
+<body data-page="shop">
+<div id="site-header"></div>
+
+<section class="section catalogue" id="catalogue">
+  <div class="section-head reveal in">
+    <span class="eyebrow dark">Shop all products</span>
+    <h2>🛍️ Shop Dry Fruits, Seeds &amp; More</h2>
+    <p>Every product shows <b>English + Hindi name</b>, price per pack, discount &amp; rating. Choose pack size, tap <b>🛒 Add to Cart</b> — click a product to open its <b>full product page</b>.</p>
+  </div>
+
+  <div class="toolbar reveal in">
+    <div class="search-box">🔍 <input id="searchInput" type="search" placeholder="Search badam, बादाम, kaju, chia, kesar…"></div>
+    <select id="sortSelect" aria-label="Sort items">
+      <option value="popular">Sort: Most Popular</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="discount">Discount: High → Low</option>
+      <option value="az">Name: A → Z</option>
+      <option value="rating">Top Rated</option>
+    </select>
+    <select id="levelSelect" aria-label="Filter by type">
+      <option value="all">All types</option>
+      <option value="1">⭐ Bestseller / Must-Have</option>
+      <option value="2">Popular & above</option>
+      <option value="3">💎 Premium / Exotic only</option>
+    </select>
+  </div>
+
+  <div class="pills" id="pillRow"></div>
+  <p class="result-line" id="resultLine"></p>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty" id="emptyState" hidden>
+    <div>🔍</div><h3>No item found</h3><p>Try Hindi names too — “बादाम”, “काजू”, “अंजीर”, “केसर”, “सब्जा”.</p>
+    <button class="btn btn-gold" id="clearFilters">Clear search &amp; filters</button>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<div id="site-overlays"></div>
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

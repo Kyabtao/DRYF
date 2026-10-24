@@ -13,33 +13,53 @@ function check(label, ok) { run++; if (!ok) failures.push(label); }
 const hasDeva = s => /[\u0900-\u097F]/.test(s || "");
 
 /* ---------- 1. Project structure (files a real project must have) ---------- */
+const PAGES = ["index.html","shop.html","categories.html","category.html","deals.html","product.html","guide.html"];
 const FILES = [
-  "index.html", "README.md", "package.json", ".gitignore", ".editorconfig", ".nojekyll",
-  "assets/css/styles.css", "assets/js/app.js", "assets/js/data/products.js",
+  ...PAGES, "sitemap.xml",
+  "README.md", "package.json", ".gitignore", ".editorconfig", ".nojekyll",
+  "assets/css/styles.css", "assets/js/app.js", "assets/js/layout.js", "assets/js/data/products.js",
   "assets/images/hero.jpg", "docs/ARCHITECTURE.md", "docs/DEPLOYMENT.md",
   ".github/workflow-templates/deploy-pages.yml", "scripts/audit.mjs", "scripts/generate-products-doc.mjs",
 ];
 FILES.forEach(f => check(`file exists: ${f}`, existsSync(f)));
 
-/* ---------- 2. HTML wiring ---------- */
+/* ---------- 2. Multi-page HTML wiring ---------- */
 const html = readFileSync("index.html", "utf8");
-check("html links organised css", html.includes("assets/css/styles.css"));
-check("html loads app as ES module", html.includes('type="module" src="assets/js/app.js"'));
-check("html hero uses organised image", html.includes("assets/images/hero.jpg"));
-check("html has no old root script.js reference", !html.includes('src="script.js"'));
-check("html has no old root styles.css reference", !html.includes('href="styles.css"'));
-check("html declares lang + viewport + charset",
-  html.includes('lang="en"') && html.includes("viewport") && html.includes("UTF-8"));
-["catalogue", "deals", "categories", "packs", "cartBtnTop", "checkoutForm", "successWrap", "productGrid"]
-  .forEach(id => check(`html has #${id}`, html.includes(`id="${id}"`)));
+const layout = readFileSync("assets/js/layout.js", "utf8");
+const allPages = Object.fromEntries(PAGES.map(f => [f, readFileSync(f, "utf8")]));
+const siteText = Object.values(allPages).join("\n") + layout;
+PAGES.forEach(f => {
+  const h = allPages[f];
+  check(`${f}: links organised css`, h.includes("assets/css/styles.css"));
+  check(`${f}: loads app as ES module`, h.includes('type="module" src="assets/js/app.js"'));
+  check(`${f}: declares lang + viewport + charset`, h.includes('lang="en"') && h.includes("viewport") && h.includes("UTF-8"));
+  check(`${f}: has shared layout placeholders`, h.includes('id="site-header"') && h.includes('id="site-footer"') && h.includes('id="site-overlays"'));
+  check(`${f}: declares a data-page`, /<body data-page="(home|shop|categories|category|deals|product|guide)">/.test(h));
+  check(`${f}: no old root script.js/styles.css references`, !h.includes('src="script.js"') && !h.includes('href="styles.css"'));
+});
+check("index hero uses organised image", html.includes("assets/images/hero.jpg"));
+check("home is a landing page (no full 247-product grid)", html.includes('id="featuredGrid"') && !html.includes('id="productGrid"'));
+check("shop page hosts the full product grid", allPages["shop.html"].includes('id="productGrid"') && allPages["shop.html"].includes('id="pillRow"'));
+check("categories page hosts the category grid", allPages["categories.html"].includes('id="catGrid"'));
+check("category page is a dynamic template (?cat=)", allPages["category.html"].includes('id="catHero"') && allPages["category.html"].includes('id="productGrid"'));
+check("product page is a dynamic template (?id=)", allPages["product.html"].includes('id="productDetail"') && allPages["product.html"].includes('id="relatedGrid"'));
+check("deals page hosts deals + combos", allPages["deals.html"].includes('id="dealRow"') && allPages["deals.html"].includes('id="packs"'));
+check("guide page hosts store guide + orders", allPages["guide.html"].includes('id="myOrdersBox"'));
+check("layout mounts shared header/footer/overlays", ["mountLayout","site-header","site-footer","site-overlays"].every(s=>layout.includes(s)));
+["index.html","shop.html","categories.html","deals.html","guide.html"].forEach(f =>
+  check(`layout nav links to ${f}`, layout.includes(`"${f}"`) || layout.includes(`href="${f}"`) || layout.includes(f)));
+Object.keys(CATS).forEach(k =>
+  check(`layout links to category page: ${k}`, layout.includes("category.html?cat=${k}") || layout.includes(`category.html?cat=${k}`)));
+check("sitemap lists main pages", ["shop.html","categories.html","deals.html","guide.html"].every(pg => readFileSync("sitemap.xml","utf8").includes(pg)));
 /* Regression: popups must never be visible on page load. Component classes
    (.modal-wrap{display:grid}, .bill>div{display:flex}) override the plain
    `hidden` attribute, so a global [hidden] rule is mandatory. */
 const cssText = readFileSync("assets/css/styles.css", "utf8");
 check("css: global [hidden] rule wins over component display", /\[hidden\]\s*\{\s*display:\s*none\s*!important/.test(cssText));
-["modalWrap", "checkoutWrap", "successWrap", "overlay", "emptyState"]
-  .forEach(id => check(`html: #${id} starts hidden`, new RegExp(`id="${id}"[^>]*\\bhidden\\b`).test(html)));
-check("html: coupon row starts hidden (bill row override)", new RegExp(`id="couponRow"[^>]*\\bhidden\\b`).test(html));
+["modalWrap", "checkoutWrap", "successWrap", "overlay"]
+  .forEach(id => check(`layout: #${id} starts hidden`, new RegExp(`id="${id}"[^>]*\\bhidden\\b`).test(layout)));
+check("layout: coupon row starts hidden (bill row override)", new RegExp(`id="couponRow"[^>]*\\bhidden\\b`).test(layout));
+check("layout: product modal links to the full product page", layout.includes('id="modalFullPage"'));
 
 /* ---------- 3. Category integrity ---------- */
 const catKeys = Object.keys(CATS);
@@ -100,6 +120,11 @@ check("app.js persists cart in localStorage", app.includes('localStorage.setItem
 check("app.js has image fallback (onerror)", app.includes("onerror"));
 check("app.js: safe localStorage parsing (no direct key-by-key JSON.parse)", app.includes("function safeParse") && !/JSON\.parse\(localStorage\.getItem\("dryf-/.test(app));
 check("app.js: modals forced hidden on init (never auto-open)", app.includes('"modalWrap","checkoutWrap","successWrap"'));
+["mountLayout", "renderCategoryPage", "renderProductPage", "renderFeatured", "renderRelated", "initPageState", "category.html?cat=", "product.html?id="]
+  .forEach(fn => check(`app.js multi-page: ${fn}`, app.includes(fn)));
+check("app.js: category cards navigate to category pages", app.includes("data-catlink"));
+check("app.js: product cards navigate to product pages", app.includes("product.html?id=${el.dataset.open}"));
+check("app.js: page-optional controls are guarded", app.includes('if(_si)') && app.includes('if (!grid) return') && app.includes('if (!$("#pillRow")) return'));
 check("app.js: success screen only shown from checkout submit handler",
   (app.match(/successWrap"\)\.hidden=false/g) || []).length === 1);
 

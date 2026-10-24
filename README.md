@@ -24,6 +24,20 @@ package.json · .editorconfig · .gitignore · .nojekyll
 ```
 Full details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
+## 🌐 Pages (no more one long page)
+| Page | What is on it |
+|---|---|
+| `index.html` | Home — hero, deals preview, category shelves, 8 bestsellers, how ordering works |
+| `shop.html` | Shop All — full 247 products with search / filter / sort (supports `?cat=` and `?q=` links) |
+| `categories.html` | All 9 categories |
+| `category.html?cat=nuts` | One category's own page (hero, chips to other categories, its products only) |
+| `deals.html` | Deals of the Day (20), coupon offers & combo packs |
+| `product.html?id=0` | One product's full page — packs, quantity, wishlist, related products |
+| `guide.html` | Store Guide — open-your-store checklist, name ideas, My Demo Orders |
+
+Header, footer, cart drawer and popups are shared by every page from one file:
+`assets/js/layout.js` — edit once, changes everywhere. Cart & wishlist persist across pages.
+
 ## 🛒 Demo e-commerce features
 Add to Cart with 250g/500g/1kg packs · MRP & % OFF · Deals of the Day + countdown ·
 coupons `DRYF10` / `FESTIVE15` / `FIRSTBUY` / `FREESHIP` · free delivery above ₹999 ·
