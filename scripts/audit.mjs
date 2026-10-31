@@ -144,7 +144,7 @@ check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/bar
   products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki") &&
   products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
   products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
-  products.find(p=>p.name==="Banana Chips")?.img.includes("products/namkeen"));
+  products.find(p=>p.name==="Ragi Chips")?.img.includes("products/namkeen"));
 check("specific photos: stuffed/dry-dates/soan/hot-choc/apricot/sabja/quinoa/amla/cumin/chilli",
   products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates") &&
   products.find(p=>p.name.startsWith("Dry Dates Yellow"))?.img.includes("products/dry-dates") &&
@@ -171,6 +171,18 @@ check("specific photos: Ajwa/turmeric/mishri/gujiya/panjeeri/bites/seed-mix/milk
   products.find(p=>p.name==="White Chocolate")?.img.includes("products/milk-chocolate") &&
   products.find(p=>p.name==="Pink Salt (Sendha Namak)")?.img.includes("products/pink-salt") &&
   products.find(p=>p.name==="Water Chestnut Dry (Singhara)")?.img.includes("products/singhara"));
+check("specific photos: medjool/golden-dates/hamper/dates-gift/banana-chips/khakhra/cookies/wafer/sauce/fennel",
+  products.find(p=>p.name==="Medjool Dates Jumbo")?.img.includes("products/medjool-dates") &&
+  products.find(p=>p.name==="Sukkari Dates")?.img.includes("products/golden-dates") &&
+  products.find(p=>p.name==="Luxury Wedding Hamper")?.img.includes("products/luxury-hamper") &&
+  products.find(p=>p.name==="Ramadan Dates Gift Box")?.img.includes("products/dates-gift-box") &&
+  products.find(p=>p.name==="Essential Dry Fruit Box 500g")?.img.endsWith("categories/gift.jpg") &&
+  products.find(p=>p.name==="Banana Chips")?.img.includes("products/banana-chips") &&
+  products.find(p=>p.name==="Multigrain Khakhra")?.img.includes("products/khakhra.jpg") &&
+  products.find(p=>p.name==="Dry Fruit Cookies")?.img.includes("products/cookies") &&
+  products.find(p=>p.name==="Wafer Chocolate Sticks")?.img.includes("products/wafer-sticks") &&
+  products.find(p=>p.name==="Chocolate Sauce (Bottle)")?.img.includes("products/chocolate-sauce") &&
+  products.find(p=>p.name==="Fennel Seeds (Saunf)")?.img.includes("products/fennel-seeds"));
 check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
   products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
   products.find(p=>p.name==="Dried Mango Slices")?.img.includes("products/dried-fruits") &&

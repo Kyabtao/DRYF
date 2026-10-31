@@ -311,6 +311,10 @@ export const PRODUCT_IMG_MAP = [
   [["panjeeri"], P("panjeeri.jpg")],
   [["bites", "fruit roll", "pista roll"], P("dry-fruit-bites.jpg")],
   [["turmeric fingers", "haldi gattha", "dry ginger", "sonth"], P("turmeric-ginger.jpg")],
+  [["medjool", "anbara"], P("medjool-dates.jpg")],
+  [["sukkari", "zahidi", "barhi"], P("golden-dates.jpg")],
+  [["wedding", "corporate", "anniversary"], P("luxury-hamper.jpg")],
+  [["ramadan", "eid"], P("dates-gift-box.jpg")],
   /* category-true shelves next: their photos already show the right food */
   [["__cat:sweets"], "assets/images/categories/sweets.jpg"],
   [["__cat:gifts"], "assets/images/categories/gift.jpg"],
@@ -334,6 +338,8 @@ export const PRODUCT_IMG_MAP = [
   [["dark chocolate"], P("dark-chocolate.jpg")],
   [["truffle", "praline", "centre-filled", "center-filled", "fudge"], P("truffles.jpg")],
   [["cocoa", "choco chips", "callets", "cacao nibs", "compound chocolate"], P("cocoa-baking.jpg")],
+  [["wafer"], P("wafer-sticks.jpg")],
+  [["chocolate sauce", "sauce"], P("chocolate-sauce.jpg")],
   [["milk chocolate", "white chocolate", "ruby chocolate"], P("milk-chocolate.jpg")],
   [["chocolate", "choco", "cacao", "wafer"], "assets/images/categories/chocolate.jpg"],
   [["hazelnut", "macadamia", "pecan", "brazil", "chilgoza", "pine nut"], P("exotic-nuts.jpg")],
@@ -347,6 +353,7 @@ export const PRODUCT_IMG_MAP = [
   [["watermelon", "muskmelon", "magaj", "cucumber seed"], P("magaj-seeds.jpg")],
   [["sabja", "basil seed"], P("sabja-seeds.jpg")],
   [["quinoa"], P("quinoa.jpg")],
+  [["fennel", "saunf"], P("fennel-seeds.jpg")],
   [["seed mix", "seed & nut"], P("seed-mix.jpg")],
   [["quinoa", "poppy", "khus", "hemp", "sabja", "basil seed", "halim", "kalonji", "nigella", "seed"], "assets/images/categories/seeds.jpg"],
   [["ashwagandha", "triphala", "moringa powder"], P("herbal-powder.jpg")],
@@ -364,7 +371,10 @@ export const PRODUCT_IMG_MAP = [
   [["granola", "oats", "cereal", "protein bar"], P("granola.jpg")],
   [["trail"], P("trail-mix.jpg")],
   [["peanut", "moongphali"], P("peanuts.jpg")],
-  [["mixture", "namkeen", "chips", "puffs", "chana", "khakhra", "cookie"], P("namkeen.jpg")],
+  [["banana chips"], P("banana-chips.jpg")],
+  [["khakhra"], P("khakhra.jpg")],
+  [["cookie"], P("cookies.jpg")],
+  [["mixture", "namkeen", "chips", "puffs", "chana"], P("namkeen.jpg")],
 ];
 export function productImageFor(name, cat){
   const n = name.toLowerCase();
