@@ -143,7 +143,7 @@ check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/bar
   products.find(p=>p.name.includes("Kaju Katli"))?.img.includes("products/barfi") &&
   products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki") &&
   products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
-  products.find(p=>p.name==="Milk Chocolate Bar")?.img.endsWith("categories/chocolate.jpg") &&
+  products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
   products.find(p=>p.name==="Banana Chips")?.img.includes("products/namkeen"));
 check("specific photos: stuffed/dry-dates/soan/hot-choc/apricot/sabja/quinoa/amla/cumin/chilli",
   products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates") &&
@@ -157,6 +157,20 @@ check("specific photos: stuffed/dry-dates/soan/hot-choc/apricot/sabja/quinoa/aml
   products.find(p=>p.name==="Sweet Amla Candy")?.img.includes("products/amla-candy") &&
   products.find(p=>p.name==="Cumin Seeds (Jeera)")?.img.includes("products/cumin-seeds") &&
   products.find(p=>p.name==="Dry Red Chillies Whole")?.img.includes("products/red-chillies"));
+check("specific photos: Ajwa/turmeric/mishri/gujiya/panjeeri/bites/seed-mix/milk-choc/pink-salt/singhara",
+  products.find(p=>p.name==="Ajwa Dates")?.img.includes("products/ajwa-dates") &&
+  products.find(p=>p.name==="Turmeric Fingers (Haldi Gattha)")?.img.includes("products/turmeric-ginger") &&
+  products.find(p=>p.name==="Dry Ginger (Sonth)")?.img.includes("products/turmeric-ginger") &&
+  products.find(p=>p.name==="Dhaga Mishri")?.img.includes("products/mishri") &&
+  products.find(p=>p.name==="Dry Fruit Gujiya")?.img.includes("products/gujiya") &&
+  products.find(p=>p.name==="Dry Fruit Panjeeri")?.img.includes("products/panjeeri") &&
+  products.find(p=>p.name==="Dry Fruit Bites (No Added Sugar)")?.img.includes("products/dry-fruit-bites") &&
+  products.find(p=>p.name==="Kaju Pista Roll")?.img.includes("products/dry-fruit-bites") &&
+  products.find(p=>p.name==="Roasted Seed Mix")?.img.includes("products/seed-mix") &&
+  products.find(p=>p.name==="Milk Chocolate Bar")?.img.includes("products/milk-chocolate") &&
+  products.find(p=>p.name==="White Chocolate")?.img.includes("products/milk-chocolate") &&
+  products.find(p=>p.name==="Pink Salt (Sendha Namak)")?.img.includes("products/pink-salt") &&
+  products.find(p=>p.name==="Water Chestnut Dry (Singhara)")?.img.includes("products/singhara"));
 check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
   products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
   products.find(p=>p.name==="Dried Mango Slices")?.img.includes("products/dried-fruits") &&
