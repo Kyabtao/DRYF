@@ -6,7 +6,7 @@
  * Usage:  npm run audit        (or: node scripts/audit.mjs)
  */
 import { existsSync, readFileSync } from "node:fs";
-import { CATS, products, packPrice, PACKS_FOR, STOCK_MAP } from "../assets/js/data/products.js";
+import { CATS, products, packPrice, PACKS_FOR, PRODUCT_IMG_MAP } from "../assets/js/data/products.js";
 
 let run = 0; const failures = [];
 function check(label, ok) { run++; if (!ok) failures.push(label); }
@@ -64,6 +64,10 @@ check("layout: product modal links to the full product page", layout.includes('i
 /* ---------- 3. Category integrity ---------- */
 const catKeys = Object.keys(CATS);
 check("at least 9 categories", catKeys.length >= 9);
+check("dedicated Dates category exists", catKeys.includes("dates"));
+check("Dates category has 18+ date products", products.filter(p=>p.cat==="dates").length >= 18);
+check("no loose date products left in Dry Fruits & Nuts",
+  products.filter(p=>p.cat==="nuts" && /dates|khajoor|chuara/i.test(p.name)).length === 0);
 catKeys.forEach(k => {
   const c = CATS[k];
   check(`cat ${k}: label`, !!c.label);
@@ -95,7 +99,7 @@ for (const p of products) {
   check(`${at} rating 4.0–5.0`, +p.rating >= 4.0 && +p.rating <= 5.0);
   check(`${at} discount 10–35%`, p.off >= 10 && p.off <= 35);
   check(`${at} MRP above price`, p.mrp > p.price);
-  check(`${at} stock photo is Unsplash CDN`, /^https:\/\/images\.unsplash\.com\/photo-[\w-]+/.test(p.stockImg));
+  check(`${at} product photo is local (no external CDN)`, p.img.startsWith("assets/images/") && !/https?:/.test(p.img) && p.stockImg === p.img);
   check(`${at} local fallback image exists`, existsSync(p.img));
   const packs = PACKS_FOR(p);
   check(`${at} has pack options`, packs.length >= 1);
@@ -105,12 +109,51 @@ for (const p of products) {
   }
 }
 
-/* ---------- 6. Stock-photo mapping coverage ---------- */
-check("stock map has 25+ keyword groups", STOCK_MAP.length >= 25);
-STOCK_MAP.forEach(([keys, url], i) =>
-  check(`stock group ${i} (${keys[0]}): keywords + unsplash url`, keys.length > 0 && url.includes("images.unsplash.com")));
-const distinctPhotos = new Set(products.map(p => p.stockImg));
-check("at least 25 distinct stock photos used", distinctPhotos.size >= 25);
+/* ---------- 6. Product-photo mapping coverage ---------- */
+check("product image map has 12+ keyword groups", PRODUCT_IMG_MAP.length >= 12);
+PRODUCT_IMG_MAP.forEach(([keys, img], i) =>
+  check(`image group ${i} (${keys[0]}): local file exists (${img})`, img.startsWith("assets/images/") && existsSync(img)));
+const distinctPhotos = new Set(products.map(p => p.img));
+check("at least 15 distinct product photos used", distinctPhotos.size >= 15);
+check("no product uses an external image URL", products.every(p => !/https?:/.test(p.img)));
+check("specific photos: almonds/cashews/makhana/honey are ingredient photos",
+  products.find(p=>p.name.startsWith("Almonds California"))?.img.includes("products/almonds") &&
+  products.find(p=>p.name.startsWith("Cashews W240"))?.img.includes("products/cashews") &&
+  products.find(p=>p.name.includes("Roasted Salted Makhana"))?.img.includes("products/makhana") &&
+  products.find(p=>p.name.includes("Pure Raw Honey"))?.img.includes("products/honey"));
+check("specific photos: exotic-nuts/laddoo/powders/badam-milk/jaggery/coconut/prunes/pumpkin/chia/coffee",
+  products.find(p=>p.name==="Hazelnuts")?.img.includes("products/exotic-nuts") &&
+  products.find(p=>p.name==="Gond ke Laddoo")?.img.includes("products/laddoo") &&
+  products.find(p=>p.name==="Ashwagandha Powder")?.img.includes("products/herbal-powder") &&
+  products.find(p=>p.name==="Kesar Badam Milk Mix")?.img.includes("products/badam-milk") &&
+  products.find(p=>p.name.includes("Jaggery Powder"))?.img.includes("products/jaggery") &&
+  products.find(p=>p.name==="Dried Coconut Slices")?.img.includes("products/coconut") &&
+  products.find(p=>p.name.startsWith("Prunes"))?.img.includes("products/prunes-cherries") &&
+  products.find(p=>p.name==="Pumpkin Seeds")?.img.includes("products/pumpkin-seeds") &&
+  products.find(p=>p.name==="Chia Seeds")?.img.includes("products/chia-seeds") &&
+  products.find(p=>p.name==="Chocolate Coffee Beans")?.img.includes("products/coffee-beans"));
+check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/barfi/chikki/whole-spices",
+  products.find(p=>p.name==="Dark Chocolate 85%")?.img.includes("products/dark-chocolate") &&
+  products.find(p=>p.name==="Assorted Truffles")?.img.includes("products/truffles") &&
+  products.find(p=>p.name==="Cocoa Powder Unsweetened")?.img.includes("products/cocoa-baking") &&
+  products.find(p=>p.name==="Sunflower Seeds")?.img.includes("products/sunflower-seeds") &&
+  products.find(p=>p.name==="Flax Seeds (Alsi)")?.img.includes("products/flax-seeds") &&
+  products.find(p=>p.name==="Sesame Seeds White")?.img.includes("products/sesame-seeds") &&
+  products.find(p=>p.name.startsWith("Watermelon Seeds"))?.img.includes("products/magaj-seeds") &&
+  products.find(p=>p.name.includes("Kaju Katli"))?.img.includes("products/barfi") &&
+  products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki") &&
+  products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
+  products.find(p=>p.name==="Milk Chocolate Bar")?.img.endsWith("categories/chocolate.jpg") &&
+  products.find(p=>p.name==="Banana Chips")?.img.includes("products/namkeen"));
+check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
+  products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
+  products.find(p=>p.name==="Dried Mango Slices")?.img.includes("products/dried-fruits") &&
+  products.find(p=>p.name==="Classic Trail Mix")?.img.includes("products/trail-mix") &&
+  products.find(p=>p.name.includes("Kesar Saffron"))?.img.includes("products/saffron") &&
+  products.find(p=>p.name.includes("Green Cardamom 8mm"))?.img.includes("products/cardamom") &&
+  products.find(p=>p.name==="Fruit & Nut Granola")?.img.includes("products/granola") &&
+  products.find(p=>p.name==="Masala Peanuts")?.img.includes("products/peanuts") &&
+  products.find(p=>p.name==="Diet Mixture Namkeen")?.img.includes("products/namkeen"));
 
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");
