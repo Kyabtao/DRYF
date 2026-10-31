@@ -145,6 +145,18 @@ check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/bar
   products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
   products.find(p=>p.name==="Milk Chocolate Bar")?.img.endsWith("categories/chocolate.jpg") &&
   products.find(p=>p.name==="Banana Chips")?.img.includes("products/namkeen"));
+check("specific photos: stuffed/dry-dates/soan/hot-choc/apricot/sabja/quinoa/amla/cumin/chilli",
+  products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates") &&
+  products.find(p=>p.name.startsWith("Dry Dates Yellow"))?.img.includes("products/dry-dates") &&
+  products.find(p=>p.name==="Dry Fruit Soan Papdi")?.img.includes("products/soan-papdi") &&
+  products.find(p=>p.name==="Hot Chocolate Premix")?.img.includes("products/hot-chocolate") &&
+  products.find(p=>p.name==="Dried Apricots Turkish")?.img.includes("products/apricots") &&
+  products.find(p=>p.name==="Dried Figs (Anjeer)")?.img.includes("products/figs") &&
+  products.find(p=>p.name==="Basil Seeds (Sabja)")?.img.includes("products/sabja-seeds") &&
+  products.find(p=>p.name==="Quinoa")?.img.includes("products/quinoa") &&
+  products.find(p=>p.name==="Sweet Amla Candy")?.img.includes("products/amla-candy") &&
+  products.find(p=>p.name==="Cumin Seeds (Jeera)")?.img.includes("products/cumin-seeds") &&
+  products.find(p=>p.name==="Dry Red Chillies Whole")?.img.includes("products/red-chillies"));
 check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
   products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
   products.find(p=>p.name==="Dried Mango Slices")?.img.includes("products/dried-fruits") &&
