@@ -23,9 +23,10 @@ Commit & push — every push to `main` now audits and redeploys automatically.
 ## Notes
 - No build step exists; `index.html` at repo root is the entry point and
   `.nojekyll` is included so GitHub Pages serves files as-is.
-- Stock product photos load from Unsplash's CDN in the visitor's browser;
-  if one ever fails, the site falls back to local photos in
-  `assets/images/categories/` — the page never breaks.
+- All product photos are local files (`assets/images/products/` +
+  `assets/images/categories/`) — nothing loads from an external image CDN,
+  so the deployed site looks identical everywhere and never shows a
+  wrong or broken stock photo.
 - Local preview: `npm start` (or `python3 -m http.server 8000`), then open
   http://localhost:8000. ES modules require http(s) — opening the file via
   `file://` will not load the data module in most browsers.

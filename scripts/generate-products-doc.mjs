@@ -4,7 +4,7 @@ import { CATS, products } from "../assets/js/data/products.js";
 
 let out = `# DRYF — Full Product List (${products.length} products)\n\n`;
 out += `Auto-generated from \`assets/js/data/products.js\` — run \`npm run docs:products\` to refresh.\n`;
-out += `Prices are indicative demo prices per 500g (gift hampers per box). Stock photos: Unsplash (see \`STOCK_MAP\` in the data file), with local category photos as fallback.\n`;
+out += `Prices are indicative demo prices per 500g (gift hampers per box). Product photos: verified local photos in assets/images/products/ and assets/images/categories/ (see PRODUCT_IMG_MAP in the data file) - no external stock URLs.\n`;
 
 for (const [key, c] of Object.entries(CATS)) {
   const items = products.filter(p => p.cat === key);
