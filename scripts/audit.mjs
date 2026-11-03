@@ -135,7 +135,7 @@ check("specific photos: exotic-nuts/laddoo/powders/badam-milk/jaggery/coconut/pr
 check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/barfi/chikki/whole-spices",
   products.find(p=>p.name==="Dark Chocolate 85%")?.img.includes("products/dark-chocolate") &&
   products.find(p=>p.name==="Assorted Truffles")?.img.includes("products/truffles") &&
-  products.find(p=>p.name==="Cocoa Powder Unsweetened")?.img.includes("products/cocoa-baking") &&
+  products.find(p=>p.name==="Milk Choco Chips")?.img.includes("products/cocoa-baking") &&
   products.find(p=>p.name==="Sunflower Seeds")?.img.includes("products/sunflower-seeds") &&
   products.find(p=>p.name==="Flax Seeds (Alsi)")?.img.includes("products/flax-seeds") &&
   products.find(p=>p.name==="Sesame Seeds White")?.img.includes("products/sesame-seeds") &&
@@ -196,13 +196,27 @@ check("specific photos: mango/kiwi/poppy/kalonji/chana/mini-choc/diwali/dry-frui
   products.find(p=>p.name==="Kimia / Soft Dates")?.img.includes("products/soft-dates"));
 check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
   products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
-  products.find(p=>p.name==="Dried Pineapple")?.img.includes("products/dried-fruits") &&
+  products.find(p=>p.name==="Tutti Frutti Mix")?.img.includes("products/dried-fruits") &&
   products.find(p=>p.name==="Classic Trail Mix")?.img.includes("products/trail-mix") &&
   products.find(p=>p.name.includes("Kesar Saffron"))?.img.includes("products/saffron") &&
   products.find(p=>p.name.includes("Green Cardamom 8mm"))?.img.includes("products/cardamom") &&
   products.find(p=>p.name==="Fruit & Nut Granola")?.img.includes("products/granola") &&
   products.find(p=>p.name==="Masala Peanuts")?.img.includes("products/peanuts") &&
   products.find(p=>p.name==="Diet Mixture Namkeen")?.img.includes("products/namkeen"));
+
+check("specific photos: pineapple/papaya/orange/dragon/peach/black-raisins/hemp/halim/cocoa-powder/cinnamon",
+  products.find(p=>p.name==="Dried Pineapple")?.img.includes("products/dried-pineapple") &&
+  products.find(p=>p.name==="Dried Papaya")?.img.includes("products/dried-papaya") &&
+  products.find(p=>p.name==="Dried Orange Slices")?.img.includes("products/dried-orange") &&
+  products.find(p=>p.name==="Dried Dragon Fruit")?.img.includes("products/dried-dragon-fruit") &&
+  products.find(p=>p.name==="Dried Peach Slices")?.img.includes("products/dried-peach") &&
+  products.find(p=>p.name==="Black Raisins Seedless")?.img.includes("products/black-raisins") &&
+  products.find(p=>p.name==="Golden Raisins")?.img.includes("products/raisins") &&
+  products.find(p=>p.name==="Hemp Seeds")?.img.includes("products/hemp-seeds") &&
+  products.find(p=>p.name==="Garden Cress Seeds (Halim)")?.img.includes("products/halim-seeds") &&
+  products.find(p=>p.name==="Cocoa Powder Unsweetened")?.img.includes("products/cocoa-powder") &&
+  products.find(p=>p.name==="Cinnamon Sticks (Dalchini)")?.img.includes("products/cinnamon-sticks") &&
+  products.find(p=>p.name==="Cloves (Laung)")?.img.includes("products/whole-spices"));
 
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");
