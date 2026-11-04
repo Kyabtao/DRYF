@@ -123,7 +123,7 @@ check("specific photos: almonds/cashews/makhana/honey are ingredient photos",
   products.find(p=>p.name.includes("Pure Raw Honey"))?.img.includes("products/honey"));
 check("specific photos: exotic-nuts/laddoo/powders/badam-milk/jaggery/coconut/prunes/pumpkin/chia/coffee",
   products.find(p=>p.name==="Hazelnuts")?.img.includes("products/exotic-nuts") &&
-  products.find(p=>p.name==="Gond ke Laddoo")?.img.includes("products/laddoo") &&
+  products.find(p=>p.name==="Dry Fruit Laddoo (Sugar-Free)")?.img.includes("products/laddoo") &&
   products.find(p=>p.name==="Ashwagandha Powder")?.img.includes("products/herbal-powder") &&
   products.find(p=>p.name==="Kesar Badam Milk Mix")?.img.includes("products/badam-milk") &&
   products.find(p=>p.name.includes("Jaggery Powder"))?.img.includes("products/jaggery") &&
@@ -144,7 +144,7 @@ check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/bar
   products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki") &&
   products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
   products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
-  products.find(p=>p.name==="Ragi Chips")?.img.includes("products/namkeen"));
+  products.find(p=>p.name==="Cornflakes Mixture")?.img.includes("products/namkeen"));
 check("specific photos: stuffed/dry-dates/soan/hot-choc/apricot/sabja/quinoa/amla/cumin/chilli",
   products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates") &&
   products.find(p=>p.name.startsWith("Dry Dates Yellow"))?.img.includes("products/dry-dates") &&
@@ -217,6 +217,21 @@ check("specific photos: pineapple/papaya/orange/dragon/peach/black-raisins/hemp/
   products.find(p=>p.name==="Cocoa Powder Unsweetened")?.img.includes("products/cocoa-powder") &&
   products.find(p=>p.name==="Cinnamon Sticks (Dalchini)")?.img.includes("products/cinnamon-sticks") &&
   products.find(p=>p.name==="Cloves (Laung)")?.img.includes("products/whole-spices"));
+
+check("specific photos: gond-laddoo/almond-slices/masala-almonds/masala-cashews/cashew-pieces/flavoured-makhana/millet/choco-berries",
+  products.find(p=>p.name==="Gond ke Laddoo")?.img.includes("products/gond-laddoo") &&
+  products.find(p=>p.name==="Almond Slices (Badam Katran)")?.img.includes("products/almond-slices") &&
+  products.find(p=>p.name==="Peri Peri Almonds")?.img.includes("products/masala-almonds") &&
+  products.find(p=>p.name==="Smoked Almonds")?.img.includes("products/almonds") &&
+  products.find(p=>p.name==="Masala Cashews")?.img.includes("products/masala-cashews") &&
+  products.find(p=>p.name==="Cashew Splits & Pieces")?.img.includes("products/cashew-pieces") &&
+  products.find(p=>p.name==="Peri Peri Makhana")?.img.includes("products/masala-makhana") &&
+  products.find(p=>p.name==="Caramel Makhana (Sweet)")?.img.includes("products/caramel-makhana") &&
+  products.find(p=>p.name==="Jowar Puffs (Masala)")?.img.includes("products/millet-snacks") &&
+  products.find(p=>p.name==="Roasted Soya Nuts")?.img.endsWith("categories/snacks.jpg") &&
+  products.find(p=>p.name==="Choco-Coated Almonds")?.img.includes("products/choco-almonds") &&
+  products.find(p=>p.name==="Choco-Coated Blueberries")?.img.includes("products/choco-berries") &&
+  products.find(p=>p.name==="Choco-Coated Cashews")?.img.includes("products/choco-nuts"));
 
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");

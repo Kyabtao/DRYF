@@ -296,6 +296,7 @@ const CAT_IMG_POS = ["center","top","bottom","left","right"];
    category photo — all checked visually to match the product type. */
 const P = f => `assets/images/products/${f}`;
 export const PRODUCT_IMG_MAP = [
+  [["gond ke laddoo", "gond laddoo"], P("gond-laddoo.jpg")],
   [["laddoo"], P("laddoo.jpg")],
   [["barfi", "katli"], P("barfi.jpg")],
   [["chikki", "gajak", "revdi"], P("chikki.jpg")],
@@ -327,6 +328,15 @@ export const PRODUCT_IMG_MAP = [
   [["peach"], P("dried-peach.jpg")],
   [["black raisin", "munakka"], P("black-raisins.jpg")],
   [["cocoa powder"], P("cocoa-powder.jpg")],
+  [["almond slices", "badam katran"], P("almond-slices.jpg")],
+  [["peri peri almond", "masala almond"], P("masala-almonds.jpg")],
+  [["masala cashew", "peri peri cashew"], P("masala-cashews.jpg")],
+  [["splits", "lwp"], P("cashew-pieces.jpg")],
+  [["peri peri makhana", "masala makhana", "cheese", "cream & onion"], P("masala-makhana.jpg")],
+  [["caramel makhana", "makhana sweet", "jaggery makhana"], P("caramel-makhana.jpg")],
+  [["jowar", "ragi", "soya chips"], P("millet-snacks.jpg")],
+  [["choco-coated almond", "choco almond", "sugar-free choco almond"], P("choco-almonds.jpg")],
+  [["choco-coated strawberr", "choco-coated blueberr", "choco strawberr", "choco blueberr"], P("choco-berries.jpg")],
   /* category-true shelves next: their photos already show the right food */
   [["__cat:sweets"], "assets/images/categories/sweets.jpg"],
   [["__cat:gifts"], "assets/images/categories/gift.jpg"],
