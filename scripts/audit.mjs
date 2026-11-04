@@ -233,6 +233,23 @@ check("specific photos: gond-laddoo/almond-slices/masala-almonds/masala-cashews/
   products.find(p=>p.name==="Choco-Coated Blueberries")?.img.includes("products/choco-berries") &&
   products.find(p=>p.name==="Choco-Coated Cashews")?.img.includes("products/choco-nuts"));
 
+check("specific photos: date typologies/date-powder/cardamoms/nutmeg-mace/star-anise/bay/oats/peanut-butter",
+  products.find(p=>p.name==="Mabroom Dates")?.img.includes("products/dates-dark") &&
+  products.find(p=>p.name==="Deglet Noor Dates")?.img.includes("products/dates-golden") &&
+  products.find(p=>p.name==="Pitted Seedless Dates")?.img.includes("products/dates-pitted") &&
+  products.find(p=>p.name==="Date Powder (Natural Sweetener)")?.img.includes("products/date-powder") &&
+  products.find(p=>p.name==="Black Cardamom (Badi Elaichi)")?.img.includes("products/black-cardamom") &&
+  products.find(p=>p.name==="Green Cardamom Bold 8mm+")?.img.includes("products/cardamom") &&
+  products.find(p=>p.name==="Mace (Javitri)")?.img.includes("products/nutmeg-mace") &&
+  products.find(p=>p.name==="Star Anise (Chakra Phool)")?.img.includes("products/star-anise") &&
+  products.find(p=>p.name==="Bay Leaves (Tej Patta)")?.img.includes("products/bay-leaves") &&
+  products.find(p=>p.name==="Rolled Oats")?.img.includes("products/rolled-oats") &&
+  products.find(p=>p.name==="Peanut Butter Creamy")?.img.includes("products/peanut-butter") &&
+  products.find(p=>p.name==="Almond Butter")?.img.includes("products/nut-butter"));
+check("date-only keywords do not leak into raisins/cashews",
+  products.find(p=>p.name==="Black Raisins Seedless")?.img.includes("products/black-raisins") &&
+  products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices"));
+
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");
 ["addToCart", "renderCart", "openCheckout", "renderOrders", "applyLang", "billCalc", "stockImg"]
