@@ -321,7 +321,24 @@ const EXTRA2 = [
 /* pantry — everyday sweeteners & dry-fruit powders */
 ["Rock Sugar (Mishri)","Mishri · मिश्री","pantry",140,"💠",1,"12 months","Puja, prasad & tea sweetener; always in stock"],
 ];
-RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2);
+/* ---- GAP FILL 2: grocery staples Indian dry-fruit shops also sell,
+   plus the gift/pantry items that were still thin ---- */
+const EXTRA3 = [
+/* pantry — staples & everyday jars */
+["Moong Dal (Split)","Dhuli Moong Dal · मूंग दाल","pantry",180,"🟡",1,"12 months","Everyday dal; pairs with poha & sabudana on the same shelf"],
+["Masoor Dal (Split)","Masoor Dal · मसूर दाल","pantry",150,"🟠",1,"12 months","Fastest-cooking dal; strong daily demand"],
+["Chana Dal","Chana Dal · चना दाल","pantry",140,"🟤",1,"12 months","For dal, sambhar & besan-based sweets"],
+["Thick Poha","Poha · पोहा","pantry",90,"⚪",1,"6 months","Breakfast staple — high volume, low price, fast turnover"],
+["Sabudana","Sabudana · साबूदाना","pantry",160,"⚪",1,"12 months","Fasting essential for khichdi & vada; peaks in Navratri"],
+["Makhana Flour (Fox Nut)","Makhana Atta · मखाना आटा","pantry",520,"🤍",2,"6 months","Fasting-friendly flour for rotis, porridge & baby food"],
+["Date Syrup","Khajoor Syrup · खजूर सिरप","pantry",380,"🍯",2,"9 months","Natural sugar alternative for health & baking buyers"],
+["Gulkand (Rose Petal Preserve)","Gulkand · गुलकंद","pantry",260,"🌹",2,"9 months","Cooling summer preserve; pairs with paan & thandai"],
+/* nuts — the savoury peanut variant the shelf lacked */
+/* gifts — the corporate/mid-size boxes the range was missing */
+["Corporate Dry Fruit Box","Corporate Box · कॉर्पोरेट बॉक्स","gifts",1899,"💼",3,"— (pack fresh)","Navy & gold 4-compartment box; bulk corporate orders"],
+["Festive Dry Fruit Box (Medium)","Festive Box · फेस्टिव बॉक्स","gifts",999,"🎊",2,"— (pack fresh)","Mid-price festive box for offices & neighbours"],
+];
+RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2, ...EXTRA3);
 export const LEVEL_TXT = {1:"⭐ Must-Have",2:"🔥 Popular",3:"💎 Premium / Exotic"};
 const CAT_IMG_POS = ["center","top","bottom","left","right"];
 
@@ -360,6 +377,7 @@ export const PRODUCT_IMG_MAP = [
   [["turmeric fingers", "haldi gattha", "dry ginger", "sonth"], P("turmeric-ginger.jpg")],
   [["medjool", "anbara"], P("medjool-dates.jpg")],
   [["sukkari", "zahidi", "barhi"], P("golden-dates.jpg")],
+  [["corporate dry fruit box", "corporate box"], P("gift-box-corporate.jpg")],
   [["wedding", "corporate", "anniversary"], P("luxury-hamper.jpg")],
   [["ramadan", "eid"], P("dates-gift-box.jpg")],
   [["kimia", "mazafati"], P("soft-dates.jpg")],
@@ -375,12 +393,21 @@ export const PRODUCT_IMG_MAP = [
   [["mustard seed", "rai ("], P("mustard-seeds.jpg")],
   [["mishri saunf", "sugar-coated fennel", "sugar coated fennel"], P("choco-nuts.jpg")],
   [["ajwain", "carom", "saunf", "fennel"], P("fennel-seeds.jpg")],
-  [["moong dal"], P("moong-dal-namkeen.jpg")],
+  [["poha"], P("poha.jpg")],
+  [["sabudana", "tapioca"], P("sabudana.jpg")],
+  [["makhana flour", "makhana atta"], P("makhana-flour.jpg")],
+  [["date syrup", "khajoor syrup"], P("dates-syrup.jpg")],
+  [["gulkand"], P("gulkand.jpg")],
+  [["kids mewa", "kids dry fruit", "children"], P("dry-fruit-powder.jpg")],
+  [["moong dal (salted)"], P("moong-dal-namkeen.jpg")],
+  [["moong dal", "masoor", "chana dal"], P("dals.jpg")],
   [["chironji", "charoli"], P("chironji.jpg")],
   [["besan laddoo", "motichoor", "balushahi", "kalakand"], "assets/images/categories/sweets.jpg"],
   [["rock sugar", "mishri"], P("mishri.jpg")],
   [["diwali", "mithaas"], P("diwali-hamper.jpg")],
   [["celebration box", "berry blast"], P("chocolate-gift-box.jpg")],
+  [["festive dry fruit box", "festive box"], P("diwali-hamper.jpg")],
+  [["corporate gift hamper"], P("gift-box-corporate.jpg")],
   [["dry fruit box"], P("dry-fruit-box.jpg")],
   [["pineapple"], P("dried-pineapple.jpg")],
   [["papaya"], P("dried-papaya.jpg")],
@@ -461,6 +488,7 @@ export const PRODUCT_IMG_MAP = [
   [["rolled oats", "oats"], P("rolled-oats.jpg")],
   [["granola", "cereal", "protein bar"], P("granola.jpg")],
   [["trail"], P("trail-mix.jpg")],
+  [["masala peanut", "masala moongfali"], P("masala-peanuts.jpg")],
   [["peanut", "moongphali"], P("peanuts.jpg")],
   [["chana"], P("roasted-chana.jpg")],
   [["banana chips"], P("banana-chips.jpg")],

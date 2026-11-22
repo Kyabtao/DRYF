@@ -1,4 +1,4 @@
-# DRYF — Full Product List (281 products)
+# DRYF — Full Product List (291 products)
 
 Auto-generated from `assets/js/data/products.js` — run `npm run docs:products` to refresh.
 Prices are indicative demo prices per 500g (gift hampers per box). Product photos: verified local photos in assets/images/products/ and assets/images/categories/ (see PRODUCT_IMG_MAP in the data file) - no external stock URLs.
@@ -221,7 +221,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 39 | 🌀 Masala Chana Jor | Masala Chana Jor · मसाला चना जोर | ₹160 | 🔥 Popular | 3 months |
 | 40 | 🌽 Cornflakes Chivda | Cornflakes Chivda · कॉर्नफ्लेक्स चिवड़ा | ₹180 | 🔥 Popular | 3 months |
 
-## 🎁 Gift Hampers & Combos —  (20)
+## 🎁 Gift Hampers & Combos —  (22)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -245,6 +245,8 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 18 | 💐 Get Well Soon Hamper | Get Well Hamper · गेट वेल सून हैम्पर | ₹1199 | 🔥 Popular | — (pack fresh) |
 | 19 | 🙏 Thank You Mini Gift Box | Thank You Box · थैंक यू बॉक्स | ₹499 | ⭐ Must-Have | — (pack fresh) |
 | 20 | 🪔 Diwali Laxmi Puja Dry Fruit Box | Diwali Puja Box · दीवाली पूजा बॉक्स | ₹799 | ⭐ Must-Have | — (pack fresh) |
+| 21 | 💼 Corporate Dry Fruit Box | Corporate Box · कॉर्पोरेट बॉक्स | ₹1899 | 💎 Premium | — (pack fresh) |
+| 22 | 🎊 Festive Dry Fruit Box (Medium) | Festive Box · फेस्टिव बॉक्स | ₹999 | 🔥 Popular | — (pack fresh) |
 
 ## 🍬 Indian Sweets & Traditional — भारतीय मिठास (25)
 
@@ -276,7 +278,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 24 | 🤍 Kalakand | Kalakand · कलाकंद | ₹520 | 🔥 Popular | 5–7 days |
 | 25 | 🍫 Choco Coated Dates | Choco Dates · चॉकलेट खजूर | ₹740 | 💎 Premium | 20–25 days |
 
-## 🍯 Health Pantry & More — हेल्थ पैंट्री (21)
+## 🍯 Health Pantry & More — हेल्थ पैंट्री (29)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -301,6 +303,14 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 19 | 🍵 Green Tea Leaves (Whole Leaf) | Green Tea · ग्रीन टी | ₹340 | ⭐ Must-Have | 12 months |
 | 20 | 🌿 Dried Mint Leaves (Pudina) | Sukha Pudina · सूखा पुदीना | ₹120 | 🔥 Popular | 6 months |
 | 21 | 💠 Rock Sugar (Mishri) | Mishri · मिश्री | ₹140 | ⭐ Must-Have | 12 months |
+| 22 | 🟡 Moong Dal (Split) | Dhuli Moong Dal · मूंग दाल | ₹180 | ⭐ Must-Have | 12 months |
+| 23 | 🟠 Masoor Dal (Split) | Masoor Dal · मसूर दाल | ₹150 | ⭐ Must-Have | 12 months |
+| 24 | 🟤 Chana Dal | Chana Dal · चना दाल | ₹140 | ⭐ Must-Have | 12 months |
+| 25 | ⚪ Thick Poha | Poha · पोहा | ₹90 | ⭐ Must-Have | 6 months |
+| 26 | ⚪ Sabudana | Sabudana · साबूदाना | ₹160 | ⭐ Must-Have | 12 months |
+| 27 | 🤍 Makhana Flour (Fox Nut) | Makhana Atta · मखाना आटा | ₹520 | 🔥 Popular | 6 months |
+| 28 | 🍯 Date Syrup | Khajoor Syrup · खजूर सिरप | ₹380 | 🔥 Popular | 9 months |
+| 29 | 🌹 Gulkand (Rose Petal Preserve) | Gulkand · गुलकंद | ₹260 | 🔥 Popular | 9 months |
 
 ## 🌶️ Whole Spices & Masalas — साबुत मसाले (27)
 

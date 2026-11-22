@@ -201,7 +201,7 @@ check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/
   products.find(p=>p.name.includes("Kesar Saffron"))?.img.includes("products/saffron") &&
   products.find(p=>p.name.includes("Green Cardamom 8mm"))?.img.includes("products/cardamom") &&
   products.find(p=>p.name==="Fruit & Nut Granola")?.img.includes("products/granola") &&
-  products.find(p=>p.name==="Masala Peanuts")?.img.includes("products/peanuts") &&
+  products.find(p=>p.name==="Roasted Peanuts")?.img.includes("products/peanuts") &&
   products.find(p=>p.name==="Diet Mixture Namkeen")?.img.includes("products/namkeen"));
 
 check("specific photos: pineapple/papaya/orange/dragon/peach/black-raisins/hemp/halim/cocoa-powder/cinnamon",
@@ -285,6 +285,27 @@ check("no leaking on short gap-fill keywords (rai/saunf/methi)",
   products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates"));
 check("no duplicate product names in catalogue",
   new Set(products.map(p=>p.name)).size === products.length);
+
+check("gap-fill 2: staples, date syrup, gulkand, corporate & festive boxes",
+  ["Moong Dal (Split)","Masoor Dal (Split)","Chana Dal","Thick Poha","Sabudana","Makhana Flour (Fox Nut)","Date Syrup","Gulkand (Rose Petal Preserve)"]
+    .every(n => products.some(p => p.name===n && p.cat==="pantry")) &&
+  products.some(p => p.name==="Corporate Dry Fruit Box" && p.cat==="gifts") &&
+  products.some(p => p.name==="Festive Dry Fruit Box (Medium)" && p.cat==="gifts"));
+check("gap-fill 2 photos: dals/poha/sabudana/makhana-flour/date-syrup/gulkand/corporate-box",
+  products.find(p=>p.name==="Moong Dal (Split)")?.img.includes("products/dals") &&
+  products.find(p=>p.name==="Moong Dal (Salted)")?.img.includes("products/moong-dal-namkeen") &&
+  products.find(p=>p.name==="Thick Poha")?.img.includes("products/poha") &&
+  products.find(p=>p.name==="Sabudana")?.img.includes("products/sabudana") &&
+  products.find(p=>p.name==="Makhana Flour (Fox Nut)")?.img.includes("products/makhana-flour") &&
+  products.find(p=>p.name==="Date Syrup")?.img.includes("products/dates-syrup") &&
+  products.find(p=>p.name==="Gulkand (Rose Petal Preserve)")?.img.includes("products/gulkand") &&
+  products.find(p=>p.name==="Corporate Dry Fruit Box")?.img.includes("products/gift-box-corporate") &&
+  products.find(p=>p.name==="Festive Dry Fruit Box (Medium)")?.img.includes("products/diwali-hamper") &&
+  products.find(p=>p.name==="Essential Dry Fruit Box 500g")?.img.includes("products/dry-fruit-box") &&
+  products.find(p=>p.name==="Masala Peanuts")?.img.includes("products/masala-peanuts"));
+check("punctuation in names does not break keyword rules",
+  products.find(p=>p.name==="Moong Dal (Salted)")?.img.includes("moong-dal-namkeen") &&
+  products.find(p=>p.name==="Rolled Oats")?.img.includes("products/rolled-oats"));
 
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");
