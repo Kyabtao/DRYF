@@ -6,7 +6,7 @@
  * Usage:  npm run audit        (or: node scripts/audit.mjs)
  */
 import { existsSync, readFileSync } from "node:fs";
-import { CATS, products, packPrice, PACKS_FOR, STOCK_MAP } from "../assets/js/data/products.js";
+import { CATS, products, packPrice, PACKS_FOR, PRODUCT_IMG_MAP } from "../assets/js/data/products.js";
 
 let run = 0; const failures = [];
 function check(label, ok) { run++; if (!ok) failures.push(label); }
@@ -64,6 +64,10 @@ check("layout: product modal links to the full product page", layout.includes('i
 /* ---------- 3. Category integrity ---------- */
 const catKeys = Object.keys(CATS);
 check("at least 9 categories", catKeys.length >= 9);
+check("dedicated Dates category exists", catKeys.includes("dates"));
+check("Dates category has 18+ date products", products.filter(p=>p.cat==="dates").length >= 18);
+check("no loose date products left in Dry Fruits & Nuts",
+  products.filter(p=>p.cat==="nuts" && /dates|khajoor|chuara/i.test(p.name)).length === 0);
 catKeys.forEach(k => {
   const c = CATS[k];
   check(`cat ${k}: label`, !!c.label);
@@ -95,7 +99,7 @@ for (const p of products) {
   check(`${at} rating 4.0–5.0`, +p.rating >= 4.0 && +p.rating <= 5.0);
   check(`${at} discount 10–35%`, p.off >= 10 && p.off <= 35);
   check(`${at} MRP above price`, p.mrp > p.price);
-  check(`${at} stock photo is Unsplash CDN`, /^https:\/\/images\.unsplash\.com\/photo-[\w-]+/.test(p.stockImg));
+  check(`${at} product photo is local (no external CDN)`, p.img.startsWith("assets/images/") && !/https?:/.test(p.img) && p.stockImg === p.img);
   check(`${at} local fallback image exists`, existsSync(p.img));
   const packs = PACKS_FOR(p);
   check(`${at} has pack options`, packs.length >= 1);
@@ -105,12 +109,146 @@ for (const p of products) {
   }
 }
 
-/* ---------- 6. Stock-photo mapping coverage ---------- */
-check("stock map has 25+ keyword groups", STOCK_MAP.length >= 25);
-STOCK_MAP.forEach(([keys, url], i) =>
-  check(`stock group ${i} (${keys[0]}): keywords + unsplash url`, keys.length > 0 && url.includes("images.unsplash.com")));
-const distinctPhotos = new Set(products.map(p => p.stockImg));
-check("at least 25 distinct stock photos used", distinctPhotos.size >= 25);
+/* ---------- 6. Product-photo mapping coverage ---------- */
+check("product image map has 12+ keyword groups", PRODUCT_IMG_MAP.length >= 12);
+PRODUCT_IMG_MAP.forEach(([keys, img], i) =>
+  check(`image group ${i} (${keys[0]}): local file exists (${img})`, img.startsWith("assets/images/") && existsSync(img)));
+const distinctPhotos = new Set(products.map(p => p.img));
+check("at least 15 distinct product photos used", distinctPhotos.size >= 15);
+check("no product uses an external image URL", products.every(p => !/https?:/.test(p.img)));
+check("specific photos: almonds/cashews/makhana/honey are ingredient photos",
+  products.find(p=>p.name.startsWith("Almonds California"))?.img.includes("products/almonds") &&
+  products.find(p=>p.name.startsWith("Cashews W240"))?.img.includes("products/cashews") &&
+  products.find(p=>p.name.includes("Roasted Salted Makhana"))?.img.includes("products/makhana") &&
+  products.find(p=>p.name.includes("Pure Raw Honey"))?.img.includes("products/honey"));
+check("specific photos: exotic-nuts/laddoo/powders/badam-milk/jaggery/coconut/prunes/pumpkin/chia/coffee",
+  products.find(p=>p.name==="Hazelnuts")?.img.includes("products/exotic-nuts") &&
+  products.find(p=>p.name==="Dry Fruit Laddoo (Sugar-Free)")?.img.includes("products/laddoo") &&
+  products.find(p=>p.name==="Ashwagandha Powder")?.img.includes("products/herbal-powder") &&
+  products.find(p=>p.name==="Kesar Badam Milk Mix")?.img.includes("products/badam-milk") &&
+  products.find(p=>p.name.includes("Jaggery Powder"))?.img.includes("products/jaggery") &&
+  products.find(p=>p.name==="Dried Coconut Slices")?.img.includes("products/coconut") &&
+  products.find(p=>p.name.startsWith("Prunes"))?.img.includes("products/prunes-cherries") &&
+  products.find(p=>p.name==="Pumpkin Seeds")?.img.includes("products/pumpkin-seeds") &&
+  products.find(p=>p.name==="Chia Seeds")?.img.includes("products/chia-seeds") &&
+  products.find(p=>p.name==="Chocolate Coffee Beans")?.img.includes("products/coffee-beans"));
+check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/barfi/chikki/whole-spices",
+  products.find(p=>p.name==="Dark Chocolate 85%")?.img.includes("products/dark-chocolate") &&
+  products.find(p=>p.name==="Assorted Truffles")?.img.includes("products/truffles") &&
+  products.find(p=>p.name==="Milk Choco Chips")?.img.includes("products/cocoa-baking") &&
+  products.find(p=>p.name==="Sunflower Seeds")?.img.includes("products/sunflower-seeds") &&
+  products.find(p=>p.name==="Flax Seeds (Alsi)")?.img.includes("products/flax-seeds") &&
+  products.find(p=>p.name==="Sesame Seeds White")?.img.includes("products/sesame-seeds") &&
+  products.find(p=>p.name.startsWith("Watermelon Seeds"))?.img.includes("products/magaj-seeds") &&
+  products.find(p=>p.name.includes("Kaju Katli"))?.img.includes("products/barfi") &&
+  products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki") &&
+  products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
+  products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
+  products.find(p=>p.name==="Cornflakes Mixture")?.img.includes("products/namkeen"));
+check("specific photos: stuffed/dry-dates/soan/hot-choc/apricot/sabja/quinoa/amla/cumin/chilli",
+  products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates") &&
+  products.find(p=>p.name.startsWith("Dry Dates Yellow"))?.img.includes("products/dry-dates") &&
+  products.find(p=>p.name==="Dry Fruit Soan Papdi")?.img.includes("products/soan-papdi") &&
+  products.find(p=>p.name==="Hot Chocolate Premix")?.img.includes("products/hot-chocolate") &&
+  products.find(p=>p.name==="Dried Apricots Turkish")?.img.includes("products/apricots") &&
+  products.find(p=>p.name==="Dried Figs (Anjeer)")?.img.includes("products/figs") &&
+  products.find(p=>p.name==="Basil Seeds (Sabja)")?.img.includes("products/sabja-seeds") &&
+  products.find(p=>p.name==="Quinoa")?.img.includes("products/quinoa") &&
+  products.find(p=>p.name==="Sweet Amla Candy")?.img.includes("products/amla-candy") &&
+  products.find(p=>p.name==="Cumin Seeds (Jeera)")?.img.includes("products/cumin-seeds") &&
+  products.find(p=>p.name==="Dry Red Chillies Whole")?.img.includes("products/red-chillies"));
+check("specific photos: Ajwa/turmeric/mishri/gujiya/panjeeri/bites/seed-mix/milk-choc/pink-salt/singhara",
+  products.find(p=>p.name==="Ajwa Dates")?.img.includes("products/ajwa-dates") &&
+  products.find(p=>p.name==="Turmeric Fingers (Haldi Gattha)")?.img.includes("products/turmeric-ginger") &&
+  products.find(p=>p.name==="Dry Ginger (Sonth)")?.img.includes("products/turmeric-ginger") &&
+  products.find(p=>p.name==="Dhaga Mishri")?.img.includes("products/mishri") &&
+  products.find(p=>p.name==="Dry Fruit Gujiya")?.img.includes("products/gujiya") &&
+  products.find(p=>p.name==="Dry Fruit Panjeeri")?.img.includes("products/panjeeri") &&
+  products.find(p=>p.name==="Dry Fruit Bites (No Added Sugar)")?.img.includes("products/dry-fruit-bites") &&
+  products.find(p=>p.name==="Kaju Pista Roll")?.img.includes("products/dry-fruit-bites") &&
+  products.find(p=>p.name==="Roasted Seed Mix")?.img.includes("products/seed-mix") &&
+  products.find(p=>p.name==="Milk Chocolate Bar")?.img.includes("products/milk-chocolate") &&
+  products.find(p=>p.name==="White Chocolate")?.img.includes("products/milk-chocolate") &&
+  products.find(p=>p.name==="Pink Salt (Sendha Namak)")?.img.includes("products/pink-salt") &&
+  products.find(p=>p.name==="Water Chestnut Dry (Singhara)")?.img.includes("products/singhara"));
+check("specific photos: medjool/golden-dates/hamper/dates-gift/banana-chips/khakhra/cookies/wafer/sauce/fennel",
+  products.find(p=>p.name==="Medjool Dates Jumbo")?.img.includes("products/medjool-dates") &&
+  products.find(p=>p.name==="Sukkari Dates")?.img.includes("products/golden-dates") &&
+  products.find(p=>p.name==="Luxury Wedding Hamper")?.img.includes("products/luxury-hamper") &&
+  products.find(p=>p.name==="Ramadan Dates Gift Box")?.img.includes("products/dates-gift-box") &&
+  products.find(p=>p.name==="Thank You Mini Gift Box")?.img.endsWith("categories/gift.jpg") &&
+  products.find(p=>p.name==="Banana Chips")?.img.includes("products/banana-chips") &&
+  products.find(p=>p.name==="Multigrain Khakhra")?.img.includes("products/khakhra.jpg") &&
+  products.find(p=>p.name==="Dry Fruit Cookies")?.img.includes("products/cookies") &&
+  products.find(p=>p.name==="Wafer Chocolate Sticks")?.img.includes("products/wafer-sticks") &&
+  products.find(p=>p.name==="Chocolate Sauce (Bottle)")?.img.includes("products/chocolate-sauce") &&
+  products.find(p=>p.name==="Fennel Seeds (Saunf)")?.img.includes("products/fennel-seeds"));
+check("specific photos: mango/kiwi/poppy/kalonji/chana/mini-choc/diwali/dry-fruit-box/soft-dates",
+  products.find(p=>p.name==="Dried Mango Slices")?.img.includes("products/dried-mango") &&
+  products.find(p=>p.name==="Dried Kiwi Slices")?.img.includes("products/dried-kiwi") &&
+  products.find(p=>p.name==="Poppy Seeds (Khus Khus)")?.img.includes("products/poppy-seeds") &&
+  products.find(p=>p.name==="Nigella Seeds (Kalonji)")?.img.includes("products/kalonji-seeds") &&
+  products.find(p=>p.name==="Roasted Chana (With Skin)")?.img.includes("products/roasted-chana") &&
+  products.find(p=>p.name==="Diet Mixture Namkeen")?.img.includes("products/namkeen") &&
+  products.find(p=>p.name==="Mini Chocolate Bars (Kids Pack)")?.img.includes("products/mini-chocolates") &&
+  products.find(p=>p.name==="Diwali Laxmi Puja Dry Fruit Box")?.img.includes("products/diwali-hamper") &&
+  products.find(p=>p.name==="Essential Dry Fruit Box 500g")?.img.includes("products/dry-fruit-box") &&
+  products.find(p=>p.name==="Kimia / Soft Dates")?.img.includes("products/soft-dates"));
+check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
+  products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
+  products.find(p=>p.name==="Tutti Frutti Mix")?.img.includes("products/dried-fruits") &&
+  products.find(p=>p.name==="Classic Trail Mix")?.img.includes("products/trail-mix") &&
+  products.find(p=>p.name.includes("Kesar Saffron"))?.img.includes("products/saffron") &&
+  products.find(p=>p.name.includes("Green Cardamom 8mm"))?.img.includes("products/cardamom") &&
+  products.find(p=>p.name==="Fruit & Nut Granola")?.img.includes("products/granola") &&
+  products.find(p=>p.name==="Masala Peanuts")?.img.includes("products/peanuts") &&
+  products.find(p=>p.name==="Diet Mixture Namkeen")?.img.includes("products/namkeen"));
+
+check("specific photos: pineapple/papaya/orange/dragon/peach/black-raisins/hemp/halim/cocoa-powder/cinnamon",
+  products.find(p=>p.name==="Dried Pineapple")?.img.includes("products/dried-pineapple") &&
+  products.find(p=>p.name==="Dried Papaya")?.img.includes("products/dried-papaya") &&
+  products.find(p=>p.name==="Dried Orange Slices")?.img.includes("products/dried-orange") &&
+  products.find(p=>p.name==="Dried Dragon Fruit")?.img.includes("products/dried-dragon-fruit") &&
+  products.find(p=>p.name==="Dried Peach Slices")?.img.includes("products/dried-peach") &&
+  products.find(p=>p.name==="Black Raisins Seedless")?.img.includes("products/black-raisins") &&
+  products.find(p=>p.name==="Golden Raisins")?.img.includes("products/raisins") &&
+  products.find(p=>p.name==="Hemp Seeds")?.img.includes("products/hemp-seeds") &&
+  products.find(p=>p.name==="Garden Cress Seeds (Halim)")?.img.includes("products/halim-seeds") &&
+  products.find(p=>p.name==="Cocoa Powder Unsweetened")?.img.includes("products/cocoa-powder") &&
+  products.find(p=>p.name==="Cinnamon Sticks (Dalchini)")?.img.includes("products/cinnamon-sticks") &&
+  products.find(p=>p.name==="Cloves (Laung)")?.img.includes("products/whole-spices"));
+
+check("specific photos: gond-laddoo/almond-slices/masala-almonds/masala-cashews/cashew-pieces/flavoured-makhana/millet/choco-berries",
+  products.find(p=>p.name==="Gond ke Laddoo")?.img.includes("products/gond-laddoo") &&
+  products.find(p=>p.name==="Almond Slices (Badam Katran)")?.img.includes("products/almond-slices") &&
+  products.find(p=>p.name==="Peri Peri Almonds")?.img.includes("products/masala-almonds") &&
+  products.find(p=>p.name==="Smoked Almonds")?.img.includes("products/almonds") &&
+  products.find(p=>p.name==="Masala Cashews")?.img.includes("products/masala-cashews") &&
+  products.find(p=>p.name==="Cashew Splits & Pieces")?.img.includes("products/cashew-pieces") &&
+  products.find(p=>p.name==="Peri Peri Makhana")?.img.includes("products/masala-makhana") &&
+  products.find(p=>p.name==="Caramel Makhana (Sweet)")?.img.includes("products/caramel-makhana") &&
+  products.find(p=>p.name==="Jowar Puffs (Masala)")?.img.includes("products/millet-snacks") &&
+  products.find(p=>p.name==="Roasted Soya Nuts")?.img.endsWith("categories/snacks.jpg") &&
+  products.find(p=>p.name==="Choco-Coated Almonds")?.img.includes("products/choco-almonds") &&
+  products.find(p=>p.name==="Choco-Coated Blueberries")?.img.includes("products/choco-berries") &&
+  products.find(p=>p.name==="Choco-Coated Cashews")?.img.includes("products/choco-nuts"));
+
+check("specific photos: date typologies/date-powder/cardamoms/nutmeg-mace/star-anise/bay/oats/peanut-butter",
+  products.find(p=>p.name==="Mabroom Dates")?.img.includes("products/dates-dark") &&
+  products.find(p=>p.name==="Deglet Noor Dates")?.img.includes("products/dates-golden") &&
+  products.find(p=>p.name==="Pitted Seedless Dates")?.img.includes("products/dates-pitted") &&
+  products.find(p=>p.name==="Date Powder (Natural Sweetener)")?.img.includes("products/date-powder") &&
+  products.find(p=>p.name==="Black Cardamom (Badi Elaichi)")?.img.includes("products/black-cardamom") &&
+  products.find(p=>p.name==="Green Cardamom Bold 8mm+")?.img.includes("products/cardamom") &&
+  products.find(p=>p.name==="Mace (Javitri)")?.img.includes("products/nutmeg-mace") &&
+  products.find(p=>p.name==="Star Anise (Chakra Phool)")?.img.includes("products/star-anise") &&
+  products.find(p=>p.name==="Bay Leaves (Tej Patta)")?.img.includes("products/bay-leaves") &&
+  products.find(p=>p.name==="Rolled Oats")?.img.includes("products/rolled-oats") &&
+  products.find(p=>p.name==="Peanut Butter Creamy")?.img.includes("products/peanut-butter") &&
+  products.find(p=>p.name==="Almond Butter")?.img.includes("products/nut-butter"));
+check("date-only keywords do not leak into raisins/cashews",
+  products.find(p=>p.name==="Black Raisins Seedless")?.img.includes("products/black-raisins") &&
+  products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices"));
 
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");

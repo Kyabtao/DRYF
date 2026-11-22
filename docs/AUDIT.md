@@ -21,13 +21,14 @@ product entry can never reach the live site.
 3. **Category integrity** — 9 categories, each with label/emoji/blurb, an existing
    local fallback image, products, and at least one bestseller.
 4. **Catalogue size & uniqueness** — ≥240 products, sequential ids, no duplicate names.
-5. **Per-product checks (×247)** — English name, Hindi transliteration **and**
+5. **Per-product checks (×254)** — English name, Hindi transliteration **and**
    Devanagari script, known category, sane price (₹50–5000), emoji, level 1–3,
    shelf life, benefit text, rating 4.0–5.0, discount 10–35%, MRP > price,
-   Unsplash stock-photo URL, existing local fallback image, and monotonic
+   verified local product photo (no external URL), and monotonic
    pack pricing (250g < 500g < 1kg).
-6. **Stock-photo mapping** — 25+ keyword groups, all pointing at
-   `images.unsplash.com`, 25+ distinct photos actually used.
+6. **Product-photo mapping** — 12+ ingredient keyword groups, every image a
+   local file that exists, 15+ distinct photos actually used, and specific
+   checks that almonds/cashews/makhana/honey use their ingredient photos.
 7. **App-logic smoke checks** — cart, checkout, orders, wishlist, Hindi toggle,
    billing and image-fallback code all present; cart persistence in localStorage.
 

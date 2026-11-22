@@ -7,7 +7,7 @@ presentation and tooling are fully separated.
 ```
 .
 ├── index.html                  # HOME page (hero, previews — not the full catalogue)
-├── shop.html                   # SHOP page: all 247 products, search/filter/sort (?cat=, ?q=)
+├── shop.html                   # SHOP page: all 254 products, search/filter/sort (?cat=, ?q=)
 ├── categories.html             # ALL CATEGORIES page
 ├── category.html               # CATEGORY template page: category.html?cat=nuts
 ├── deals.html                  # DEALS + combo packs page
@@ -23,8 +23,8 @@ presentation and tooling are fully separated.
 │   │   ├── app.js              # Application logic (ES module): page routing,
 │   │   │                       # state, cart, checkout, wishlist, i18n, rendering
 │   │   └── data/
-│   │       └── products.js     # DATA LAYER (ES module): categories, 247 products,
-│   │                           # pricing rules, Unsplash stock-photo mapping
+│   │       └── products.js     # DATA LAYER (ES module): categories, 254 products,
+│   │                           # pricing rules, local product-photo mapping
 │   └── images/
 │       ├── hero.jpg            # Hero banner (local, always reliable)
 │       └── categories/         # One fallback photo per category (9 files)
@@ -58,12 +58,13 @@ moving between pages.
 - **No framework / no build step** — plain HTML + CSS + ES modules. Deploys anywhere
   (GitHub Pages, Netlify, any static host) by copying the folder.
 - **Data/logic separation** — `products.js` exports `CATS`, `products`, `packPrice`,
-  `packMRP`, `PACKS_FOR`, `STOCK_MAP`. To add a product, add ONE line to the data
+  `packMRP`, `PACKS_FOR`, `PRODUCT_IMG_MAP`. To add a product, add ONE line to the data
   file; UI, cart, search, Hindi names, docs and audit all pick it up automatically.
-- **Product images = stock photos + fallback** — each product resolves a stock photo
-  from Unsplash (`images.unsplash.com`, matched by ingredient keyword in `STOCK_MAP`).
-  Every `<img>` carries an `onerror` fallback to the local category photo, so the
-  page never shows a broken image even if a CDN photo is removed.
+- **Product images = local product photos + fallback** — each product resolves a verified local
+  photo by ingredient keyword (`PRODUCT_IMG_MAP` in `products.js`) — an
+  ingredient photo (almonds, cashews, makhana…) or its category photo.
+  No external stock CDN is used: stock sites kept serving wrong/generic
+  food (e.g. cake) for real products, and local photos can be checked.
 - **State** — cart / wishlist / store-list / orders persist in `localStorage`
   (keys `dryf-cart`, `dryf-wish`, `dryf-list`, `dryf-orders`, `dryf-lang`).
 - **i18n** — every product carries English, transliteration and Devanagari names;
