@@ -122,7 +122,7 @@ check("specific photos: almonds/cashews/makhana/honey are ingredient photos",
   products.find(p=>p.name.includes("Roasted Salted Makhana"))?.img.includes("products/makhana") &&
   products.find(p=>p.name.includes("Pure Raw Honey"))?.img.includes("products/honey"));
 check("specific photos: exotic-nuts/laddoo/powders/badam-milk/jaggery/coconut/prunes/pumpkin/chia/coffee",
-  products.find(p=>p.name==="Hazelnuts")?.img.includes("products/exotic-nuts") &&
+  products.find(p=>p.name==="Hazelnuts")?.img.includes("products/hazelnuts") &&
   products.find(p=>p.name==="Dry Fruit Laddoo (Sugar-Free)")?.img.includes("products/laddoo") &&
   products.find(p=>p.name==="Ashwagandha Powder")?.img.includes("products/herbal-powder") &&
   products.find(p=>p.name==="Kesar Badam Milk Mix")?.img.includes("products/badam-milk") &&
@@ -140,7 +140,7 @@ check("specific photos: dark-choc/truffles/cocoa/sunflower/flax/sesame/magaj/bar
   products.find(p=>p.name==="Flax Seeds (Alsi)")?.img.includes("products/flax-seeds") &&
   products.find(p=>p.name==="Sesame Seeds White")?.img.includes("products/sesame-seeds") &&
   products.find(p=>p.name.startsWith("Watermelon Seeds"))?.img.includes("products/magaj-seeds") &&
-  products.find(p=>p.name.includes("Kaju Katli"))?.img.includes("products/barfi") &&
+  products.find(p=>p.name==="Badam Barfi")?.img.includes("products/barfi") &&
   products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki") &&
   products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
   products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
@@ -195,7 +195,7 @@ check("specific photos: mango/kiwi/poppy/kalonji/chana/mini-choc/diwali/dry-frui
   products.find(p=>p.name==="Essential Dry Fruit Box 500g")?.img.includes("products/dry-fruit-box") &&
   products.find(p=>p.name==="Kimia / Soft Dates")?.img.includes("products/soft-dates"));
 check("specific photos: berries/dried-fruit/trail/kesar/elaichi/Granola/peanuts/namkeen/tea",
-  products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/berries-mix") &&
+  products.find(p=>p.name==="Dried Strawberries")?.img.includes("products/berries-mix") &&
   products.find(p=>p.name==="Tutti Frutti Mix")?.img.includes("products/dried-fruits") &&
   products.find(p=>p.name==="Classic Trail Mix")?.img.includes("products/trail-mix") &&
   products.find(p=>p.name.includes("Kesar Saffron"))?.img.includes("products/saffron") &&
@@ -306,6 +306,24 @@ check("gap-fill 2 photos: dals/poha/sabudana/makhana-flour/date-syrup/gulkand/co
 check("punctuation in names does not break keyword rules",
   products.find(p=>p.name==="Moong Dal (Salted)")?.img.includes("moong-dal-namkeen") &&
   products.find(p=>p.name==="Rolled Oats")?.img.includes("products/rolled-oats"));
+
+check("photo-split batch: poha/berry singles/exotic-nut singles/kaju katli",
+  products.find(p=>p.name==="Thick Poha")?.img.includes("products/poha") &&
+  products.find(p=>p.name==="Dried Cranberries")?.img.includes("products/cranberries") &&
+  products.find(p=>p.name==="Dried Blueberries")?.img.includes("products/blueberries") &&
+  products.find(p=>p.name==="Goji Berries")?.img.includes("products/goji-berries") &&
+  products.find(p=>p.name==="Hazelnuts")?.img.includes("products/hazelnuts") &&
+  products.find(p=>p.name==="Macadamia Nuts")?.img.includes("products/macadamia") &&
+  products.find(p=>p.name==="Pecan Nuts")?.img.includes("products/pecans") &&
+  products.find(p=>p.name==="Pine Nuts (Chilgoza)")?.img.includes("products/pine-nuts") &&
+  products.find(p=>p.name==="Brazil Nuts")?.img.includes("products/brazil-nuts") &&
+  products.find(p=>p.name==="Kaju Katli Style Mewa Barfi")?.img.includes("products/kaju-katli"));
+check("nut/berry splits did not leak into flavours or spreads",
+  products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
+  products.find(p=>p.name==="Hazelnut Chocolate Spread")?.img.includes("products/nut-butter") &&
+  products.find(p=>p.name==="Choco-Coated Blueberries")?.img.includes("products/choco-berries") &&
+  products.find(p=>p.name==="Badam Barfi")?.img.includes("products/barfi") &&
+  products.find(p=>p.name==="Berry Trail Mix")?.img.includes("products/trail-mix"));
 
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");
