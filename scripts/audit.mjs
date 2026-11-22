@@ -318,6 +318,24 @@ check("photo-split batch: poha/berry singles/exotic-nut singles/kaju katli",
   products.find(p=>p.name==="Pine Nuts (Chilgoza)")?.img.includes("products/pine-nuts") &&
   products.find(p=>p.name==="Brazil Nuts")?.img.includes("products/brazil-nuts") &&
   products.find(p=>p.name==="Kaju Katli Style Mewa Barfi")?.img.includes("products/kaju-katli"));
+check("photo-split batch 2: laddoo varieties, gift boxes, sweets, bhel, nibs, mamra",
+  products.find(p=>p.name==="Motichoor Laddoo")?.img.includes("products/motichoor-laddoo") &&
+  products.find(p=>p.name==="Besan Laddoo")?.img.includes("products/besan-laddoo") &&
+  products.find(p=>p.name==="Energy Laddoo (Til-Mewa)")?.img.includes("products/til-laddoo") &&
+  products.find(p=>p.name==="Coconut Dry Fruit Laddoo")?.img.includes("products/coconut-laddoo") &&
+  products.find(p=>p.name==="Gond ke Laddoo")?.img.includes("products/gond-laddoo") &&
+  products.find(p=>p.name==="Dry Fruit Laddoo (Sugar-Free)")?.img.includes("products/laddoo") &&
+  products.find(p=>p.name==="Birthday Gift Hamper")?.img.includes("products/birthday-hamper") &&
+  products.find(p=>p.name==="Rakhi Special Hamper")?.img.endsWith("categories/gift.jpg") &&
+  products.find(p=>p.name==="Shakarpara (Mewa)")?.img.includes("products/shakarpara") &&
+  products.find(p=>p.name==="Gond Pak (Winter)")?.img.includes("products/gond-pak") &&
+  products.find(p=>p.name==="Bhel Mix")?.img.includes("products/bhel-mix") &&
+  products.find(p=>p.name==="Cornflakes Chivda")?.img.includes("products/namkeen") &&
+  products.find(p=>p.name==="Cacao Nibs")?.img.includes("products/cacao-nibs") &&
+  products.find(p=>p.name==="Dark Choco Chips")?.img.includes("products/cocoa-baking") &&
+  products.find(p=>p.name==="Almonds Mamra Premium")?.img.includes("products/mamra-almonds") &&
+  products.find(p=>p.name==="Almonds California")?.img.includes("products/almonds") &&
+  products.find(p=>p.name==="Kashmiri Mamra Walnut Kernels")?.img.includes("products/walnuts"));
 check("nut/berry splits did not leak into flavours or spreads",
   products.find(p=>p.name==="Hazelnut Chocolate")?.img.endsWith("categories/chocolate.jpg") &&
   products.find(p=>p.name==="Hazelnut Chocolate Spread")?.img.includes("products/nut-butter") &&
