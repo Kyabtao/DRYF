@@ -285,7 +285,43 @@ const DATES_MORE = [
 ["Kabkab Dates","Kabkab Khajoor · कबकब खजूर","dates",310,"🌴",2,"6 months","Honey-soft Iranian dates for sweets & daily eating"],
 ["Pitted Seedless Dates","Bina Guthli Khajoor · बिना गुठली खजूर","dates",390,"🌴",1,"6 months","Ready-to-cook seedless dates for laddoo, shakes & baking"],
 ];
-RAW.push(...EXTRA, ...MORE, ...DATES_MORE);
+/* ---- GAP FILL: everyday spices, Indian snacks, sweets & nuts that a
+   real dry-fruit/namkeen shop must stock (kept in their true shelves) ---- */
+const EXTRA2 = [
+/* spices — powders & whole-seed basics the shelf was missing */
+["Turmeric Powder (Haldi)","Haldi Powder · हल्दी पाउडर","spices",120,"🟡",1,"12 months","Everyday cooking essential — sold in every Indian kitchen"],
+["Red Chilli Powder (Lal Mirch)","Lal Mirch Powder · लाल मिर्च","spices",180,"🌶️",1,"12 months","Daily masala; pair with haldi for the base of any gravy"],
+["Coriander Powder (Dhania)","Dhania Powder · धनिया पाउडर","spices",110,"🟤",1,"12 months","High-volume masala; buy in bulk, sell in 100g–500g"],
+["Garam Masala","Garam Masala · गरम मसाला","spices",260,"🫙",1,"12 months","House blend of whole spices — highest repeat purchase"],
+["Kasuri Methi (Dried Fenugreek)","Kasuri Methi · कसूरी मेथी","spices",140,"🍃",1,"12 months","Crushed dried methi; finishes dals, paneer & parathas"],
+["Hing (Asafoetida)","Hing · हींग","spices",420,"🟠",2,"12 months","Strong aroma; small packs, loyal repeat buyers"],
+["Rai (Mustard Seeds)","Rai · राई","spices",80,"🟤",1,"12 months","Tadka essential — cheap, fast-moving filler item"],
+["Methi Dana (Fenugreek Seeds)","Methi Dana · मेथी दाना","spices",90,"🌾",1,"12 months","Dual use: cooking tadka and soaked morning remedy"],
+["Ajwain (Carom Seeds)","Ajwain · अजवाइन","spices",110,"🌿",1,"12 months","Digestion favourite; pairs with jeera on the same shelf"],
+["Saunf (Fennel Seeds)","Saunf · सौंफ","spices",130,"🌱",1,"12 months","Mouth-freshener & after-meal staple; plain (unsweetened)"],
+["Kali Mirch Powder (Black Pepper)","Kali Mirch Powder · काली मिर्च","spices",480,"⚫",2,"12 months","Ground pepper for kitchens, soups & health mixes"],
+/* snacks — the namkeen counter items */
+["Sev Bhujia","Sev Bhujia · सेव भुजिया","snacks",180,"🍜",1,"3 months","India's #1 namkeen; stack near billing for impulse buys"],
+["Moong Dal (Salted)","Namkeen Moong Dal · मूंग दाल","snacks",200,"🟡",1,"3 months","Light crispy dal — pairs with bhujia in combo packs"],
+["Aloo Bhujia","Aloo Bhujia · आलू भुजिया","snacks",170,"🥔",1,"3 months","Potato sev; kids & tea-time bestseller"],
+["Bhel Mix","Bhel Mix · भेल मिक्स","snacks",190,"🥗",2,"3 months","Ready bhel base — add onion & lemon at the counter"],
+["Khatta Meetha Mixture","Khatta Meetha · खट्टा मीठा","snacks",200,"🍋",2,"3 months","Sweet-tangy mixture; strong evening-snack demand"],
+["Masala Chana Jor","Masala Chana Jor · मसाला चना जोर","snacks",160,"🌀",2,"3 months","Flat spicy chana — pairs with roasted chana shelf"],
+["Cornflakes Chivda","Cornflakes Chivda · कॉर्नफ्लेक्स चिवड़ा","snacks",180,"🌽",2,"3 months","Light, crunchy, diet-friendly namkeen option"],
+/* sweets — classic mithai counter beyond barfi/laddoo */
+["Anjeer Barfi (No Sugar)","Anjeer Barfi · अंजीर बर्फी","sweets",890,"💜",3,"15–20 days","Sugar-free fig & nut barfi; premium gifting favourite"],
+["Besan Laddoo","Besan Laddoo · बेसन लड्डू","sweets",420,"🟡",1,"20–25 days","Classic besan laddoo — puja & festival bulk orders"],
+["Motichoor Laddoo","Motichoor Laddoo · मोतीचूर लड्डू","sweets",460,"🟠",1,"10–15 days","Tiny boondi laddoo; celebration & prasad standard"],
+["Dry Fruit Chikki (Mixed)","Mixed Chikki · ड्राई फ्रूट चिक्की","sweets",480,"🥜",2,"20–25 days","Mixed dry-fruit chikki — winter energy seller"],
+["Balushahi","Balushahi · बालूशाही","sweets",380,"🍩",2,"10–15 days","Glazed flaky sweet; regional favourite in the north"],
+["Kalakand","Kalakand · कलाकंद","sweets",520,"🤍",2,"5–7 days","Milk-based grainy sweet; sells fast in winter"],
+["Choco Coated Dates","Choco Dates · चॉकलेट खजूर","sweets",740,"🍫",3,"20–25 days","Dates stuffed with nuts & dipped in chocolate — new-age mithai"],
+/* nuts — the missing premium seed-nut */
+["Chironji (Charoli)","Chironji · चिरोंजी","nuts",1400,"🟤",3,"6 months","Almond-flavoured seed for kheer, sweets & biryani"],
+/* pantry — everyday sweeteners & dry-fruit powders */
+["Rock Sugar (Mishri)","Mishri · मिश्री","pantry",140,"💠",1,"12 months","Puja, prasad & tea sweetener; always in stock"],
+];
+RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2);
 export const LEVEL_TXT = {1:"⭐ Must-Have",2:"🔥 Popular",3:"💎 Premium / Exotic"};
 const CAT_IMG_POS = ["center","top","bottom","left","right"];
 
@@ -298,6 +334,7 @@ const P = f => `assets/images/products/${f}`;
 export const PRODUCT_IMG_MAP = [
   [["gond ke laddoo", "gond laddoo"], P("gond-laddoo.jpg")],
   [["laddoo"], P("laddoo.jpg")],
+  [["anjeer barfi", "fig barfi"], P("anjeer-barfi.jpg")],
   [["barfi", "katli"], P("barfi.jpg")],
   [["chikki", "gajak", "revdi"], P("chikki.jpg")],
   [["cinnamon", "cassia", "dalchini"], P("cinnamon-sticks.jpg")],
@@ -306,8 +343,10 @@ export const PRODUCT_IMG_MAP = [
   [["cardamom", "elaichi"], P("cardamom.jpg")],
   [["star anise", "chakra phool"], P("star-anise.jpg")],
   [["bay leaves", "tej patta"], P("bay-leaves.jpg")],
+  [["red chilli powder", "lal mirch powder", "mirch powder", "kali mirch powder", "pepper powder", "turmeric powder", "haldi powder", "dhania powder", "coriander powder"], P("spice-powders.jpg")],
   [["black pepper cashew", "pepper cashew"], P("masala-cashews.jpg")],
   [["black pepper", "cloves", "clove"], P("whole-spices.jpg")],
+  [["choco coated date", "choco stuffed date", "chocolate stuffed date"], P("choco-date-bites.jpg")],
   [["stuffed"], P("stuffed-dates.jpg")],
   [["chuara", "dry dates"], P("dry-dates.jpg")],
   [["soan papdi"], P("soan-papdi.jpg")],
@@ -328,6 +367,18 @@ export const PRODUCT_IMG_MAP = [
   [["fard", "khudri", "kabkab", "mabroom", "piarom"], P("dates-dark.jpg")],
   [["pitted seedless"], P("dates-pitted.jpg")],
   [["date powder"], P("date-powder.jpg")],
+  [["choco stuffed date", "chocolate stuffed date"], P("choco-date-bites.jpg")],
+  [["garam masala"], P("garam-masala.jpg")],
+  [["kasuri methi"], P("kasuri-methi.jpg")],
+  [["methi dana", "fenugreek seed"], "assets/images/categories/seeds.jpg"],
+  [["hing", "asafoetida"], P("hing.jpg")],
+  [["mustard seed", "rai ("], P("mustard-seeds.jpg")],
+  [["mishri saunf", "sugar-coated fennel", "sugar coated fennel"], P("choco-nuts.jpg")],
+  [["ajwain", "carom", "saunf", "fennel"], P("fennel-seeds.jpg")],
+  [["moong dal"], P("moong-dal-namkeen.jpg")],
+  [["chironji", "charoli"], P("chironji.jpg")],
+  [["besan laddoo", "motichoor", "balushahi", "kalakand"], "assets/images/categories/sweets.jpg"],
+  [["rock sugar", "mishri"], P("mishri.jpg")],
   [["diwali", "mithaas"], P("diwali-hamper.jpg")],
   [["celebration box", "berry blast"], P("chocolate-gift-box.jpg")],
   [["dry fruit box"], P("dry-fruit-box.jpg")],
@@ -415,6 +466,8 @@ export const PRODUCT_IMG_MAP = [
   [["banana chips"], P("banana-chips.jpg")],
   [["khakhra"], P("khakhra.jpg")],
   [["cookie"], P("cookies.jpg")],
+  [["bhujia", "sev"], P("bhujia.jpg")],
+  [["bhel", "chivda"], P("namkeen.jpg")],
   [["mixture", "namkeen", "chips", "puffs"], P("namkeen.jpg")],
 ];
 export function productImageFor(name, cat){

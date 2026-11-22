@@ -250,6 +250,42 @@ check("date-only keywords do not leak into raisins/cashews",
   products.find(p=>p.name==="Black Raisins Seedless")?.img.includes("products/black-raisins") &&
   products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices"));
 
+check("gap-fill catalogue: everyday spices, namkeen, mithai, chironji present",
+  ["Turmeric Powder (Haldi)","Red Chilli Powder (Lal Mirch)","Coriander Powder (Dhania)","Garam Masala",
+   "Kasuri Methi (Dried Fenugreek)","Hing (Asafoetida)","Rai (Mustard Seeds)","Methi Dana (Fenugreek Seeds)",
+   "Ajwain (Carom Seeds)","Saunf (Fennel Seeds)","Kali Mirch Powder (Black Pepper)"]
+    .every(n => products.some(p => p.name===n && p.cat==="spices")) &&
+  ["Sev Bhujia","Moong Dal (Salted)","Aloo Bhujia","Bhel Mix","Khatta Meetha Mixture","Masala Chana Jor","Cornflakes Chivda"]
+    .every(n => products.some(p => p.name===n && p.cat==="snacks")) &&
+  ["Anjeer Barfi (No Sugar)","Besan Laddoo","Motichoor Laddoo","Balushahi","Kalakand","Dry Fruit Chikki (Mixed)","Choco Coated Dates"]
+    .every(n => products.some(p => p.name===n && p.cat==="sweets")) &&
+  products.some(p => p.name==="Chironji (Charoli)" && p.cat==="nuts") &&
+  products.some(p => p.name==="Rock Sugar (Mishri)" && p.cat==="pantry"));
+check("gap-fill photos: powders/masala/methi/hing/rai/bhujia/moong/chironji/anjeer/choco-dates",
+  products.find(p=>p.name==="Turmeric Powder (Haldi)")?.img.includes("products/spice-powders") &&
+  products.find(p=>p.name==="Red Chilli Powder (Lal Mirch)")?.img.includes("products/spice-powders") &&
+  products.find(p=>p.name==="Kali Mirch Powder (Black Pepper)")?.img.includes("products/spice-powders") &&
+  products.find(p=>p.name==="Garam Masala")?.img.includes("products/garam-masala") &&
+  products.find(p=>p.name==="Kasuri Methi (Dried Fenugreek)")?.img.includes("products/kasuri-methi") &&
+  products.find(p=>p.name==="Methi Dana (Fenugreek Seeds)")?.img.includes("categories/seeds") &&
+  products.find(p=>p.name==="Hing (Asafoetida)")?.img.includes("products/hing") &&
+  products.find(p=>p.name==="Rai (Mustard Seeds)")?.img.includes("products/mustard-seeds") &&
+  products.find(p=>p.name==="Saunf (Fennel Seeds)")?.img.includes("products/fennel-seeds") &&
+  products.find(p=>p.name==="Sev Bhujia")?.img.includes("products/bhujia") &&
+  products.find(p=>p.name==="Moong Dal (Salted)")?.img.includes("products/moong-dal") &&
+  products.find(p=>p.name==="Chironji (Charoli)")?.img.includes("products/chironji") &&
+  products.find(p=>p.name==="Anjeer Barfi (No Sugar)")?.img.includes("products/anjeer-barfi") &&
+  products.find(p=>p.name==="Choco Coated Dates")?.img.includes("products/choco-date-bites"));
+check("no leaking on short gap-fill keywords (rai/saunf/methi)",
+  products.find(p=>p.name==="Classic Trail Mix")?.img.includes("products/trail-mix") &&
+  products.find(p=>p.name==="Multigrain Khakhra")?.img.includes("products/khakhra") &&
+  products.find(p=>p.name==="Black Raisins Seedless")?.img.includes("products/black-raisins") &&
+  products.find(p=>p.name==="Sugar-Coated Fennel (Mishri Saunf)")?.img.includes("products/choco-nuts") &&
+  products.find(p=>p.name==="Fennel Seeds (Saunf)")?.img.includes("products/fennel-seeds") &&
+  products.find(p=>p.name==="Stuffed Medjool Dates Box")?.img.includes("products/stuffed-dates"));
+check("no duplicate product names in catalogue",
+  new Set(products.map(p=>p.name)).size === products.length);
+
 /* ---------- 7. App logic smoke checks (static) ---------- */
 const app = readFileSync("assets/js/app.js", "utf8");
 ["addToCart", "renderCart", "openCheckout", "renderOrders", "applyLang", "billCalc", "stockImg"]

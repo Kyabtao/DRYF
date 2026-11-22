@@ -1,9 +1,9 @@
-# DRYF — Full Product List (254 products)
+# DRYF — Full Product List (281 products)
 
 Auto-generated from `assets/js/data/products.js` — run `npm run docs:products` to refresh.
 Prices are indicative demo prices per 500g (gift hampers per box). Product photos: verified local photos in assets/images/products/ and assets/images/categories/ (see PRODUCT_IMG_MAP in the data file) - no external stock URLs.
 
-## 🌰 Dry Fruits & Nuts —  (30)
+## 🌰 Dry Fruits & Nuts —  (31)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -37,6 +37,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 28 | 🥜 Raw Peanut Kernels | Kachhi Moongphali Dana · कच्ची मूँगफली | ₹110 | ⭐ Must-Have | 3–4 months |
 | 29 | 🥜 Cashew LWP (Broken) | Kaju LWP · काजू एलडब्ल्यूपी | ₹460 | 🔥 Popular | 5–6 months |
 | 30 | 🥜 Roasted Salted Cashews | Bhuna Kaju · भुना काजू | ₹720 | 🔥 Popular | 4 months |
+| 31 | 🟤 Chironji (Charoli) | Chironji · चिरोंजी | ₹1400 | 💎 Premium | 6 months |
 
 ## 🌴 Dates & Khajoor — खजूर (20)
 
@@ -175,7 +176,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 36 | 🎁 Imported Chocolate Gift Pack | Imported Choco Pack · इम्पोर्टेड चॉकलेट पैक | ₹999 | 💎 Premium | 9 months |
 | 37 | 🍫 Chocolate Fudge (Homestyle) | Choco Fudge · चॉकलेट फ़ज | ₹380 | 🔥 Popular | 3 months |
 
-## 🔥 Roasted & Masala Snacks —  (33)
+## 🔥 Roasted & Masala Snacks —  (40)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -212,6 +213,13 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 31 | 🫓 Multigrain Khakhra | Khakhra · खाखरा | ₹110 | ⭐ Must-Have | 3 months |
 | 32 | 💪 Soya Chips | Soya Chips · सोया चिप्स | ₹130 | 🔥 Popular | 3 months |
 | 33 | 🫘 Roasted Chana Jor | Chana Jor · चना जोर | ₹150 | ⭐ Must-Have | 3 months |
+| 34 | 🍜 Sev Bhujia | Sev Bhujia · सेव भुजिया | ₹180 | ⭐ Must-Have | 3 months |
+| 35 | 🟡 Moong Dal (Salted) | Namkeen Moong Dal · मूंग दाल | ₹200 | ⭐ Must-Have | 3 months |
+| 36 | 🥔 Aloo Bhujia | Aloo Bhujia · आलू भुजिया | ₹170 | ⭐ Must-Have | 3 months |
+| 37 | 🥗 Bhel Mix | Bhel Mix · भेल मिक्स | ₹190 | 🔥 Popular | 3 months |
+| 38 | 🍋 Khatta Meetha Mixture | Khatta Meetha · खट्टा मीठा | ₹200 | 🔥 Popular | 3 months |
+| 39 | 🌀 Masala Chana Jor | Masala Chana Jor · मसाला चना जोर | ₹160 | 🔥 Popular | 3 months |
+| 40 | 🌽 Cornflakes Chivda | Cornflakes Chivda · कॉर्नफ्लेक्स चिवड़ा | ₹180 | 🔥 Popular | 3 months |
 
 ## 🎁 Gift Hampers & Combos —  (20)
 
@@ -238,7 +246,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 19 | 🙏 Thank You Mini Gift Box | Thank You Box · थैंक यू बॉक्स | ₹499 | ⭐ Must-Have | — (pack fresh) |
 | 20 | 🪔 Diwali Laxmi Puja Dry Fruit Box | Diwali Puja Box · दीवाली पूजा बॉक्स | ₹799 | ⭐ Must-Have | — (pack fresh) |
 
-## 🍬 Indian Sweets & Traditional — भारतीय मिठास (18)
+## 🍬 Indian Sweets & Traditional — भारतीय मिठास (25)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -260,8 +268,15 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 16 | ❄️ Gond Pak (Winter) | Gond Pak · गोंद पाक | ₹520 | 🔥 Popular | 1 month |
 | 17 | 🔶 Shakarpara (Mewa) | Shakarpara · शकरपारा | ₹180 | ⭐ Must-Have | 1–2 months |
 | 18 | 🍡 Panjeeri Laddoo | Panjeeri Laddoo · पंजीरी लड्डू | ₹460 | 🔥 Popular | 1 month |
+| 19 | 💜 Anjeer Barfi (No Sugar) | Anjeer Barfi · अंजीर बर्फी | ₹890 | 💎 Premium | 15–20 days |
+| 20 | 🟡 Besan Laddoo | Besan Laddoo · बेसन लड्डू | ₹420 | ⭐ Must-Have | 20–25 days |
+| 21 | 🟠 Motichoor Laddoo | Motichoor Laddoo · मोतीचूर लड्डू | ₹460 | ⭐ Must-Have | 10–15 days |
+| 22 | 🥜 Dry Fruit Chikki (Mixed) | Mixed Chikki · ड्राई फ्रूट चिक्की | ₹480 | 🔥 Popular | 20–25 days |
+| 23 | 🍩 Balushahi | Balushahi · बालूशाही | ₹380 | 🔥 Popular | 10–15 days |
+| 24 | 🤍 Kalakand | Kalakand · कलाकंद | ₹520 | 🔥 Popular | 5–7 days |
+| 25 | 🍫 Choco Coated Dates | Choco Dates · चॉकलेट खजूर | ₹740 | 💎 Premium | 20–25 days |
 
-## 🍯 Health Pantry & More — हेल्थ पैंट्री (20)
+## 🍯 Health Pantry & More — हेल्थ पैंट्री (21)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -285,8 +300,9 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 18 | 🌿 Triphala Powder | Triphala · त्रिफला | ₹180 | ⭐ Must-Have | 12 months |
 | 19 | 🍵 Green Tea Leaves (Whole Leaf) | Green Tea · ग्रीन टी | ₹340 | ⭐ Must-Have | 12 months |
 | 20 | 🌿 Dried Mint Leaves (Pudina) | Sukha Pudina · सूखा पुदीना | ₹120 | 🔥 Popular | 6 months |
+| 21 | 💠 Rock Sugar (Mishri) | Mishri · मिश्री | ₹140 | ⭐ Must-Have | 12 months |
 
-## 🌶️ Whole Spices & Masalas — साबुत मसाले (16)
+## 🌶️ Whole Spices & Masalas — साबुत मसाले (27)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -306,3 +322,14 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 14 | 🌾 Cumin Seeds (Jeera) | Jeera · जीरा | ₹420 | ⭐ Must-Have | 12 months |
 | 15 | 🌾 Shahi Jeera (Black Cumin) | Shahi Jeera · शाही जीरा | ₹680 | 🔥 Popular | 12 months |
 | 16 | 🌿 Caraway / Ajwain | Ajwain · अजवाइन | ₹240 | ⭐ Must-Have | 12 months |
+| 17 | 🟡 Turmeric Powder (Haldi) | Haldi Powder · हल्दी पाउडर | ₹120 | ⭐ Must-Have | 12 months |
+| 18 | 🌶️ Red Chilli Powder (Lal Mirch) | Lal Mirch Powder · लाल मिर्च | ₹180 | ⭐ Must-Have | 12 months |
+| 19 | 🟤 Coriander Powder (Dhania) | Dhania Powder · धनिया पाउडर | ₹110 | ⭐ Must-Have | 12 months |
+| 20 | 🫙 Garam Masala | Garam Masala · गरम मसाला | ₹260 | ⭐ Must-Have | 12 months |
+| 21 | 🍃 Kasuri Methi (Dried Fenugreek) | Kasuri Methi · कसूरी मेथी | ₹140 | ⭐ Must-Have | 12 months |
+| 22 | 🟠 Hing (Asafoetida) | Hing · हींग | ₹420 | 🔥 Popular | 12 months |
+| 23 | 🟤 Rai (Mustard Seeds) | Rai · राई | ₹80 | ⭐ Must-Have | 12 months |
+| 24 | 🌾 Methi Dana (Fenugreek Seeds) | Methi Dana · मेथी दाना | ₹90 | ⭐ Must-Have | 12 months |
+| 25 | 🌿 Ajwain (Carom Seeds) | Ajwain · अजवाइन | ₹110 | ⭐ Must-Have | 12 months |
+| 26 | 🌱 Saunf (Fennel Seeds) | Saunf · सौंफ | ₹130 | ⭐ Must-Have | 12 months |
+| 27 | ⚫ Kali Mirch Powder (Black Pepper) | Kali Mirch Powder · काली मिर्च | ₹480 | 🔥 Popular | 12 months |
