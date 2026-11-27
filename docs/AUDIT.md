@@ -21,7 +21,7 @@ product entry can never reach the live site.
 3. **Category integrity** — 9 categories, each with label/emoji/blurb, an existing
    local fallback image, products, and at least one bestseller.
 4. **Catalogue size & uniqueness** — ≥240 products, sequential ids, no duplicate names.
-5. **Per-product checks (×291)** — English name, Hindi transliteration **and**
+5. **Per-product checks (×306)** — English name, Hindi transliteration **and**
    Devanagari script, known category, sane price (₹50–5000), emoji, level 1–3,
    shelf life, benefit text, rating 4.0–5.0, discount 10–35%, MRP > price,
    verified local product photo (no external URL), and monotonic

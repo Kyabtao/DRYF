@@ -1,4 +1,4 @@
-# DRYF — Full Product List (291 products)
+# DRYF — Full Product List (306 products)
 
 Auto-generated from `assets/js/data/products.js` — run `npm run docs:products` to refresh.
 Prices are indicative demo prices per 500g (gift hampers per box). Product photos: verified local photos in assets/images/products/ and assets/images/categories/ (see PRODUCT_IMG_MAP in the data file) - no external stock URLs.
@@ -221,7 +221,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 39 | 🌀 Masala Chana Jor | Masala Chana Jor · मसाला चना जोर | ₹160 | 🔥 Popular | 3 months |
 | 40 | 🌽 Cornflakes Chivda | Cornflakes Chivda · कॉर्नफ्लेक्स चिवड़ा | ₹180 | 🔥 Popular | 3 months |
 
-## 🎁 Gift Hampers & Combos —  (22)
+## 🎁 Gift Hampers & Combos —  (24)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -247,8 +247,10 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 20 | 🪔 Diwali Laxmi Puja Dry Fruit Box | Diwali Puja Box · दीवाली पूजा बॉक्स | ₹799 | ⭐ Must-Have | — (pack fresh) |
 | 21 | 💼 Corporate Dry Fruit Box | Corporate Box · कॉर्पोरेट बॉक्स | ₹1899 | 💎 Premium | — (pack fresh) |
 | 22 | 🎊 Festive Dry Fruit Box (Medium) | Festive Box · फेस्टिव बॉक्स | ₹999 | 🔥 Popular | — (pack fresh) |
+| 23 | 🪔 Diwali Dry Fruit Gift Tub | Diwali Tub · दीवाली टब | ₹699 | 🔥 Popular | — (pack fresh) |
+| 24 | 🍫 Festive Chocolate & Nut Box | Choco-Nut Box · चॉक-नट बॉक्स | ₹949 | 🔥 Popular | 6 months |
 
-## 🍬 Indian Sweets & Traditional — भारतीय मिठास (25)
+## 🍬 Indian Sweets & Traditional — भारतीय मिठास (28)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -277,8 +279,11 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 23 | 🍩 Balushahi | Balushahi · बालूशाही | ₹380 | 🔥 Popular | 10–15 days |
 | 24 | 🤍 Kalakand | Kalakand · कलाकंद | ₹520 | 🔥 Popular | 5–7 days |
 | 25 | 🍫 Choco Coated Dates | Choco Dates · चॉकलेट खजूर | ₹740 | 💎 Premium | 20–25 days |
+| 26 | 🤍 Kaju Barfi | Kaju Barfi · काजू बर्फी | ₹980 | 🔥 Popular | 15–20 days |
+| 27 | 🟤 Gulab Jamun (Pack) | Gulab Jamun · गुलाब जामुन | ₹340 | ⭐ Must-Have | 15–20 days |
+| 28 | ⚪ Rasgulla (Pack) | Rasgulla · रसगुल्ला | ₹300 | ⭐ Must-Have | 10–15 days |
 
-## 🍯 Health Pantry & More — हेल्थ पैंट्री (29)
+## 🍯 Health Pantry & More — हेल्थ पैंट्री (31)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -311,8 +316,10 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 27 | 🤍 Makhana Flour (Fox Nut) | Makhana Atta · मखाना आटा | ₹520 | 🔥 Popular | 6 months |
 | 28 | 🍯 Date Syrup | Khajoor Syrup · खजूर सिरप | ₹380 | 🔥 Popular | 9 months |
 | 29 | 🌹 Gulkand (Rose Petal Preserve) | Gulkand · गुलकंद | ₹260 | 🔥 Popular | 9 months |
+| 30 | 🌹 Rose Syrup (Gulab Sharbat) | Gulab Sharbat · गुलाब शरबत | ₹220 | 🔥 Popular | 12 months |
+| 31 | 🌿 Khus Syrup (Vetiver Sharbat) | Khus Sharbat · खस शरबत | ₹240 | 🔥 Popular | 12 months |
 
-## 🌶️ Whole Spices & Masalas — साबुत मसाले (27)
+## 🌶️ Whole Spices & Masalas — साबुत मसाले (35)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -343,3 +350,11 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 25 | 🌿 Ajwain (Carom Seeds) | Ajwain · अजवाइन | ₹110 | ⭐ Must-Have | 12 months |
 | 26 | 🌱 Saunf (Fennel Seeds) | Saunf · सौंफ | ₹130 | ⭐ Must-Have | 12 months |
 | 27 | ⚫ Kali Mirch Powder (Black Pepper) | Kali Mirch Powder · काली मिर्च | ₹480 | 🔥 Popular | 12 months |
+| 28 | 🍋 Chaat Masala | Chaat Masala · चाट मसाला | ₹150 | ⭐ Must-Have | 12 months |
+| 29 | 🫙 Kitchen King Masala | Kitchen King · किचन किंग | ₹190 | ⭐ Must-Have | 12 months |
+| 30 | 🍅 Pav Bhaji Masala | Pav Bhaji Masala · पाव भाजी | ₹170 | 🔥 Popular | 12 months |
+| 31 | 🥣 Sambhar Masala | Sambhar Masala · सांभर मसाला | ₹160 | 🔥 Popular | 12 months |
+| 32 | 🌶️ Kashmiri Red Chillies (Whole) | Kashmiri Mirch · कश्मीरी मिर्च | ₹320 | 🔥 Popular | 12 months |
+| 33 | ⬛ Kala Namak (Black Salt) | Kala Namak · काला नमक | ₹90 | ⭐ Must-Have | 12 months |
+| 34 | 🥭 Amchur (Dry Mango Powder) | Amchur · अमचूर | ₹180 | ⭐ Must-Have | 12 months |
+| 35 | ⚪ Safed Mirch (White Pepper) | Safed Mirch · सफेद मिर्च | ₹620 | 💎 Premium | 12 months |

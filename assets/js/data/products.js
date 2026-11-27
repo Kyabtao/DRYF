@@ -338,7 +338,30 @@ const EXTRA3 = [
 ["Corporate Dry Fruit Box","Corporate Box · कॉर्पोरेट बॉक्स","gifts",1899,"💼",3,"— (pack fresh)","Navy & gold 4-compartment box; bulk corporate orders"],
 ["Festive Dry Fruit Box (Medium)","Festive Box · फेस्टिव बॉक्स","gifts",999,"🎊",2,"— (pack fresh)","Mid-price festive box for offices & neighbours"],
 ];
-RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2, ...EXTRA3);
+/* ---- GAP FILL 3: masala blends, more mithai, sherbet bases,
+   salt-pepper basics and the festive dry-fruit gift tubs ---- */
+const EXTRA4 = [
+/* spices — blended masalas & the missing salt/pepper/chilli basics */
+["Chaat Masala","Chaat Masala · चाट मसाला","spices",150,"🍋",1,"12 months","Fruit-chaat & snack sprinkle; fast-moving small pack"],
+["Kitchen King Masala","Kitchen King · किचन किंग","spices",190,"🫙",1,"12 months","All-in-one sabzi masala; highest-volume blend"],
+["Pav Bhaji Masala","Pav Bhaji Masala · पाव भाजी","spices",170,"🍅",2,"12 months","Street-food blend; strong weekend demand"],
+["Sambhar Masala","Sambhar Masala · सांभर मसाला","spices",160,"🥣",2,"12 months","South-Indian staple for homes & tiffin services"],
+["Kashmiri Red Chillies (Whole)","Kashmiri Mirch · कश्मीरी मिर्च","spices",320,"🌶️",2,"12 months","Deep colour, mild heat — biryani & tandoori favourite"],
+["Kala Namak (Black Salt)","Kala Namak · काला नमक","spices",90,"⬛",1,"12 months","Chaat, raita & sherbet essential; cheap high-turnover"],
+["Amchur (Dry Mango Powder)","Amchur · अमचूर","spices",180,"🥭",1,"12 months","Sourness for chaat & sabzi; pairs with chaat masala"],
+["Safed Mirch (White Pepper)","Safed Mirch · सफेद मिर्च","spices",620,"⚪",3,"12 months","Premium mild pepper for soups & white gravies"],
+/* sweets — the mithai counter classics still missing */
+["Kaju Barfi","Kaju Barfi · काजू बर्फी","sweets",980,"🤍",2,"15–20 days","Cashew barfi squares; festive box staple"],
+["Gulab Jamun (Pack)","Gulab Jamun · गुलाब जामुन","sweets",340,"🟤",1,"15–20 days","Syrup-soaked classic; ready-to-eat pack"],
+["Rasgulla (Pack)","Rasgulla · रसगुल्ला","sweets",300,"⚪",1,"10–15 days","Spongy syrup sweet; light & universally liked"],
+/* pantry — summer sherbet bases */
+["Rose Syrup (Gulab Sharbat)","Gulab Sharbat · गुलाब शरबत","pantry",220,"🌹",2,"12 months","Milk-shake & rose-water base; summer bestseller"],
+["Khus Syrup (Vetiver Sharbat)","Khus Sharbat · खस शरबत","pantry",240,"🌿",2,"12 months","Cooling summer sherbet — pairs with rose syrup"],
+/* gifts — festive tubs & mini boxes between ₹500–1000 */
+["Diwali Dry Fruit Gift Tub","Diwali Tub · दीवाली टब","gifts",699,"🪔",2,"— (pack fresh)","Reusable tub of mixed dry fruits; bulk Diwali orders"],
+["Festive Chocolate & Nut Box","Choco-Nut Box · चॉक-नट बॉक्स","gifts",949,"🍫",2,"6 months","Half chocolates, half nuts — office gifting"],
+];
+RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2, ...EXTRA3, ...EXTRA4);
 export const LEVEL_TXT = {1:"⭐ Must-Have",2:"🔥 Popular",3:"💎 Premium / Exotic"};
 const CAT_IMG_POS = ["center","top","bottom","left","right"];
 
@@ -355,6 +378,7 @@ export const PRODUCT_IMG_MAP = [
   [["coconut dry fruit laddoo", "coconut laddoo"], P("coconut-laddoo.jpg")],
   [["gond ke laddoo", "gond laddoo"], P("gond-laddoo.jpg")],
   [["laddoo"], P("laddoo.jpg")],
+  [["kaju barfi", "cashew barfi"], P("kaju-barfi.jpg")],
   [["kaju katli", "katli"], P("kaju-katli.jpg")],
   [["anjeer barfi", "fig barfi"], P("anjeer-barfi.jpg")],
   [["barfi", "katli"], P("barfi.jpg")],
@@ -373,6 +397,7 @@ export const PRODUCT_IMG_MAP = [
   [["chuara", "dry dates"], P("dry-dates.jpg")],
   [["soan papdi"], P("soan-papdi.jpg")],
   [["jeera", "cumin", "ajwain", "caraway"], P("cumin-seeds.jpg")],
+  [["kashmiri red chilli", "kashmiri mirch"], P("kashmiri-chillies.jpg")],
   [["red chill"], P("red-chillies.jpg")],
   [["ajwa", "safawi"], P("ajwa-dates.jpg")],
   [["dhaga mishri"], P("mishri.jpg")],
@@ -393,6 +418,10 @@ export const PRODUCT_IMG_MAP = [
   [["date powder"], P("date-powder.jpg")],
   [["choco stuffed date", "chocolate stuffed date"], P("choco-date-bites.jpg")],
   [["garam masala"], P("garam-masala.jpg")],
+  [["chaat masala", "kitchen king", "pav bhaji", "sambhar masala"], P("masala-blends.jpg")],
+  [["kala namak", "black salt"], P("black-salt.jpg")],
+  [["amchur", "mango powder"], P("amchur.jpg")],
+  [["white pepper", "safed mirch"], P("white-pepper.jpg")],
   [["kasuri methi"], P("kasuri-methi.jpg")],
   [["methi dana", "fenugreek seed"], "assets/images/categories/seeds.jpg"],
   [["hing", "asafoetida"], P("hing.jpg")],
@@ -404,16 +433,22 @@ export const PRODUCT_IMG_MAP = [
   [["makhana flour", "makhana atta"], P("makhana-flour.jpg")],
   [["date syrup", "khajoor syrup"], P("dates-syrup.jpg")],
   [["gulkand"], P("gulkand.jpg")],
+  [["khus sharbat", "khus syrup", "vetiver"], P("khus-syrup.jpg")],
+  [["rose syrup", "gulab sharbat"], P("flavoured-water.jpg")],
   [["kids mewa", "kids dry fruit", "children"], P("dry-fruit-powder.jpg")],
   [["moong dal (salted)"], P("moong-dal-namkeen.jpg")],
   [["moong dal", "masoor", "chana dal"], P("dals.jpg")],
   [["chironji", "charoli"], P("chironji.jpg")],
+  [["gulab jamun"], P("gulab-jamun.jpg")],
+  [["rasgulla"], P("rasgulla.jpg")],
   [["shakarpara"], P("shakarpara.jpg")],
   [["gond pak"], P("gond-pak.jpg")],
   [["balushahi", "kalakand"], "assets/images/categories/sweets.jpg"],
   [["rock sugar", "mishri"], P("mishri.jpg")],
+  [["diwali dry fruit gift tub", "gift tub"], P("dry-fruit-box.jpg")],
   [["diwali", "mithaas"], P("diwali-hamper.jpg")],
   [["celebration box", "berry blast"], P("chocolate-gift-box.jpg")],
+  [["festive chocolate", "choco-nut box"], P("chocolate-gift-box.jpg")],
   [["festive dry fruit box", "festive box"], P("diwali-hamper.jpg")],
   [["corporate gift hamper"], P("gift-box-corporate.jpg")],
   [["dry fruit box"], P("dry-fruit-box.jpg")],

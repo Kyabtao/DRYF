@@ -318,6 +318,31 @@ check("photo-split batch: poha/berry singles/exotic-nut singles/kaju katli",
   products.find(p=>p.name==="Pine Nuts (Chilgoza)")?.img.includes("products/pine-nuts") &&
   products.find(p=>p.name==="Brazil Nuts")?.img.includes("products/brazil-nuts") &&
   products.find(p=>p.name==="Kaju Katli Style Mewa Barfi")?.img.includes("products/kaju-katli"));
+check("gap-fill 3: masala blends, salt/pepper basics, mithai, sherbets, gift tubs",
+  ["Chaat Masala","Kitchen King Masala","Pav Bhaji Masala","Sambhar Masala","Kashmiri Red Chillies (Whole)","Kala Namak (Black Salt)","Amchur (Dry Mango Powder)","Safed Mirch (White Pepper)"]
+    .every(n => products.some(p => p.name===n && p.cat==="spices")) &&
+  ["Kaju Barfi","Gulab Jamun (Pack)","Rasgulla (Pack)"].every(n => products.some(p => p.name===n && p.cat==="sweets")) &&
+  ["Rose Syrup (Gulab Sharbat)","Khus Syrup (Vetiver Sharbat)"].every(n => products.some(p => p.name===n && p.cat==="pantry")) &&
+  ["Diwali Dry Fruit Gift Tub","Festive Chocolate & Nut Box"].every(n => products.some(p => p.name===n && p.cat==="gifts")));
+check("gap-fill 3 photos: blends/chilli/black-salt/amchur/white-pepper/mithai/sherbet/tubs",
+  products.find(p=>p.name==="Chaat Masala")?.img.includes("products/masala-blends") &&
+  products.find(p=>p.name==="Garam Masala")?.img.includes("products/garam-masala") &&
+  products.find(p=>p.name==="Kashmiri Red Chillies (Whole)")?.img.includes("products/kashmiri-chillies") &&
+  products.find(p=>p.name==="Dry Red Chillies Whole")?.img.includes("products/red-chillies") &&
+  products.find(p=>p.name==="Kala Namak (Black Salt)")?.img.includes("products/black-salt") &&
+  products.find(p=>p.name==="Amchur (Dry Mango Powder)")?.img.includes("products/amchur") &&
+  products.find(p=>p.name==="Safed Mirch (White Pepper)")?.img.includes("products/white-pepper") &&
+  products.find(p=>p.name==="Kali Mirch Powder (Black Pepper)")?.img.includes("products/spice-powders") &&
+  products.find(p=>p.name==="Black Pepper Whole")?.img.includes("products/whole-spices") &&
+  products.find(p=>p.name==="Kaju Barfi")?.img.includes("products/kaju-barfi") &&
+  products.find(p=>p.name==="Kaju Katli Style Mewa Barfi")?.img.includes("products/kaju-katli") &&
+  products.find(p=>p.name==="Gulab Jamun (Pack)")?.img.includes("products/gulab-jamun") &&
+  products.find(p=>p.name==="Rasgulla (Pack)")?.img.includes("products/rasgulla") &&
+  products.find(p=>p.name==="Rose Syrup (Gulab Sharbat)")?.img.includes("products/flavoured-water") &&
+  products.find(p=>p.name==="Khus Syrup (Vetiver Sharbat)")?.img.includes("products/khus-syrup") &&
+  products.find(p=>p.name==="Diwali Dry Fruit Gift Tub")?.img.includes("products/dry-fruit-box") &&
+  products.find(p=>p.name==="Diwali Laxmi Puja Dry Fruit Box")?.img.includes("products/diwali-hamper") &&
+  products.find(p=>p.name==="Festive Chocolate & Nut Box")?.img.includes("products/chocolate-gift-box"));
 check("photo-split batch 2: laddoo varieties, gift boxes, sweets, bhel, nibs, mamra",
   products.find(p=>p.name==="Motichoor Laddoo")?.img.includes("products/motichoor-laddoo") &&
   products.find(p=>p.name==="Besan Laddoo")?.img.includes("products/besan-laddoo") &&

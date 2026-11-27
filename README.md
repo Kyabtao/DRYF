@@ -1,6 +1,6 @@
 # 🌰 DRYF — Dry Fruits, Seeds, Chocolates & Spices | Demo E-Commerce Store
 
-A professionally organised, no-build-step demo online store: **291 products, 10 categories**, Hindi names, local product photos, cart, coupons, demo checkout & order tracking — plus a store-opening planner.
+A professionally organised, no-build-step demo online store: **306 products, 10 categories**, Hindi names, local product photos, cart, coupons, demo checkout & order tracking — plus a store-opening planner.
 
 ## ⚡ Quick start
 ```bash
@@ -15,7 +15,7 @@ npm run docs:products  # regenerate docs/PRODUCTS.md
 index.html                  Entry point
 assets/css/styles.css       All styles
 assets/js/app.js            App logic (cart, checkout, wishlist, i18n, rendering)
-assets/js/data/products.js  Data layer: categories, 291 products, pricing, product-photo map
+assets/js/data/products.js  Data layer: categories, 306 products, pricing, product-photo map
 assets/images/              Hero + per-category fallback photos
 docs/                       ARCHITECTURE · PRODUCTS (auto-generated) · AUDIT · DEPLOYMENT
 scripts/                    audit.mjs (100+ checks) · generate-products-doc.mjs
@@ -28,7 +28,7 @@ Full details: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 | Page | What is on it |
 |---|---|
 | `index.html` | Home — hero, deals preview, category shelves, 8 bestsellers, how ordering works |
-| `shop.html` | Shop All — full 291 products with search / filter / sort (supports `?cat=` and `?q=` links) |
+| `shop.html` | Shop All — full 306 products with search / filter / sort (supports `?cat=` and `?q=` links) |
 | `categories.html` | All 10 categories |
 | `category.html?cat=nuts` | One category's own page (hero, chips to other categories, its products only) |
 | `deals.html` | Deals of the Day (20), coupon offers & combo packs |
@@ -48,15 +48,15 @@ My Orders · ❤️ Wishlist · everything persists in localStorage.
 Every product: English + transliteration + Devanagari (Badam · बादाम). **अ/EN toggle**
 switches titles to Hindi; search understands Hindi — try `केसर`, `बादाम`, `लौंग`.
 
-## 📦 291 products · 10 categories
+## 📦 306 products · 10 categories
 | Category | Items | Category | Items |
 |---|---:|---|---:|
 | 🌰 Dry Fruits & Nuts | 31 | 🌴 Dates & Khajoor | 20 |
-| 🍫 Chocolates | 37 | 🎁 Gift Hampers | 22 |
-| 🔥 Roasted & Masala Snacks | 40 | 🍯 Health Pantry | 29 |
-| 🫐 Berries & Dried Fruits | 31 | 🍬 Indian Sweets | 25 |
-| 🌻 Seeds & Makhana | 29 | 🌶️ Whole Spices & Masalas | 27 |
-|  |  | **Total** | **291** |
+| 🍫 Chocolates | 37 | 🎁 Gift Hampers | 24 |
+| 🔥 Roasted & Masala Snacks | 40 | 🍯 Health Pantry | 31 |
+| 🫐 Berries & Dried Fruits | 31 | 🍬 Indian Sweets | 28 |
+| 🌻 Seeds & Makhana | 29 | 🌶️ Whole Spices & Masalas | 35 |
+|  |  | **Total** | **306** |
 
 Full table: [docs/PRODUCTS.md](docs/PRODUCTS.md)
 
