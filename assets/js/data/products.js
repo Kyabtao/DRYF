@@ -361,7 +361,26 @@ const EXTRA4 = [
 ["Diwali Dry Fruit Gift Tub","Diwali Tub · दीवाली टब","gifts",699,"🪔",2,"— (pack fresh)","Reusable tub of mixed dry fruits; bulk Diwali orders"],
 ["Festive Chocolate & Nut Box","Choco-Nut Box · चॉक-नट बॉक्स","gifts",949,"🍫",2,"6 months","Half chocolates, half nuts — office gifting"],
 ];
-RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2, ...EXTRA3, ...EXTRA4);
+/* ---- GAP FILL 4: street-snack classics, more mithai, dessert bases,
+   chocolate variety and the remaining gift tiers ---- */
+const EXTRA5 = [
+/* snacks */
+["Chana Jor Garam","Chana Jor Garam · चना जोर गरम","snacks",170,"🌶️",2,"3 months","Street-style flattened chana; add onion-lemon at counter"],
+/* sweets */
+["Kesar Peda","Kesar Peda · केसर पेड़ा","sweets",620,"🟡",2,"10–15 days","Saffron milk peda; puja boxes & festive gifting"],
+["Coconut Barfi","Nariyal Barfi · नारियल बर्फी","sweets",460,"🤍",1,"15–20 days","Coconut fudge square; pairs with coconut laddoo"],
+/* pantry */
+["Tahini (Sesame Paste)","Tahini · ताहिनी","pantry",520,"🥣",3,"9 months","Sesame paste for hummus & dressings; health-buyer item"],
+["Gond (Edible Gum)","Gond · गोंद","pantry",780,"🟠",3,"12 months","Raw edible gum; winter laddoo staple & high margin"],
+/* chocolate */
+["Chocolate Coated Pretzels","Choco Pretzels · चॉकलेट प्रेट्ज़ल","chocolate",460,"🥨",2,"6 months","Sweet-salty snack; strong with younger buyers"],
+["Assorted Chocolate Box","Assorted Chocolates · असॉर्टेड चॉकलेट","chocolate",1290,"🎁",3,"4–6 months","Mixed praline box; premium gifting & corporate"],
+["Dark Chocolate Bar 72%","Dark 72% Bar · डार्क चॉकलेट","chocolate",380,"🍫",2,"9 months","Single-origin style bar; everyday premium choco buyer"],
+/* gifts */
+["Housewarming Gift Hamper","Griha Pravesh Hamper · गृह प्रवेश हैम्पर","gifts",1399,"🏠",2,"— (pack fresh)","Nuts + sweets combo for housewarming visits"],
+["Corporate Diwali Gift Box","Corporate Diwali Box · कॉर्पोरेट दीवाली","gifts",2199,"🪔",3,"— (pack fresh)","Large branded Diwali box for bulk corporate orders"],
+];
+RAW.push(...EXTRA, ...MORE, ...DATES_MORE, ...EXTRA2, ...EXTRA3, ...EXTRA4, ...EXTRA5);
 export const LEVEL_TXT = {1:"⭐ Must-Have",2:"🔥 Popular",3:"💎 Premium / Exotic"};
 const CAT_IMG_POS = ["center","top","bottom","left","right"];
 
@@ -381,7 +400,9 @@ export const PRODUCT_IMG_MAP = [
   [["kaju barfi", "cashew barfi"], P("kaju-barfi.jpg")],
   [["kaju katli", "katli"], P("kaju-katli.jpg")],
   [["anjeer barfi", "fig barfi"], P("anjeer-barfi.jpg")],
+  [["coconut barfi"], P("coconut-barfi.jpg")],
   [["barfi", "katli"], P("barfi.jpg")],
+  [["peanut chikki", "moongfali chikki"], P("chikki-peanut.jpg")],
   [["chikki", "gajak", "revdi"], P("chikki.jpg")],
   [["cinnamon", "cassia", "dalchini"], P("cinnamon-sticks.jpg")],
   [["black cardamom", "badi elaichi"], P("black-cardamom.jpg")],
@@ -397,6 +418,15 @@ export const PRODUCT_IMG_MAP = [
   [["chuara", "dry dates"], P("dry-dates.jpg")],
   [["soan papdi"], P("soan-papdi.jpg")],
   [["jeera", "cumin", "ajwain", "caraway"], P("cumin-seeds.jpg")],
+  [["chana jor garam"], P("chana-jor-garam.jpg")],
+  [["kesar peda", "kesar peda"], P("kesar-peda.jpg")],
+  [["tahini"], P("tahini.jpg")],
+  [["gond ("], P("gond.jpg")],
+  [["pretzel"], P("chocolate-coated-pretzels.jpg")],
+  [["assorted chocolate"], P("assorted-chocolates.jpg")],
+  [["dark 72", "72%"], P("dark-chocolate-bar.jpg")],
+  [["housewarming", "griha pravesh"], P("wedding-hamper.jpg")],
+  [["corporate diwali"], P("diwali-hamper.jpg")],
   [["kashmiri red chilli", "kashmiri mirch"], P("kashmiri-chillies.jpg")],
   [["red chill"], P("red-chillies.jpg")],
   [["ajwa", "safawi"], P("ajwa-dates.jpg")],

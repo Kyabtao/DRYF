@@ -7,7 +7,7 @@ presentation and tooling are fully separated.
 ```
 .
 ├── index.html                  # HOME page (hero, previews — not the full catalogue)
-├── shop.html                   # SHOP page: all 306 products, search/filter/sort (?cat=, ?q=)
+├── shop.html                   # SHOP page: all 316 products, search/filter/sort (?cat=, ?q=)
 ├── categories.html             # ALL CATEGORIES page
 ├── category.html               # CATEGORY template page: category.html?cat=nuts
 ├── deals.html                  # DEALS + combo packs page
@@ -23,7 +23,7 @@ presentation and tooling are fully separated.
 │   │   ├── app.js              # Application logic (ES module): page routing,
 │   │   │                       # state, cart, checkout, wishlist, i18n, rendering
 │   │   └── data/
-│   │       └── products.js     # DATA LAYER (ES module): categories, 306 products,
+│   │       └── products.js     # DATA LAYER (ES module): categories, 316 products,
 │   │                           # pricing rules, local product-photo mapping
 │   └── images/
 │       ├── hero.jpg            # Hero banner (local, always reliable)

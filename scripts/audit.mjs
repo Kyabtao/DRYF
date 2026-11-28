@@ -318,6 +318,29 @@ check("photo-split batch: poha/berry singles/exotic-nut singles/kaju katli",
   products.find(p=>p.name==="Pine Nuts (Chilgoza)")?.img.includes("products/pine-nuts") &&
   products.find(p=>p.name==="Brazil Nuts")?.img.includes("products/brazil-nuts") &&
   products.find(p=>p.name==="Kaju Katli Style Mewa Barfi")?.img.includes("products/kaju-katli"));
+check("gap-fill 4: chana jor garam, peda, coconut barfi, tahini, gond, choco variety",
+  ["Chana Jor Garam","Kesar Peda","Coconut Barfi","Tahini (Sesame Paste)","Gond (Edible Gum)",
+   "Chocolate Coated Pretzels","Assorted Chocolate Box","Dark Chocolate Bar 72%",
+   "Housewarming Gift Hamper","Corporate Diwali Gift Box"].every(n => products.some(p => p.name===n)) &&
+  products.find(p=>p.name==="Chana Jor Garam")?.img.includes("products/chana-jor-garam") &&
+  products.find(p=>p.name==="Masala Chana Jor")?.img.includes("products/roasted-chana") &&
+  products.find(p=>p.name==="Kesar Peda")?.img.includes("products/kesar-peda") &&
+  products.find(p=>p.name==="Coconut Barfi")?.img.includes("products/coconut-barfi") &&
+  products.find(p=>p.name==="Kaju Barfi")?.img.includes("products/kaju-barfi") &&
+  products.find(p=>p.name==="Badam Barfi")?.img.includes("products/barfi") &&
+  products.find(p=>p.name==="Tahini (Sesame Paste)")?.img.includes("products/tahini") &&
+  products.find(p=>p.name==="Gond (Edible Gum)")?.img.includes("products/gond.jpg") &&
+  products.find(p=>p.name==="Gond Pak (Winter)")?.img.includes("products/gond-pak") &&
+  products.find(p=>p.name==="Gond ke Laddoo")?.img.includes("products/gond-laddoo") &&
+  products.find(p=>p.name==="Chocolate Coated Pretzels")?.img.includes("products/chocolate-coated-pretzels") &&
+  products.find(p=>p.name==="Assorted Chocolate Box")?.img.includes("products/assorted-chocolates") &&
+  products.find(p=>p.name==="Dark Chocolate Bar 72%")?.img.includes("products/dark-chocolate-bar") &&
+  products.find(p=>p.name==="Dark Chocolate 85%")?.img.includes("products/dark-chocolate.jpg") &&
+  products.find(p=>p.name==="Housewarming Gift Hamper")?.img.includes("products/wedding-hamper") &&
+  products.find(p=>p.name==="Luxury Wedding Hamper")?.img.includes("products/luxury-hamper") &&
+  products.find(p=>p.name==="Corporate Diwali Gift Box")?.img.includes("products/diwali-hamper") &&
+  products.find(p=>p.name==="Peanut Chikki")?.img.includes("products/chikki-peanut") &&
+  products.find(p=>p.name==="Dry Fruit Chikki (Mixed)")?.img.includes("products/chikki.jpg"));
 check("gap-fill 3: masala blends, salt/pepper basics, mithai, sherbets, gift tubs",
   ["Chaat Masala","Kitchen King Masala","Pav Bhaji Masala","Sambhar Masala","Kashmiri Red Chillies (Whole)","Kala Namak (Black Salt)","Amchur (Dry Mango Powder)","Safed Mirch (White Pepper)"]
     .every(n => products.some(p => p.name===n && p.cat==="spices")) &&

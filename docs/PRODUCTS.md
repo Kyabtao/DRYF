@@ -1,4 +1,4 @@
-# DRYF — Full Product List (306 products)
+# DRYF — Full Product List (316 products)
 
 Auto-generated from `assets/js/data/products.js` — run `npm run docs:products` to refresh.
 Prices are indicative demo prices per 500g (gift hampers per box). Product photos: verified local photos in assets/images/products/ and assets/images/categories/ (see PRODUCT_IMG_MAP in the data file) - no external stock URLs.
@@ -134,7 +134,7 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 28 | 🌿 Fennel Seeds (Saunf) | Saunf · सौंफ़ | ₹220 | ⭐ Must-Have | 9 months |
 | 29 | 🍬 Sugar-Coated Fennel (Mishri Saunf) | Mishri Saunf · मिश्री सौंफ़ | ₹190 | ⭐ Must-Have | 6 months |
 
-## 🍫 Chocolates —  (37)
+## 🍫 Chocolates —  (40)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -175,8 +175,11 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 35 | 🍮 Butterscotch Crunch Nuts | Butterscotch Nuts · बटरस्कॉच नट्स | ₹340 | 🔥 Popular | 9 months |
 | 36 | 🎁 Imported Chocolate Gift Pack | Imported Choco Pack · इम्पोर्टेड चॉकलेट पैक | ₹999 | 💎 Premium | 9 months |
 | 37 | 🍫 Chocolate Fudge (Homestyle) | Choco Fudge · चॉकलेट फ़ज | ₹380 | 🔥 Popular | 3 months |
+| 38 | 🥨 Chocolate Coated Pretzels | Choco Pretzels · चॉकलेट प्रेट्ज़ल | ₹460 | 🔥 Popular | 6 months |
+| 39 | 🎁 Assorted Chocolate Box | Assorted Chocolates · असॉर्टेड चॉकलेट | ₹1290 | 💎 Premium | 4–6 months |
+| 40 | 🍫 Dark Chocolate Bar 72% | Dark 72% Bar · डार्क चॉकलेट | ₹380 | 🔥 Popular | 9 months |
 
-## 🔥 Roasted & Masala Snacks —  (40)
+## 🔥 Roasted & Masala Snacks —  (41)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -220,8 +223,9 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 38 | 🍋 Khatta Meetha Mixture | Khatta Meetha · खट्टा मीठा | ₹200 | 🔥 Popular | 3 months |
 | 39 | 🌀 Masala Chana Jor | Masala Chana Jor · मसाला चना जोर | ₹160 | 🔥 Popular | 3 months |
 | 40 | 🌽 Cornflakes Chivda | Cornflakes Chivda · कॉर्नफ्लेक्स चिवड़ा | ₹180 | 🔥 Popular | 3 months |
+| 41 | 🌶️ Chana Jor Garam | Chana Jor Garam · चना जोर गरम | ₹170 | 🔥 Popular | 3 months |
 
-## 🎁 Gift Hampers & Combos —  (24)
+## 🎁 Gift Hampers & Combos —  (26)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -249,8 +253,10 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 22 | 🎊 Festive Dry Fruit Box (Medium) | Festive Box · फेस्टिव बॉक्स | ₹999 | 🔥 Popular | — (pack fresh) |
 | 23 | 🪔 Diwali Dry Fruit Gift Tub | Diwali Tub · दीवाली टब | ₹699 | 🔥 Popular | — (pack fresh) |
 | 24 | 🍫 Festive Chocolate & Nut Box | Choco-Nut Box · चॉक-नट बॉक्स | ₹949 | 🔥 Popular | 6 months |
+| 25 | 🏠 Housewarming Gift Hamper | Griha Pravesh Hamper · गृह प्रवेश हैम्पर | ₹1399 | 🔥 Popular | — (pack fresh) |
+| 26 | 🪔 Corporate Diwali Gift Box | Corporate Diwali Box · कॉर्पोरेट दीवाली | ₹2199 | 💎 Premium | — (pack fresh) |
 
-## 🍬 Indian Sweets & Traditional — भारतीय मिठास (28)
+## 🍬 Indian Sweets & Traditional — भारतीय मिठास (30)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -282,8 +288,10 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 26 | 🤍 Kaju Barfi | Kaju Barfi · काजू बर्फी | ₹980 | 🔥 Popular | 15–20 days |
 | 27 | 🟤 Gulab Jamun (Pack) | Gulab Jamun · गुलाब जामुन | ₹340 | ⭐ Must-Have | 15–20 days |
 | 28 | ⚪ Rasgulla (Pack) | Rasgulla · रसगुल्ला | ₹300 | ⭐ Must-Have | 10–15 days |
+| 29 | 🟡 Kesar Peda | Kesar Peda · केसर पेड़ा | ₹620 | 🔥 Popular | 10–15 days |
+| 30 | 🤍 Coconut Barfi | Nariyal Barfi · नारियल बर्फी | ₹460 | ⭐ Must-Have | 15–20 days |
 
-## 🍯 Health Pantry & More — हेल्थ पैंट्री (31)
+## 🍯 Health Pantry & More — हेल्थ पैंट्री (33)
 
 | # | Product | Hindi | Price ₹/500g | Level | Shelf life |
 |---|---|---|---:|---|---|
@@ -318,6 +326,8 @@ Prices are indicative demo prices per 500g (gift hampers per box). Product photo
 | 29 | 🌹 Gulkand (Rose Petal Preserve) | Gulkand · गुलकंद | ₹260 | 🔥 Popular | 9 months |
 | 30 | 🌹 Rose Syrup (Gulab Sharbat) | Gulab Sharbat · गुलाब शरबत | ₹220 | 🔥 Popular | 12 months |
 | 31 | 🌿 Khus Syrup (Vetiver Sharbat) | Khus Sharbat · खस शरबत | ₹240 | 🔥 Popular | 12 months |
+| 32 | 🥣 Tahini (Sesame Paste) | Tahini · ताहिनी | ₹520 | 💎 Premium | 9 months |
+| 33 | 🟠 Gond (Edible Gum) | Gond · गोंद | ₹780 | 💎 Premium | 12 months |
 
 ## 🌶️ Whole Spices & Masalas — साबुत मसाले (35)
 
